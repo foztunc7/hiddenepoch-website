@@ -225,15 +225,22 @@ nav {
 .aff-strip-card:hover { background: rgba(212,175,55,0.04); opacity: 1; }
 .aff-strip-icon { font-size: 2rem; flex-shrink: 0; }
 .aff-strip-text { display: flex; flex-direction: column; }
-.aff-logo {
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
-  border-radius: 8px;
+.aff-badge {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
   flex-shrink: 0;
-  background: white;
-  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cinzel', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: white;
 }
+.aff-badge--nord { background: #4687FF; }
+.aff-badge--mag  { background: #1a3a5c; border: 1px solid #2d6aa0; }
+.aff-badge--aud  { background: #FF9900; color: #000; }
 .aff-strip-label {
   font-size: 0.78rem;
   color: var(--gold);
