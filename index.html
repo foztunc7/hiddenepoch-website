@@ -233,12 +233,42 @@
       <div class="section-label">Inner Circle</div>
       <h2>Get the Full Story<br>Before It Disappears</h2>
       <p>New investigations. Suppressed discoveries. Sent directly to you.<br>No algorithm. No censorship. Just the truth.</p>
-      <!-- Replace action URL with your ConvertKit form action link -->
-      <form class="email-form" action="https://app.kit.com/forms/YOUR_FORM_ID/subscriptions" method="post">
-        <input type="email" name="email_address" placeholder="your@email.com" required />
-        <button type="submit" class="btn-gold">Join Free →</button>
+      <form class="email-form" id="subscribe-form">
+        <input type="email" id="subscribe-email" placeholder="your@email.com" required />
+        <button type="submit" class="btn-gold" id="subscribe-btn">Join Free →</button>
       </form>
-      <p class="form-note">No spam. Unsubscribe anytime. Your information stays hidden.</p>
+      <p class="form-note" id="form-note">No spam. Unsubscribe anytime. Your information stays hidden.</p>
+      <script>
+        document.getElementById('subscribe-form').addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const email = document.getElementById('subscribe-email').value;
+          const btn = document.getElementById('subscribe-btn');
+          const note = document.getElementById('form-note');
+          btn.textContent = 'Joining...';
+          btn.disabled = true;
+          try {
+            const res = await fetch('/.netlify/functions/subscribe', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ email })
+            });
+            const data = await res.json();
+            if (data.success) {
+              btn.textContent = 'You\'re in ✓';
+              note.textContent = 'Welcome to the Inner Circle. First investigation incoming.';
+              document.getElementById('subscribe-email').value = '';
+            } else {
+              btn.textContent = 'Join Free →';
+              btn.disabled = false;
+              note.textContent = data.error || 'Something went wrong. Try again.';
+            }
+          } catch {
+            btn.textContent = 'Join Free →';
+            btn.disabled = false;
+            note.textContent = 'Network error. Try again.';
+          }
+        });
+      </script>
     </div>
   </section>
 
