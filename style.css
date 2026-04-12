@@ -143,25 +143,24 @@ nav {
 /* ---- HERO ---- */
 .hero {
   position: relative;
-  min-height: 65vh;
+  min-height: 46vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 100px 24px 60px;
+  padding: 100px 24px 52px;
+  background: var(--black);
   overflow: hidden;
 }
-.hero-bg {
+.hero-glow {
   position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center top;
-  filter: brightness(0.12) saturate(0.4);
-}
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 60%, rgba(0,0,0,1) 100%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(212,175,55,0.07) 0%, transparent 70%);
+  pointer-events: none;
 }
 .hero-content {
   position: relative;
@@ -169,34 +168,34 @@ nav {
   max-width: 760px;
 }
 .hero-logo {
-  width: 90px;
-  height: 90px;
+  width: 76px;
+  height: 76px;
   object-fit: cover;
   border-radius: 50%;
-  margin: 0 auto 28px;
+  margin: 0 auto 22px;
   border: 1px solid rgba(212,175,55,0.4);
-  box-shadow: 0 0 40px rgba(212,175,55,0.15);
+  box-shadow: 0 0 30px rgba(212,175,55,0.12);
 }
 .hero-content h1 {
-  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
   font-weight: 700;
   color: var(--gold);
-  letter-spacing: 0.18em;
-  margin-bottom: 16px;
-  text-shadow: 0 0 60px rgba(212,175,55,0.25);
+  letter-spacing: 0.22em;
+  margin-bottom: 14px;
+  text-shadow: 0 0 40px rgba(212,175,55,0.2);
 }
 .hero-tagline {
   font-family: 'Cinzel', serif;
-  font-size: 1rem;
-  letter-spacing: 0.22em;
+  font-size: 0.9rem;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--text-dim);
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 .hero-sub {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: var(--text);
-  margin-bottom: 36px;
+  margin-bottom: 32px;
   opacity: 0.85;
 }
 
@@ -226,25 +225,43 @@ nav {
 .aff-strip-card:hover { background: rgba(212,175,55,0.04); opacity: 1; }
 .aff-strip-icon { font-size: 2rem; flex-shrink: 0; }
 .aff-strip-text { display: flex; flex-direction: column; }
+.aff-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 8px;
+  flex-shrink: 0;
+  background: white;
+  padding: 4px;
+}
 .aff-strip-label {
-  font-family: 'Cinzel', serif;
-  font-size: 0.68rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  font-size: 0.78rem;
   color: var(--gold);
-  margin-bottom: 4px;
+  margin-bottom: 3px;
+  line-height: 1.3;
 }
 .aff-strip-name {
   font-family: 'Cinzel', serif;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--white);
   font-weight: 600;
-  margin-bottom: 3px;
+  margin-bottom: 4px;
 }
 .aff-strip-desc {
-  font-size: 0.82rem;
+  font-size: 0.88rem;
   color: var(--text-dim);
   line-height: 1.4;
+  margin-bottom: 8px;
+}
+.aff-strip-cta {
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-bottom: 1px solid rgba(212,175,55,0.3);
+  padding-bottom: 1px;
+  display: inline-block;
 }
 
 /* ---- SOCIAL STRIP ---- */
