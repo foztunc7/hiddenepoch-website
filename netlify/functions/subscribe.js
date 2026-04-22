@@ -136,7 +136,7 @@ exports.handler = async (event) => {
 
     <div class="socials">
       <a href="https://www.youtube.com/@HiddenEpochHistory">YouTube</a>
-      <a href="https://www.instagram.com/HiddenEpochH">Instagram</a>
+      <a href="https://www.instagram.com/hiddenepochh">Instagram</a>
       <a href="https://www.tiktok.com/@HiddenEpochH">TikTok</a>
     </div>
   </div>
