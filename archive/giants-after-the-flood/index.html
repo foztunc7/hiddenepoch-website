@@ -39,6 +39,47 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../blog.css" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GEBZWHLQSK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GEBZWHLQSK');
+  </script>
+
+  <!-- Outbound affiliate click tracking -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('a[href]').forEach(function (a) {
+        var href = a.getAttribute('href') || '';
+        var isAffiliate =
+          href.indexOf('nordvpn.com') !== -1 ||
+          href.indexOf('amzn.to') !== -1 ||
+          href.indexOf('amazon.com') !== -1 ||
+          href.indexOf('go.nordvpn') !== -1 ||
+          a.classList.contains('aff-link') ||
+          a.classList.contains('aff-cta');
+        if (!isAffiliate) return;
+        a.addEventListener('click', function () {
+          var label = a.textContent.trim().slice(0, 80) || href;
+          var network = href.indexOf('nordvpn') !== -1 ? 'nordvpn'
+                       : href.indexOf('amazon') !== -1 || href.indexOf('amzn.to') !== -1 ? 'amazon'
+                       : 'other';
+          if (typeof gtag === 'function') {
+            gtag('event', 'affiliate_click', {
+              affiliate_network: network,
+              link_url: href,
+              link_text: label,
+              page_path: window.location.pathname
+            });
+          }
+        });
+      });
+    });
+  </script>
+
 </head>
 <body>
 
