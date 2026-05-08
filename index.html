@@ -96,10 +96,12 @@
       <a href="#" class="nav-logo">
         <img src="assets/logo.jpeg" alt="Hidden Epoch" />
       </a>
-      <div class="nav-links">
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="nav-links">
         <a href="/archive/">Investigations</a>
         <a href="/books/">Books</a>
-        <a href="#archive">Archive</a>
         <a href="#join" class="nav-cta">Join</a>
         <div class="nav-socials">
           <a href="https://www.tiktok.com/@HiddenEpochH" target="_blank" aria-label="TikTok">
@@ -117,7 +119,7 @@
   </nav>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero" style="background:url('assets/banner.jpeg') center/cover no-repeat,#0a0805;">
     <div class="hero-glow"></div>
     <div class="hero-content">
       <img src="assets/logo.jpeg" alt="Hidden Epoch Logo" class="hero-logo" />
@@ -181,55 +183,55 @@
     </div>
   </section>
 
-  <!-- LATEST INVESTIGATIONS -->
-  <section class="investigations" id="investigations">
+  <!-- TOP VIDEOS -->
+  <section class="investigations" id="videos">
     <div class="section-inner">
-      <div class="section-label">Latest Investigations</div>
-      <h2>What They Don't Want You to Know</h2>
+      <div class="section-label">From The Channel</div>
+      <h2>Most Watched Investigations</h2>
       <div class="video-grid">
         <div class="video-card">
           <div class="video-embed">
-            <iframe src="https://www.youtube.com/embed/jJRKsIx5wUo" title="Giants After The Flood — The Complete Investigation" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/mDYzBViq9Rs" title="Did Noah's Flood Miss the Giants? Shocking Bible Facts" frameborder="0" allowfullscreen></iframe>
           </div>
           <div class="video-info">
-            <span class="video-tag">Biblical History</span>
-            <h3>Giants After The Flood — The Complete Investigation</h3>
-            <p>A 13-foot iron bed. Named giant tribes. Extermination campaigns. Scripture contradicts itself — and the Bible documents giants living long after Noah's Flood.</p>
+            <span class="video-tag">Biblical History · 35K views</span>
+            <h3>Did Noah's Flood Miss the Giants? Shocking Bible Facts</h3>
+            <p>The flood was supposed to wipe the Nephilim out. Genesis 6:4 says otherwise — and scripture names the giant tribes that survived, the cities they held, and the bed they slept on.</p>
           </div>
         </div>
         <div class="video-card">
           <div class="video-embed">
-            <iframe src="https://www.youtube.com/embed/7cDgCB4wm-Y" title="Red-Haired Giants on Four Continents" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/c1I9H_AHaeE" title="They Found Og's Iron Bed in 1400 BCE. Iron Didn't Exist Yet." frameborder="0" allowfullscreen></iframe>
           </div>
           <div class="video-info">
             <span class="video-tag">Ancient Mystery</span>
-            <h3>Red-Haired Giants on Four Continents</h3>
-            <p>Peru. China. Nevada. The Middle East. Four civilizations that never met. Same description. Nobody has explained how.</p>
+            <h3>They Found Og's Iron Bed in 1400 BCE. Iron Didn't Exist Yet.</h3>
+            <p>A 13-foot iron bed catalogued at Rabbah — measured in public, written into scripture. The Iron Age was 600 years away. Nobody can explain how the metal existed yet.</p>
           </div>
         </div>
         <div class="video-card">
           <div class="video-embed">
-            <iframe src="https://www.youtube.com/embed/BKiy_pf37tQ" title="The Location of the Antichrist Currently on Earth" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/b-MChyzzseE" title="The Book of Enoch Describes Angels Worse Than Satan" frameborder="0" allowfullscreen></iframe>
           </div>
           <div class="video-info">
-            <span class="video-tag">Biblical Mystery</span>
-            <h3>The Location of the Antichrist Currently on Earth</h3>
-            <p>A seventh-century account. A chained giant on a remote island. Two religions describe the same being. Access still restricted.</p>
+            <span class="video-tag">Suppressed Scripture</span>
+            <h3>The Book of Enoch Describes Angels Worse Than Satan</h3>
+            <p>200 angels descended on Mount Hermon. They taught humanity metalwork, sorcery, and the cutting of roots. The Book of Enoch was removed from the Bible in the 4th century — the text survived in Ethiopia.</p>
           </div>
         </div>
       </div>
       <div class="center-cta">
-        <a href="https://www.youtube.com/@HiddenEpochHistory" target="_blank" class="btn-outline">Watch All Investigations →</a>
+        <a href="https://www.youtube.com/@HiddenEpochHistory" target="_blank" class="btn-outline">Watch All Videos →</a>
       </div>
     </div>
   </section>
 
   <!-- ARCHIVE TEASER -->
-  <section class="archive" id="archive">
+  <section class="archive" id="investigations">
     <div class="section-inner">
-      <div class="section-label">The Archive</div>
-      <h2>Forbidden Knowledge Archive</h2>
-      <p class="archive-sub">Deep-dive articles on the discoveries they buried. Updated as new investigations emerge.</p>
+      <div class="section-label">Deep Dives</div>
+      <h2>Latest Investigations</h2>
+      <p class="archive-sub">Long-form research on the discoveries they buried. New investigations published weekly.</p>
       <div class="archive-grid">
         <a href="/archive/giants-after-the-flood/" class="archive-card" style="text-decoration:none;color:inherit;display:flex;gap:36px;padding:36px 0;border-bottom:1px solid rgba(212,175,55,0.08);align-items:flex-start;">
           <div class="archive-num">01</div>
@@ -271,6 +273,9 @@
             <span style="font-family:'Cinzel',serif;font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid rgba(212,175,55,0.3);padding-bottom:2px;display:inline-block;">Read Investigation →</span>
           </div>
         </a>
+      </div>
+      <div class="center-cta" style="margin-top:48px;">
+        <a href="/archive/" class="btn-outline">View All Investigations →</a>
       </div>
     </div>
   </section>
@@ -356,6 +361,27 @@
       </script>
     </div>
   </section>
+
+  <!-- Mobile nav toggle -->
+  <script>
+    (function () {
+      var btn = document.getElementById('nav-toggle');
+      var menu = document.getElementById('nav-links');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', function () {
+        var open = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      });
+      menu.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          menu.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+          btn.setAttribute('aria-label', 'Open menu');
+        });
+      });
+    })();
+  </script>
 
   <!-- FOOTER -->
   <footer>

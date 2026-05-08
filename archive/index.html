@@ -87,13 +87,19 @@
       <a href="/" class="nav-logo">
         <img src="../assets/logo.jpeg" alt="Hidden Epoch" />
       </a>
-      <div class="nav-links">
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="nav-links">
         <a href="/archive/" style="color: var(--gold)">Investigations</a>
         <a href="/books/">Books</a>
         <a href="/#join" class="nav-cta">Join</a>
       </div>
     </div>
   </nav>
+  <script>
+    (function(){var b=document.getElementById('nav-toggle'),m=document.getElementById('nav-links');if(!b||!m)return;b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');b.setAttribute('aria-label',o?'Close menu':'Open menu');});m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.classList.remove('open');b.setAttribute('aria-expanded','false');b.setAttribute('aria-label','Open menu');});});})();
+  </script>
 
   <div class="archive-hero">
     <span class="label">Forbidden Knowledge Archive</span>

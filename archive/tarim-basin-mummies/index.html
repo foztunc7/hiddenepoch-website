@@ -98,9 +98,12 @@
       <a href="/" class="nav-logo">
         <img src="../../assets/logo.jpeg" alt="Hidden Epoch" />
       </a>
-      <div class="nav-links">
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="nav-links">
         <a href="/archive/">Investigations</a>
-        <a href="/archive/">Archive</a>
+        <a href="/books/">Books</a>
         <a href="/#join" class="nav-cta">Join</a>
       </div>
     </div>
@@ -109,7 +112,7 @@
   <div class="breadcrumb">
     <a href="/">Home</a>
     <span class="sep">›</span>
-    <a href="/archive/">Archive</a>
+    <a href="/archive/">Investigations</a>
     <span class="sep">›</span>
     <span class="current">Tarim Basin Mummies</span>
   </div>
@@ -296,6 +299,19 @@
       <p class="footer-copy">© 2026 Hidden Epoch. All rights reserved.</p>
     </div>
   </footer>
+
+  <script>
+    (function(){
+      var btn = document.getElementById('nav-toggle');
+      var links = document.getElementById('nav-links');
+      if(!btn || !links) return;
+      btn.addEventListener('click', function(){
+        var open = links.classList.toggle('open');
+        btn.classList.toggle('open', open);
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    })();
+  </script>
 
 </body>
 </html>
