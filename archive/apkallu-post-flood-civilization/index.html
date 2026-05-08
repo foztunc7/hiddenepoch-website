@@ -56,9 +56,12 @@
         var href = a.getAttribute('href') || '';
         var isAffiliate =
           href.indexOf('nordvpn.com') !== -1 ||
+          href.indexOf('dpbolvw.net') !== -1 ||
           href.indexOf('amzn.to') !== -1 ||
           href.indexOf('amazon.com') !== -1 ||
           href.indexOf('go.nordvpn') !== -1 ||
+          href.indexOf('amazon.ca') !== -1 ||
+          href.indexOf('amazon.co') !== -1 ||
           href.indexOf('dpbolvw.net') !== -1 ||
           a.classList.contains('aff-link') ||
           a.classList.contains('aff-cta');
@@ -73,7 +76,8 @@
               affiliate_network: network,
               link_url: href,
               link_text: label,
-              page_path: window.location.pathname
+              page_path: window.location.pathname,
+              transport_type: 'beacon'
             });
           }
         });

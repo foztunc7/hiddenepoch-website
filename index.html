@@ -60,23 +60,27 @@
         var href = a.getAttribute('href') || '';
         var isAffiliate =
           href.indexOf('nordvpn.com') !== -1 ||
+          href.indexOf('dpbolvw.net') !== -1 ||
           href.indexOf('amzn.to') !== -1 ||
           href.indexOf('amazon.com') !== -1 ||
           href.indexOf('go.nordvpn') !== -1 ||
+          href.indexOf('amazon.ca') !== -1 ||
+          href.indexOf('amazon.co') !== -1 ||
           a.classList.contains('aff-link') ||
           a.classList.contains('aff-cta');
         if (!isAffiliate) return;
         a.addEventListener('click', function () {
           var label = a.textContent.trim().slice(0, 80) || href;
-          var network = href.indexOf('nordvpn') !== -1 ? 'nordvpn'
-                       : href.indexOf('amazon') !== -1 || href.indexOf('amzn.to') !== -1 ? 'amazon'
+          var network = (href.indexOf('nordvpn') !== -1 || href.indexOf('dpbolvw') !== -1) ? 'nordvpn'
+                       : (href.indexOf('amazon') !== -1 || href.indexOf('amzn.to') !== -1) ? 'amazon'
                        : 'other';
           if (typeof gtag === 'function') {
             gtag('event', 'affiliate_click', {
               affiliate_network: network,
               link_url: href,
               link_text: label,
-              page_path: window.location.pathname
+              page_path: window.location.pathname,
+              transport_type: 'beacon'
             });
           }
         });
