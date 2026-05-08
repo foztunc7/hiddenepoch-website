@@ -67,7 +67,7 @@ exports.handler = async (event) => {
       body: JSON.stringify({
         from: "Hidden Epoch <noreply@hiddenepoch.com>",
         to: [email],
-        subject: "You're in. The first investigation is waiting.",
+        subject: "Start here: the Sumerian flood predates Genesis by 1,500 years.",
         html: `
 <!DOCTYPE html>
 <html>
@@ -81,21 +81,24 @@ exports.handler = async (event) => {
   .header img { width: 64px; height: 64px; border-radius: 50%; border: 1px solid rgba(212,175,55,0.4); }
   .header h1 { font-family: Georgia, serif; font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: #D4AF37; margin: 20px 0 0; }
   .body { padding: 52px 48px; }
-  .body h2 { font-family: Georgia, serif; font-size: 26px; color: #f0ead8; margin: 0 0 24px; line-height: 1.3; font-weight: normal; }
-  .body p { font-size: 17px; color: #c8c2b4; line-height: 1.8; margin: 0 0 20px; }
-  .divider { height: 1px; background: rgba(212,175,55,0.15); margin: 36px 0; }
-  .cta { text-align: center; margin: 40px 0; }
-  .cta a { display: inline-block; background: #D4AF37; color: #000000; font-family: Georgia, serif; font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; padding: 16px 40px; text-decoration: none; font-weight: bold; }
-  .topics { background: #111111; border: 1px solid rgba(212,175,55,0.1); padding: 32px 40px; margin: 32px 0; }
-  .topics h3 { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: #D4AF37; margin: 0 0 20px; }
-  .topic { display: flex; gap: 16px; margin-bottom: 16px; }
-  .topic-num { font-size: 18px; color: rgba(212,175,55,0.3); font-family: Georgia, serif; min-width: 28px; }
-  .topic-text { font-size: 15px; color: #c8c2b4; line-height: 1.5; }
-  .footer { border-top: 1px solid rgba(212,175,55,0.12); padding: 36px 48px; text-align: center; }
+  .body h2 { font-family: Georgia, serif; font-size: 26px; color: #f0ead8; margin: 0 0 20px; line-height: 1.35; font-weight: normal; }
+  .body p { font-size: 16px; color: #c8c2b4; line-height: 1.75; margin: 0 0 20px; }
+  .lead { background: #0d0a06; border: 1px solid rgba(212,175,55,0.25); padding: 32px 36px; margin: 28px 0 36px; }
+  .lead-tag { font-family: Georgia, serif; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: #D4AF37; margin: 0 0 14px; }
+  .lead h3 { font-family: Georgia, serif; font-size: 22px; color: #f0ead8; margin: 0 0 16px; line-height: 1.3; font-weight: normal; }
+  .lead p { font-size: 15px; color: #c8c2b4; line-height: 1.7; margin: 0 0 22px; }
+  .lead a { display: inline-block; background: #D4AF37; color: #000000; font-family: Georgia, serif; font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; padding: 13px 28px; text-decoration: none; font-weight: bold; }
+  .more h3 { font-family: Georgia, serif; font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; color: #D4AF37; margin: 36px 0 18px; }
+  .more-item { border-top: 1px solid rgba(212,175,55,0.1); padding: 18px 0; }
+  .more-item a { font-family: Georgia, serif; font-size: 16px; color: #f0ead8; line-height: 1.4; text-decoration: none; display: block; }
+  .more-item a:hover { color: #D4AF37; }
+  .more-item span { display: block; font-size: 13px; color: rgba(200,194,180,0.65); margin-top: 6px; line-height: 1.55; }
+  .divider { height: 1px; background: rgba(212,175,55,0.15); margin: 40px 0 32px; }
+  .footer { border-top: 1px solid rgba(212,175,55,0.12); padding: 32px 48px; text-align: center; }
   .footer p { font-size: 12px; color: rgba(200,194,180,0.4); margin: 0 0 8px; }
   .footer a { color: rgba(212,175,55,0.5); }
-  .socials { margin: 20px 0; }
-  .socials a { font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(212,175,55,0.6); margin: 0 12px; text-decoration: none; }
+  .socials { margin: 18px 0; }
+  .socials a { font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(212,175,55,0.6); margin: 0 10px; text-decoration: none; }
 </style>
 </head>
 <body>
@@ -106,33 +109,43 @@ exports.handler = async (event) => {
   </div>
 
   <div class="body">
-    <h2>Welcome to the Inner Circle.</h2>
-    <p>You're now receiving investigations that don't make it into textbooks, classrooms, or the mainstream. The kind of history that gets buried — and then denied.</p>
-    <p>Here's what we're digging into right now:</p>
+    <h2>You're in. Read this first.</h2>
+    <p>Welcome to the Inner Circle. You'll hear from us when something we dig up is too important to leave to the algorithm.</p>
+    <p>Before you go anywhere else on the site, start with this one. It's the investigation everything else on Hidden Epoch is built around:</p>
 
-    <div class="topics">
-      <h3>Current Investigations</h3>
-      <div class="topic">
-        <span class="topic-num">01</span>
-        <span class="topic-text">The Bible gave exact coordinates for Eden. A Smithsonian archaeologist found it 200 feet underwater in the Persian Gulf.</span>
-      </div>
-      <div class="topic">
-        <span class="topic-num">02</span>
-        <span class="topic-text">The Sumerians wrote Noah's flood story in 2100 BC. Genesis didn't exist for another 1,500 years.</span>
-      </div>
-      <div class="topic">
-        <span class="topic-num">03</span>
-        <span class="topic-text">Mummies found in western China with blonde hair and Caucasian features. A 2021 DNA study said they came from nowhere.</span>
-      </div>
+    <div class="lead">
+      <p class="lead-tag">Start here · Featured Investigation</p>
+      <h3>The Sumerian Flood Predates Genesis by 1,500 Years.</h3>
+      <p>The story of a global flood, a chosen survivor, and an ark of animals wasn't written by Moses. It was written on clay tablets in southern Iraq fifteen centuries before the Bible existed — and the Sumerian version names the survivor, the city he came from, and the gods who tipped him off.</p>
+      <p>The tablets are in the British Museum. The translation is settled. The implication is the part nobody teaches.</p>
+      <a href="https://hiddenepoch.com/archive/sumerian-flood-predates-genesis/">Read the Investigation →</a>
     </div>
 
-    <div class="cta">
-      <a href="https://hiddenepoch.com/archive/">Read the Full Investigations →</a>
+    <div class="more">
+      <h3>Then Read These</h3>
+      <div class="more-item">
+        <a href="https://hiddenepoch.com/archive/garden-of-eden-coordinates/">
+          The Bible Gave Exact Coordinates for Eden — and a Smithsonian Archaeologist Found It Underwater
+          <span>200 feet down in the Persian Gulf, the four-river junction Genesis describes still exists. The Sumerians left maps.</span>
+        </a>
+      </div>
+      <div class="more-item">
+        <a href="https://hiddenepoch.com/archive/tarim-basin-mummies/">
+          The Tarim Basin Mummies: Blonde, Caucasian, and 4,000 Years Old in Western China
+          <span>A 2021 DNA study said they came from a population that "shouldn't exist." The mainstream still hasn't explained them.</span>
+        </a>
+      </div>
+      <div class="more-item">
+        <a href="https://hiddenepoch.com/archive/giants-after-the-flood/">
+          Giants After the Flood: The Iron Bed the Bible Measured in Public
+          <span>Deuteronomy gives the dimensions. The bed was 13 feet long. The owner survived a flood that was supposed to wipe his kind out.</span>
+        </a>
+      </div>
     </div>
 
     <div class="divider"></div>
 
-    <p>Follow us on the platforms where we drop new discoveries daily:</p>
+    <p>New investigations drop daily on YouTube, Instagram, and TikTok. Pick whichever you actually use:</p>
 
     <div class="socials">
       <a href="https://www.youtube.com/@HiddenEpochHistory">YouTube</a>
