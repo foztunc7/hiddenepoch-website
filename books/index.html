@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Reading List — Hidden Epoch | Books on Mesopotamia, Babylon, Sumer & the Hittites</title>
-  <meta name="description" content="The four books worth your shelf space if you want to actually understand ancient Mesopotamia — Sumer, Babylon, the Hittites, and the wider Near East. Selected and used as primary sources for Hidden Epoch investigations." />
+  <title>Reading List — Hidden Epoch | Books on Mesopotamia, the Bible & Lost Civilizations</title>
+  <meta name="description" content="Hand-picked books on ancient Mesopotamia, biblical archaeology, suppressed scripture, and lost civilizations — the source material we use for Hidden Epoch investigations." />
   <link rel="canonical" href="https://hiddenepoch.com/books/" />
   <link rel="icon" type="image/jpeg" href="/assets/logo.jpeg" />
   <link rel="apple-touch-icon" href="/assets/logo.jpeg" />
@@ -13,24 +13,28 @@
   <meta property="og:site_name" content="Hidden Epoch" />
   <meta property="og:url" content="https://hiddenepoch.com/books/" />
   <meta property="og:title" content="Reading List — Hidden Epoch" />
-  <meta property="og:description" content="Four books on Sumer, Babylon, the Hittites and the wider Ancient Near East. Curated for Hidden Epoch readers." />
+  <meta property="og:description" content="Books on Mesopotamia, biblical archaeology, suppressed scripture, and lost civilizations." />
   <meta property="og:image" content="https://hiddenepoch.com/assets/banner.jpeg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Reading List — Hidden Epoch" />
-  <meta name="twitter:description" content="Four books on Sumer, Babylon, the Hittites and the Ancient Near East." />
+  <meta name="twitter:description" content="Books on Mesopotamia, biblical archaeology, suppressed scripture, and lost civilizations." />
   <meta name="twitter:image" content="https://hiddenepoch.com/assets/banner.jpeg" />
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "name": "Hidden Epoch Reading List — Ancient Mesopotamia",
+    "name": "Hidden Epoch Reading List",
     "url": "https://hiddenepoch.com/books/",
     "itemListElement": [
-      { "@type": "Book", "position": 1, "name": "Babylon: Mesopotamia and the Birth of Civilization", "author": "Paul Kriwaczek", "image": "https://hiddenepoch.com/assets/books/1250054168.jpg" },
-      { "@type": "Book", "position": 2, "name": "The Sumerians: Their History, Culture, and Character", "author": "Samuel Noah Kramer", "image": "https://hiddenepoch.com/assets/books/0226452387.jpg" },
-      { "@type": "Book", "position": 3, "name": "The Kingdom of the Hittites", "author": "Trevor Bryce", "image": "https://hiddenepoch.com/assets/books/0199281327.jpg" },
-      { "@type": "Book", "position": 4, "name": "The Ancient Near East: A History", "author": "William W. Hallo and William Kelly Simpson", "image": "https://hiddenepoch.com/assets/books/0155038192.jpg" }
+      { "@type": "Book", "position": 1, "name": "Babylon: Mesopotamia and the Birth of Civilization", "author": "Paul Kriwaczek" },
+      { "@type": "Book", "position": 2, "name": "The Sumerians: Their History, Culture, and Character", "author": "Samuel Noah Kramer" },
+      { "@type": "Book", "position": 3, "name": "The Epic of Gilgamesh", "author": "Andrew George (translator)" },
+      { "@type": "Book", "position": 4, "name": "The Kingdom of the Hittites", "author": "Trevor Bryce" },
+      { "@type": "Book", "position": 5, "name": "The Ancient Near East: A History", "author": "William W. Hallo and William Kelly Simpson" },
+      { "@type": "Book", "position": 6, "name": "The Book of Enoch" },
+      { "@type": "Book", "position": 7, "name": "The Bible Unearthed", "author": "Israel Finkelstein and Neil Asher Silberman" },
+      { "@type": "Book", "position": 8, "name": "The Tarim Mummies", "author": "J.P. Mallory and Victor H. Mair" }
     ]
   }
   </script>
@@ -83,7 +87,7 @@
     .books-hero {
       max-width: 880px;
       margin: 0 auto;
-      padding: 80px 28px 32px;
+      padding: 80px 28px 24px;
       text-align: center;
     }
     .books-hero .label {
@@ -112,20 +116,47 @@
       margin: 0 auto;
     }
 
-    .books-grid {
+    .books-section {
       max-width: 1180px;
-      margin: 28px auto 0;
-      padding: 0 28px;
+      margin: 0 auto;
+      padding: 36px 28px 0;
+    }
+    .books-section + .books-section { padding-top: 8px; }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      padding: 8px 0 22px;
+      border-bottom: 1px solid rgba(212,175,55,0.18);
+      margin-bottom: 22px;
+    }
+    .section-head h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin: 0;
+    }
+    .section-head .count {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      color: var(--gold);
+    }
+
+    .books-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-      gap: 28px;
+      gap: 24px;
     }
 
     .book-card {
       display: grid;
-      grid-template-columns: 150px 1fr;
+      grid-template-columns: 140px 1fr;
       gap: 22px;
-      padding: 24px;
+      padding: 22px;
       border: 1px solid rgba(212,175,55,0.18);
       border-radius: 6px;
       background: linear-gradient(180deg, rgba(20,18,15,0.65) 0%, rgba(15,13,10,0.85) 100%);
@@ -151,7 +182,7 @@
     .book-info { display: flex; flex-direction: column; min-width: 0; }
     .book-tag {
       font-family: 'Cinzel', serif;
-      font-size: 0.62rem;
+      font-size: 0.6rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--gold);
@@ -159,7 +190,7 @@
     }
     .book-title {
       font-family: 'Cinzel', serif;
-      font-size: 1.08rem;
+      font-size: 1.04rem;
       font-weight: 600;
       line-height: 1.28;
       letter-spacing: 0.01em;
@@ -168,14 +199,14 @@
     }
     .book-author {
       font-family: 'EB Garamond', serif;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       font-style: italic;
       color: rgba(232,225,210,0.62);
       margin-bottom: 10px;
     }
     .book-blurb {
       font-family: 'EB Garamond', serif;
-      font-size: 0.97rem;
+      font-size: 0.95rem;
       line-height: 1.55;
       color: rgba(232,225,210,0.82);
       margin: 0 0 14px;
@@ -183,7 +214,7 @@
     }
     .book-cta {
       font-family: 'Cinzel', serif;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--gold);
@@ -195,7 +226,7 @@
     .books-disclosure {
       max-width: 720px;
       margin: 56px auto 0;
-      padding: 14px 22px;
+      padding: 16px 22px 0;
       border-top: 1px solid rgba(212,175,55,0.12);
       font-family: 'EB Garamond', serif;
       font-size: 0.88rem;
@@ -206,11 +237,13 @@
     .books-disclosure strong { color: var(--gold); font-weight: 600; letter-spacing: 0.04em; }
 
     @media (max-width: 720px) {
-      .books-hero { padding: 56px 22px 22px; }
-      .books-grid { padding: 0 18px; gap: 20px; grid-template-columns: 1fr; }
-      .book-card { grid-template-columns: 110px 1fr; gap: 16px; padding: 18px; }
-      .book-title { font-size: 1rem; }
-      .book-blurb { font-size: 0.93rem; }
+      .books-hero { padding: 56px 22px 18px; }
+      .books-section { padding: 24px 18px 0; }
+      .books-grid { grid-template-columns: 1fr; gap: 18px; }
+      .book-card { grid-template-columns: 110px 1fr; gap: 16px; padding: 16px; }
+      .book-title { font-size: 0.98rem; }
+      .book-blurb { font-size: 0.92rem; }
+      .section-head h2 { font-size: 1.05rem; }
     }
   </style>
 </head>
@@ -232,56 +265,140 @@
   <header class="books-hero">
     <span class="label">Reading List</span>
     <h1>Books On Our Shelf</h1>
-    <p>Four books for understanding the civilizations Hidden Epoch investigates — Sumer, Babylon, the Hittites, and the wider Ancient Near East. Primary scholarship, not pop history. Source material we actually use.</p>
+    <p>The source material we use. Mesopotamia, biblical archaeology, suppressed scripture, lost peoples — primary scholarship and the texts the official record tries to forget. Categorized so you can hunt by topic.</p>
   </header>
 
-  <div class="books-grid">
+  <!-- ============== MESOPOTAMIA & SUMER ============== -->
+  <section class="books-section">
+    <div class="section-head">
+      <h2>Mesopotamia &amp; Sumer</h2>
+      <span class="count">3 books</span>
+    </div>
+    <div class="books-grid">
 
-    <a href="https://amzn.to/4u0h7DR" target="_blank" rel="nofollow noopener sponsored" class="book-card aff-link">
-      <img class="book-cover" src="/assets/books/1250054168.jpg" alt="Babylon by Paul Kriwaczek — book cover" loading="lazy" />
-      <div class="book-info">
-        <span class="book-tag">Start Here · Babylon</span>
-        <h2 class="book-title">Babylon: Mesopotamia and the Birth of Civilization</h2>
-        <p class="book-author">Paul Kriwaczek · 2012</p>
-        <p class="book-blurb">3,000 years of Mesopotamia in one readable volume. Argues that almost everything we call "civilization" — cities, writing, law, banking, the seven-day week — was invented between the Tigris and the Euphrates.</p>
-        <span class="book-cta">Get on Amazon →</span>
-      </div>
-    </a>
+      <a href="https://amzn.to/4u0h7DR" target="_blank" rel="nofollow noopener sponsored" class="book-card aff-link">
+        <img class="book-cover" src="/assets/books/1250054168.jpg" alt="Babylon by Paul Kriwaczek — book cover" loading="lazy" />
+        <div class="book-info">
+          <span class="book-tag">Start Here · Babylon</span>
+          <h3 class="book-title">Babylon: Mesopotamia and the Birth of Civilization</h3>
+          <p class="book-author">Paul Kriwaczek · 2012</p>
+          <p class="book-blurb">3,000 years of Mesopotamia in one readable volume. Argues almost everything we call "civilization" — cities, writing, law, banking, the seven-day week — was invented between the Tigris and Euphrates.</p>
+          <span class="book-cta">Get on Amazon →</span>
+        </div>
+      </a>
 
-    <a href="https://amzn.to/3QRR7vH" target="_blank" rel="nofollow noopener sponsored" class="book-card aff-link">
-      <img class="book-cover" src="/assets/books/0226452387.jpg" alt="The Sumerians by Samuel Noah Kramer — book cover" loading="lazy" />
-      <div class="book-info">
-        <span class="book-tag">Sumer</span>
-        <h2 class="book-title">The Sumerians: Their History, Culture, and Character</h2>
-        <p class="book-author">Samuel Noah Kramer · 1971</p>
-        <p class="book-blurb">Kramer is the man who taught the world to read Sumerian. He translated the original tablets the rest of the field still argues over — including the flood story that predates Genesis by 1,500 years.</p>
-        <span class="book-cta">Get on Amazon →</span>
-      </div>
-    </a>
+      <a href="https://amzn.to/3QRR7vH" target="_blank" rel="nofollow noopener sponsored" class="book-card aff-link">
+        <img class="book-cover" src="/assets/books/0226452387.jpg" alt="The Sumerians by Samuel Noah Kramer — book cover" loading="lazy" />
+        <div class="book-info">
+          <span class="book-tag">Sumer</span>
+          <h3 class="book-title">The Sumerians: Their History, Culture, and Character</h3>
+          <p class="book-author">Samuel Noah Kramer · 1971</p>
+          <p class="book-blurb">Kramer is the man who taught the world to read Sumerian. He translated the original tablets the rest of the field still argues over — including the flood story that predates Genesis by 1,500 years.</p>
+          <span class="book-cta">Get on Amazon →</span>
+        </div>
+      </a>
 
-    <a href="https://amzn.to/4f6NETQ" target="_blank" rel="nofollow noopener sponsored" class="book-card aff-link">
-      <img class="book-cover" src="/assets/books/0199281327.jpg" alt="The Kingdom of the Hittites by Trevor Bryce — book cover" loading="lazy" />
-      <div class="book-info">
-        <span class="book-tag">Hittites</span>
-        <h2 class="book-title">The Kingdom of the Hittites</h2>
-        <p class="book-author">Trevor Bryce · 2006 · Oxford</p>
-        <p class="book-blurb">Definitive academic history of the empire that was lost for 3,000 years and only confirmed in the early 1900s — even though the Bible had been naming the Hittites the whole time.</p>
-        <span class="book-cta">Get on Amazon →</span>
-      </div>
-    </a>
+      <a href="https://amzn.to/4syqIA4" target="_blank" rel="nofollow noopener sponsored" class="book-card aff-link">
+        <img class="book-cover" src="/assets/books/0140449191.jpg" alt="The Epic of Gilgamesh — book cover" loading="lazy" />
+        <div class="book-info">
+          <span class="book-tag">Primary Source</span>
+          <h3 class="book-title">The Epic of Gilgamesh</h3>
+          <p class="book-author">Andrew George (trans.) · Penguin Classics</p>
+          <p class="book-blurb">The oldest surviving piece of literature on Earth — a 4,000-year-old Sumerian epic about a king who meets the flood survivor and is told the story of the ark, three birds, and a mountain landing. Read it yourself.</p>
+          <span class="book-cta">Get on Amazon →</span>
+        </div>
+      </a>
 
-    <a href="https://amzn.to/3QXTNYD" target="_blank" rel="nofollow noopener sponsored" class="book-card aff-link">
-      <img class="book-cover" src="/assets/books/0155038192.jpg" alt="The Ancient Near East: A History by Hallo & Simpson — book cover" loading="lazy" />
-      <div class="book-info">
-        <span class="book-tag">Survey · Ancient Near East</span>
-        <h2 class="book-title">The Ancient Near East: A History</h2>
-        <p class="book-author">William W. Hallo &amp; William K. Simpson · 1997</p>
-        <p class="book-blurb">The single best one-volume textbook for getting your bearings across the entire region — Sumer, Akkad, Babylon, Assyria, Egypt, the Hittites, Persia. The frame to hang the rest on.</p>
-        <span class="book-cta">Get on Amazon →</span>
-      </div>
-    </a>
+    </div>
+  </section>
 
-  </div>
+  <!-- ============== HITTITES & THE WIDER NEAR EAST ============== -->
+  <section class="books-section">
+    <div class="section-head">
+      <h2>Hittites &amp; The Wider Near East</h2>
+      <span class="count">2 books</span>
+    </div>
+    <div class="books-grid">
+
+      <a href="https://amzn.to/4f6NETQ" target="_blank" rel="nofollow noopener sponsored" class="book-card aff-link">
+        <img class="book-cover" src="/assets/books/0199281327.jpg" alt="The Kingdom of the Hittites by Trevor Bryce — book cover" loading="lazy" />
+        <div class="book-info">
+          <span class="book-tag">Hittites</span>
+          <h3 class="book-title">The Kingdom of the Hittites</h3>
+          <p class="book-author">Trevor Bryce · 2006 · Oxford</p>
+          <p class="book-blurb">Definitive academic history of the empire that was lost for 3,000 years and only confirmed in the early 1900s — even though the Bible had been naming the Hittites the whole time.</p>
+          <span class="book-cta">Get on Amazon →</span>
+        </div>
+      </a>
+
+      <a href="https://amzn.to/3QXTNYD" target="_blank" rel="nofollow noopener sponsored" class="book-card aff-link">
+        <img class="book-cover" src="/assets/books/0155038192.jpg" alt="The Ancient Near East: A History — book cover" loading="lazy" />
+        <div class="book-info">
+          <span class="book-tag">Survey</span>
+          <h3 class="book-title">The Ancient Near East: A History</h3>
+          <p class="book-author">William W. Hallo &amp; William K. Simpson · 1997</p>
+          <p class="book-blurb">The single best one-volume textbook for getting your bearings across the entire region — Sumer, Akkad, Babylon, Assyria, Egypt, the Hittites, Persia. The frame to hang the rest on.</p>
+          <span class="book-cta">Get on Amazon →</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ============== BIBLICAL & SUPPRESSED SCRIPTURE ============== -->
+  <section class="books-section">
+    <div class="section-head">
+      <h2>Biblical &amp; Suppressed Scripture</h2>
+      <span class="count">2 books</span>
+    </div>
+    <div class="books-grid">
+
+      <a href="https://amzn.to/3Q8CcwI" target="_blank" rel="nofollow noopener sponsored" class="book-card aff-link">
+        <img class="book-cover" src="/assets/books/099814262X.jpg" alt="The Book of Enoch — book cover" loading="lazy" />
+        <div class="book-info">
+          <span class="book-tag">Suppressed Scripture</span>
+          <h3 class="book-title">The Book of Enoch</h3>
+          <p class="book-author">R.H. Charles (trans.) edition</p>
+          <p class="book-blurb">The book the early church removed from the Bible in the 4th century. Names the 200 fallen angels who descended on Mount Hermon, taught humanity forbidden knowledge, and fathered the Nephilim. Quoted by Jude in the New Testament.</p>
+          <span class="book-cta">Get on Amazon →</span>
+        </div>
+      </a>
+
+      <a href="https://amzn.to/4cptTUJ" target="_blank" rel="nofollow noopener sponsored" class="book-card aff-link">
+        <img class="book-cover" src="/assets/books/0684869136.jpg" alt="The Bible Unearthed by Israel Finkelstein — book cover" loading="lazy" />
+        <div class="book-info">
+          <span class="book-tag">Biblical Archaeology</span>
+          <h3 class="book-title">The Bible Unearthed</h3>
+          <p class="book-author">Israel Finkelstein &amp; Neil Asher Silberman · 2001</p>
+          <p class="book-blurb">Two senior Israeli archaeologists lay out the dig-site evidence that contradicts the Old Testament. The Exodus, the conquest of Canaan, the united monarchy of David and Solomon — what the trowel actually found vs. what the text claims.</p>
+          <span class="book-cta">Get on Amazon →</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ============== LOST PEOPLES & ANCIENT DNA ============== -->
+  <section class="books-section">
+    <div class="section-head">
+      <h2>Lost Peoples &amp; Ancient DNA</h2>
+      <span class="count">1 book</span>
+    </div>
+    <div class="books-grid">
+
+      <a href="https://amzn.to/3QpLx3f" target="_blank" rel="nofollow noopener sponsored" class="book-card aff-link">
+        <img class="book-cover" src="/assets/books/0500283729.jpg" alt="The Tarim Mummies by J.P. Mallory and Victor Mair — book cover" loading="lazy" />
+        <div class="book-info">
+          <span class="book-tag">Lost Civilization</span>
+          <h3 class="book-title">The Tarim Mummies</h3>
+          <p class="book-author">J.P. Mallory &amp; Victor H. Mair · 2008</p>
+          <p class="book-blurb">Caucasian-featured, blonde-and-red-haired mummies buried 4,000 years ago in western China — thousands of miles from anywhere such people should have existed. Mallory and Mair walk through the archaeology, the textiles, and the DNA.</p>
+          <span class="book-cta">Get on Amazon →</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
 
   <p class="books-disclosure">
     <strong>Affiliate disclosure.</strong> Links go through Amazon Associates — Hidden Epoch earns a small commission at no extra cost to you. It's how the investigations stay free.
