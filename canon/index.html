@@ -271,7 +271,7 @@
           $27.99
           <small>One-time · Instant PDF</small>
         </div>
-        <a href="#buy" class="btn-gold">Get The Canon</a>
+        <a href="https://buy.stripe.com/7sY28sf076NY26XgdyeZ200" class="btn-gold" data-buy-cta>Get The Canon</a>
       </div>
       <div class="canon-meta">
         <span>90 pages</span> · <span>14 chapters</span> · <span>Receipts cited</span> · <span>DRM-free PDF</span>
@@ -332,7 +332,7 @@
       $27.99. One-time payment. Instant PDF delivered to your email. 90 pages, 14 chapters, manuscript receipts cited throughout. DRM-free, personal license.
     </p>
     <div style="text-align:center; margin: 40px 0 8px;">
-      <a href="#" class="btn-gold" id="buy-cta" style="font-size:1.05rem; padding: 20px 56px;">Buy The Hidden Canon — $27.99</a>
+      <a href="https://buy.stripe.com/7sY28sf076NY26XgdyeZ200" class="btn-gold" id="buy-cta" data-buy-cta style="font-size:1.05rem; padding: 20px 56px;">Buy The Hidden Canon — $27.99</a>
     </div>
     <p style="text-align:center; color: var(--text-dim); font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; margin-top: 18px;">
       Stripe checkout · Card or Apple Pay · Refundable within 7 days
@@ -375,7 +375,7 @@
   <section class="canon-closer">
     <h2>The fourteen books your Bible doesn't have</h2>
     <p>One PDF. Ninety pages. Cited end-to-end. Twenty-seven ninety-nine.</p>
-    <a href="#buy" class="btn-gold" style="font-size: 1.05rem; padding: 20px 56px;">Get The Canon</a>
+    <a href="https://buy.stripe.com/7sY28sf076NY26XgdyeZ200" class="btn-gold" data-buy-cta style="font-size: 1.05rem; padding: 20px 56px;">Get The Canon</a>
   </section>
 
   <!-- FOOTER -->
@@ -389,15 +389,16 @@
   </footer>
 
   <script>
-    document.getElementById('buy-cta').addEventListener('click', function (e) {
-      e.preventDefault();
-      if (typeof gtag === 'function') {
-        gtag('event', 'canon_buy_click', {
-          product: 'hidden_canon_v1',
-          price: 2799,
-        });
-      }
-      alert("Checkout is launching this week. Drop your email at hiddenepoch.com to be notified the moment it goes live.");
+    document.querySelectorAll('[data-buy-cta]').forEach(function (a) {
+      a.addEventListener('click', function () {
+        if (typeof gtag === 'function') {
+          gtag('event', 'begin_checkout', {
+            currency: 'USD',
+            value: 27.99,
+            items: [{ item_id: 'hidden_canon_v1', item_name: 'The Hidden Canon', price: 27.99 }],
+          });
+        }
+      });
     });
   </script>
 
