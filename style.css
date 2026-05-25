@@ -199,6 +199,91 @@ nav {
   opacity: 0.85;
 }
 
+/* ---- SPLIT HERO (lead-magnet) ---- */
+.hero--split { min-height: 70vh; padding: 110px 24px 80px; }
+.hero-content--grid {
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 56px;
+  align-items: center;
+  text-align: left;
+}
+.hero-content--grid .hero-logo { margin: 0 0 22px; }
+.hero-content--grid h1 {
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  line-height: 1.05;
+}
+.hero-cta-block {
+  margin-top: 28px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(212,175,55,0.18);
+}
+.hero-cta-eyebrow {
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(212,175,55,0.78);
+  margin: 0 0 14px;
+}
+.hero-cta-sub {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.55);
+  margin: 14px 0 0;
+}
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero-visual-link {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  transition: transform 0.35s ease;
+}
+.hero-visual-link:hover { transform: translateY(-4px) scale(1.01); }
+.hero-book-stack {
+  max-width: 340px;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  filter: drop-shadow(0 24px 60px rgba(0,0,0,0.7));
+  box-shadow:
+    0 0 80px rgba(212,175,55,0.10),
+    0 0 160px rgba(212,175,55,0.06);
+}
+.hero-visual-seal {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: var(--gold);
+  color: var(--black);
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  padding: 8px 14px;
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(212,175,55,0.35);
+}
+
+@media (max-width: 860px) {
+  .hero-content--grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    text-align: center;
+  }
+  .hero-content--grid .hero-logo { margin: 0 auto 22px; }
+  .hero-cta-block { border-top: none; padding-top: 0; }
+  .hero-visual { order: -1; }
+  .hero-book-stack { max-width: 240px; }
+}
+
 /* ---- AFFILIATE HERO STRIP ---- */
 .affiliate-strip {
   background: var(--charcoal);
