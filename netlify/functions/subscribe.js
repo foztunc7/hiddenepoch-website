@@ -1,80 +1,6 @@
-exports.handler = async (event) => {
-  if (event.httpMethod === "OPTIONS") {
-    return {
-      statusCode: 200,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers": "Content-Type",
-        "Access-Control-Allow-Methods": "POST, OPTIONS",
-      },
-      body: "",
-    };
-  }
+// ── Email template builders ─────────────────────────────────────────────────
 
-  if (event.httpMethod !== "POST") {
-    return { statusCode: 405, body: "Method Not Allowed" };
-  }
-
-  let email;
-  try {
-    const body = JSON.parse(event.body || "{}");
-    email = body.email;
-  } catch {
-    return { statusCode: 400, body: JSON.stringify({ error: "Invalid request body" }) };
-  }
-
-  if (!email || !email.includes("@")) {
-    return { statusCode: 400, body: JSON.stringify({ error: "Valid email required" }) };
-  }
-
-  const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) {
-    return { statusCode: 500, body: JSON.stringify({ error: "Server configuration error" }) };
-  }
-
-  const AUDIENCE_ID = "3b01a591-ab63-4933-8603-58e80ad68b32";
-
-  try {
-    // 1. Add contact to Hidden Epoch Inner Circle audience
-    const contactRes = await fetch(`https://api.resend.com/audiences/${AUDIENCE_ID}/contacts`, {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, unsubscribed: false }),
-    });
-
-    if (!contactRes.ok) {
-      const err = await contactRes.json().catch(() => ({}));
-      // 422 = already subscribed — treat as success
-      if (contactRes.status !== 422) {
-        return {
-          statusCode: 400,
-          headers: { "Access-Control-Allow-Origin": "*" },
-          body: JSON.stringify({ error: err.message || "Subscription failed" }),
-        };
-      }
-    }
-
-    // 2. Send welcome email
-    await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: "Hidden Epoch <noreply@hiddenepoch.com>",
-        to: [email],
-        subject: "Start here: the Sumerian flood predates Genesis by 1,500 years.",
-        html: `
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<style>
+const sharedStyles = `
   body { margin: 0; padding: 0; background: #000000; font-family: Georgia, serif; }
   .wrap { max-width: 600px; margin: 0 auto; background: #000000; }
   .header { background: #000000; border-bottom: 1px solid rgba(212,175,55,0.3); padding: 40px 48px; text-align: center; }
@@ -99,7 +25,83 @@ exports.handler = async (event) => {
   .footer a { color: rgba(212,175,55,0.5); }
   .socials { margin: 18px 0; }
   .socials a { font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(212,175,55,0.6); margin: 0 10px; text-decoration: none; }
-</style>
+`;
+
+function leadMagnetEmail() {
+  return `
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>${sharedStyles}</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="header">
+    <img src="https://hiddenepoch.com/assets/logo.jpeg" alt="Hidden Epoch" />
+    <h1>Hidden Epoch</h1>
+  </div>
+
+  <div class="body">
+    <h2>Your field guide is ready.</h2>
+    <p>You asked for the books they removed. Here they are.</p>
+
+    <div class="lead">
+      <p class="lead-tag">Download · Field Guide · Vol. I</p>
+      <h3>7 Books the Vatican Doesn't Want You Reading + 1 Bonus</h3>
+      <p>Real translations from R.H. Charles, Mordecai Noah, the Berlin Codex, the Nag Hammadi Library. Each book documented with the council that removed it, the year, and what was too specific for the canon. Plus one bonus: the Apocalypse of Peter, the actual source of every image of hell you've ever been shown.</p>
+      <a href="https://hiddenepoch.com/downloads/7-books-vatican-doesnt-want-you-reading.pdf">Download the PDF →</a>
+    </div>
+
+    <p>Read it on the train, on your phone, on your laptop. It is yours. Save it.</p>
+
+    <div class="more">
+      <h3>What's Next</h3>
+      <div class="more-item">
+        <a href="https://hiddenepoch.com/canon">
+          The Full Edition — All 14 Books Removed From Your Bible
+          <span>The seven you just got plus seven more: Apocalypse of Adam, Book of the Watchers, Apocryphon of John, Apocalypse of Paul, Gospel of Judas, Acts of Thomas, Apocryphon of James. With full annotated texts and Hidden Epoch commentary. $27.</span>
+        </a>
+      </div>
+      <div class="more-item">
+        <a href="https://hiddenepoch.com/archive/sumerian-flood-predates-genesis/">
+          The Sumerian Flood Predates Genesis by 1,500 Years
+          <span>While you're here. Clay tablets in the British Museum named the flood survivor 1,500 years before Moses was born.</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <p>New investigations drop daily. Pick whichever you actually use:</p>
+
+    <div class="socials">
+      <a href="https://www.youtube.com/@HiddenEpochHistory">YouTube</a>
+      <a href="https://www.instagram.com/hiddenepochh">Instagram</a>
+      <a href="https://www.tiktok.com/@HiddenEpochH">TikTok</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>You're receiving this because you downloaded our field guide at hiddenepoch.com/lost-books</p>
+    <p><a href="https://hiddenepoch.com">hiddenepoch.com</a></p>
+    <p style="margin-top:12px;">© 2026 Hidden Epoch. All rights reserved.</p>
+  </div>
+</div>
+</body>
+</html>
+  `.trim();
+}
+
+function newsletterWelcomeEmail() {
+  return `
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>${sharedStyles}</style>
 </head>
 <body>
 <div class="wrap">
@@ -162,7 +164,87 @@ exports.handler = async (event) => {
 </div>
 </body>
 </html>
-        `.trim(),
+  `.trim();
+}
+
+exports.handler = async (event) => {
+  if (event.httpMethod === "OPTIONS") {
+    return {
+      statusCode: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Methods": "POST, OPTIONS",
+      },
+      body: "",
+    };
+  }
+
+  if (event.httpMethod !== "POST") {
+    return { statusCode: 405, body: "Method Not Allowed" };
+  }
+
+  let email;
+  let source;
+  try {
+    const body = JSON.parse(event.body || "{}");
+    email = body.email;
+    source = body.source || "newsletter"; // newsletter | lead_magnet
+  } catch {
+    return { statusCode: 400, body: JSON.stringify({ error: "Invalid request body" }) };
+  }
+
+  if (!email || !email.includes("@")) {
+    return { statusCode: 400, body: JSON.stringify({ error: "Valid email required" }) };
+  }
+
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    return { statusCode: 500, body: JSON.stringify({ error: "Server configuration error" }) };
+  }
+
+  const AUDIENCE_ID = "3b01a591-ab63-4933-8603-58e80ad68b32";
+
+  try {
+    // 1. Add contact to Hidden Epoch Inner Circle audience
+    const contactRes = await fetch(`https://api.resend.com/audiences/${AUDIENCE_ID}/contacts`, {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, unsubscribed: false }),
+    });
+
+    if (!contactRes.ok) {
+      const err = await contactRes.json().catch(() => ({}));
+      // 422 = already subscribed — treat as success
+      if (contactRes.status !== 422) {
+        return {
+          statusCode: 400,
+          headers: { "Access-Control-Allow-Origin": "*" },
+          body: JSON.stringify({ error: err.message || "Subscription failed" }),
+        };
+      }
+    }
+
+    // 2. Send welcome email — different content per signup source
+    const isLeadMagnet = source === "lead_magnet";
+    const subject = isLeadMagnet
+      ? "Your free field guide: 7 Books the Vatican Doesn't Want You Reading"
+      : "Start here: the Sumerian flood predates Genesis by 1,500 years.";
+
+    await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: "Hidden Epoch <noreply@hiddenepoch.com>",
+        to: [email],
+        subject,
+        html: (isLeadMagnet ? leadMagnetEmail() : newsletterWelcomeEmail()),
       }),
     });
 
