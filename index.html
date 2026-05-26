@@ -396,6 +396,111 @@
     })();
   </script>
 
+  <!-- LEAD-MAGNET POPUP -->
+  <div id="lm-popup" class="lm-popup" hidden>
+    <div class="lm-popup-backdrop"></div>
+    <div class="lm-popup-card" role="dialog" aria-labelledby="lm-popup-title">
+      <button class="lm-popup-close" id="lm-popup-close" aria-label="Close">×</button>
+      <img src="assets/lead-magnet-cover.jpg" alt="Forbidden Books" class="lm-popup-cover" />
+      <p class="lm-popup-eyebrow">Free Field Guide · 11 Pages</p>
+      <h3 id="lm-popup-title">Before you go.<br>Read what they removed.</h3>
+      <p class="lm-popup-desc">Seven books erased from your Bible plus one bonus. Real translations. Documented removal dates. Yours free.</p>
+      <form class="lm-popup-form" id="lm-popup-form">
+        <input type="email" id="lm-popup-email" placeholder="your@email.com" required />
+        <button type="submit" class="btn-gold" id="lm-popup-btn">Send the PDF →</button>
+      </form>
+      <p class="lm-popup-note" id="lm-popup-note">Instant delivery to your inbox. No spam.</p>
+    </div>
+  </div>
+  <style>
+    .lm-popup { position:fixed; inset:0; z-index:9999; display:flex; align-items:center; justify-content:center; padding:24px; }
+    .lm-popup[hidden] { display:none !important; }
+    .lm-popup-backdrop { position:absolute; inset:0; background:rgba(5,3,1,0.85); backdrop-filter:blur(4px); }
+    .lm-popup-card { position:relative; background:#0a0805; border:1px solid rgba(212,175,55,0.3); padding:36px 28px 28px; max-width:440px; width:100%; text-align:center; box-shadow:0 30px 120px rgba(0,0,0,0.7), 0 0 80px rgba(212,175,55,0.08); border-radius:6px; }
+    .lm-popup-close { position:absolute; top:10px; right:14px; background:transparent; border:0; color:rgba(255,255,255,0.5); font-size:1.6rem; cursor:pointer; line-height:1; padding:4px 8px; }
+    .lm-popup-close:hover { color:#d4af37; }
+    .lm-popup-cover { width:160px; max-width:50%; height:auto; margin:0 auto 18px; display:block; border-radius:4px; box-shadow:0 16px 40px rgba(0,0,0,0.6), 0 0 60px rgba(212,175,55,0.08); }
+    .lm-popup-eyebrow { font-family:'Cinzel', serif; font-size:0.7rem; letter-spacing:0.3em; color:rgba(212,175,55,0.78); text-transform:uppercase; margin:0 0 10px; }
+    .lm-popup-card h3 { font-family:'Cinzel', serif; color:#d4af37; font-size:1.5rem; line-height:1.15; margin:0 0 14px; letter-spacing:0.04em; }
+    .lm-popup-desc { font-family:'EB Garamond', serif; color:rgba(255,255,255,0.7); font-size:1rem; line-height:1.5; margin:0 0 22px; }
+    .lm-popup-form { display:flex; flex-direction:column; gap:10px; }
+    .lm-popup-form input { width:100%; padding:14px 16px; background:rgba(255,255,255,0.05); border:1px solid rgba(212,175,55,0.25); color:#fff; font-family:'EB Garamond', serif; font-size:1rem; border-radius:4px; box-sizing:border-box; }
+    .lm-popup-form input:focus { outline:none; border-color:#d4af37; }
+    .lm-popup-form .btn-gold { width:100%; }
+    .lm-popup-note { font-family:'EB Garamond', serif; font-size:0.82rem; color:rgba(255,255,255,0.45); margin:14px 0 0; }
+  </style>
+  <script>
+    (function() {
+      var popup = document.getElementById('lm-popup');
+      var closeBtn = document.getElementById('lm-popup-close');
+      var backdrop = popup.querySelector('.lm-popup-backdrop');
+      var form = document.getElementById('lm-popup-form');
+      var emailInput = document.getElementById('lm-popup-email');
+      var btn = document.getElementById('lm-popup-btn');
+      var note = document.getElementById('lm-popup-note');
+
+      var DISMISS_KEY = 'he_lm_popup_dismissed_v1';
+      var SHOWN_KEY = 'he_lm_popup_shown_v1';
+
+      function show() {
+        if (localStorage.getItem(DISMISS_KEY) || sessionStorage.getItem(SHOWN_KEY)) return;
+        popup.hidden = false;
+        sessionStorage.setItem(SHOWN_KEY, '1');
+      }
+      function dismiss() {
+        popup.hidden = true;
+        localStorage.setItem(DISMISS_KEY, '1');
+      }
+
+      closeBtn.addEventListener('click', dismiss);
+      backdrop.addEventListener('click', dismiss);
+
+      // Desktop exit-intent: mouse leaves toward browser chrome
+      var triggered = false;
+      document.addEventListener('mouseleave', function(e) {
+        if (!triggered && e.clientY <= 5) { triggered = true; show(); }
+      });
+
+      // Mobile / fallback: 25 seconds + scrolled at least 30%
+      setTimeout(function() {
+        var scrolled = (window.scrollY + window.innerHeight) / document.body.scrollHeight;
+        if (scrolled > 0.3) show();
+      }, 25000);
+
+      // Hard fallback: 60 seconds regardless
+      setTimeout(function() { show(); }, 60000);
+
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        var email = emailInput.value;
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+        try {
+          var res = await fetch('/.netlify/functions/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email, source: 'lead_magnet' })
+          });
+          var data = await res.json();
+          if (data.success) {
+            btn.textContent = 'Check your inbox ✓';
+            note.textContent = 'PDF on its way. Welcome to the Inner Circle.';
+            localStorage.setItem(DISMISS_KEY, '1');
+            setTimeout(dismiss, 3500);
+          } else {
+            btn.textContent = 'Send the PDF →';
+            btn.disabled = false;
+            note.textContent = data.error || 'Something went wrong. Try again.';
+          }
+        } catch (err) {
+          btn.textContent = 'Send the PDF →';
+          btn.disabled = false;
+          note.textContent = 'Network error. Try again.';
+        }
+      });
+    })();
+  </script>
+
   <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
