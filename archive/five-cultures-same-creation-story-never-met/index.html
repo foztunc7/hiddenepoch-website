@@ -110,6 +110,54 @@
 
     <p>If five cultures with no shared ancestor inscribed the same four-step creation sequence into their oldest sacred texts, then one of two things is true. Either human cognition is so constrained that we cannot imagine cosmogony any other way, which contradicts every other domain of mythology where invention runs wild. Or the story predates all five cultures and was carried forward from a source none of them remembered clearly enough to name.</p><p>The Sumerians said they received their knowledge from beings who came before the flood. The Egyptians said the same. The Vedic tradition speaks of a prior age. The Norse remembered a world before this one. The Hebrews preserved a flood that ended an earlier humanity.</p><p>Five cultures. One memory. What were they all trying not to forget?</p>
 
+    
+    <div id="he-funnel-block">
+      <div style="margin-top: 3em; padding: 32px 32px 28px; background: #0a0805; border: 1px solid rgba(212,175,55,0.35);">
+        <p style="font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: #D4AF37; margin: 0 0 12px;">Before you go</p>
+        <p style="font-family: 'EB Garamond', serif; font-size: 18px; color: #c8c2b4; line-height: 1.6; margin: 0 0 6px;"><strong style="color:#e8e2d4;">7 books the Vatican doesn't want you reading.</strong> Free PDF — the texts they cut, with sources. Joined by 140+ Inner Circle members.</p>
+        <form class="he-blog-lm" style="display: flex; gap: 10px; flex-wrap: wrap; margin: 18px 0 0;">
+          <input type="email" placeholder="your@email.com" required style="flex: 1 1 220px; padding: 12px 14px; background: #000; border: 1px solid rgba(212,175,55,0.4); color: #e8e2d4; font-family: 'EB Garamond', serif; font-size: 15px;" />
+          <button type="submit" style="background: #D4AF37; color: #000; font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; padding: 12px 22px; border: none; cursor: pointer; font-weight: 700;">Send it to me</button>
+        </form>
+        <p class="he-blog-lm-note" style="font-family: 'EB Garamond', serif; font-size: 13px; color: rgba(200,194,180,0.55); margin: 10px 0 0; font-style: italic;">No spam. Unsubscribe anytime.</p>
+      </div>
+      <div style="margin-top: 2em; padding: 24px 28px; background: #0a0805; border-left: 3px solid #D4AF37;">
+        <p style="font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: #D4AF37; margin: 0 0 12px;">Go deeper</p>
+        <p style="font-family: 'EB Garamond', serif; font-size: 15px; color: #c8c2b4; line-height: 1.6; margin: 0 0 16px;"><strong style="color:#e8e2d4;">The Hidden Canon, Vol. I</strong> — Enoch. Jubilees. Thomas. Mary. Judas. 90 pages, 14 chapters, every receipt cited. The books your Bible quietly removed.</p>
+        <a href="/canon/" style="display: inline-block; background: transparent; color: #D4AF37; font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; padding: 11px 22px; text-decoration: none; font-weight: 700; border: 1px solid #D4AF37;" onclick="if(window.gtag)gtag('event','canon_click',{source:'blog_archive'})">Read the Canon →</a>
+      </div>
+      <script>
+        (function () {
+          var f = document.querySelector('.he-blog-lm');
+          if (!f) return;
+          f.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            var inp = f.querySelector('input[type=email]');
+            var note = document.querySelector('.he-blog-lm-note');
+            var btn = f.querySelector('button');
+            btn.disabled = true;
+            try {
+              var res = await fetch('/.netlify/functions/subscribe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: inp.value, source: 'blog_archive' })
+              });
+              if (res.ok) {
+                note.textContent = 'PDF sent. Look for an email from Hidden Epoch.';
+                inp.value = '';
+                if (window.gtag) gtag('event', 'lead_magnet_signup', { source: 'blog_archive' });
+              } else {
+                note.textContent = 'Something broke. Try again in a minute.';
+              }
+            } catch (err) {
+              note.textContent = 'Something broke. Try again in a minute.';
+            }
+            btn.disabled = false;
+          });
+        })();
+      </script>
+    </div>
+
     <div class="affiliate-block" style="margin-top: 3em; padding: 28px 32px; background: #0a0805; border-left: 3px solid #D4AF37;">
       <p style="font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: #D4AF37; margin: 0 0 16px;">Books that informed this investigation</p>
       <ul style="list-style: none; padding: 0; margin: 0; font-family: 'EB Garamond', serif;">
