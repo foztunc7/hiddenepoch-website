@@ -129,11 +129,33 @@ nav {
 .post-card {
   background: var(--charcoal);
   border: 1px solid rgba(212,175,55,0.1);
-  padding: 48px 52px;
+  padding: 36px 40px;
   transition: border-color 0.2s;
   display: block;
   color: inherit;
   text-decoration: none;
+}
+.post-card::after { content: ""; display: table; clear: both; }
+.post-card .card-thumb {
+  float: left;
+  width: 240px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center 35%;
+  margin: 4px 32px 18px 0;
+  border: 1px solid rgba(212,175,55,0.15);
+  filter: saturate(0.85) contrast(1.05) brightness(0.9);
+  transition: filter 0.2s;
+}
+.post-card:hover .card-thumb { filter: saturate(1) contrast(1.05) brightness(1); }
+@media (max-width: 760px) {
+  .post-card { padding: 28px 24px; }
+  .post-card .card-thumb {
+    float: none;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    margin: 0 0 22px 0;
+  }
 }
 .post-card:hover { border-color: rgba(212,175,55,0.4); opacity: 1; }
 .post-card .tag {
