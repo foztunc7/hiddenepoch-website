@@ -30,6 +30,19 @@ const PRODUCTS = {
     footerLine:
       "You're receiving this because you purchased The Hidden Canon at hiddenepoch.com",
   },
+  1900: {
+    subject: "Your Classified Case Files are ready (downloads inside)",
+    headerTitle: "The Classified Case Files",
+    intro:
+      "Your case files are ready. Three full investigation dossiers, the Great Pyramid, Gobekli Tepe, and the Antikythera Mechanism, with timelines, evidence exhibits, and a committed verdict on every file.",
+    boxHeading: "Open your download page",
+    ctaLabel: "Download your case files",
+    downloadUrl:
+      "https://hiddenepoch.com/private/case-files/dl-h1dd3n-cases-v1-2026-private/",
+    meta: "3 dossiers · Evidence exhibits · PDF · Personal license",
+    footerLine:
+      "You're receiving this because you purchased The Classified Case Files at hiddenepoch.com",
+  },
   900: {
     subject: "Your Mystery Map Collection is ready (downloads inside)",
     headerTitle: "The Mystery Map Collection",
