@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Mystery Map Collection | Hidden Epoch</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/jpeg" href="/assets/logo.jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root { --gold: #D4AF37; --white: #f0ead8; --text: #c8c2b4; --text-dim: rgba(200,194,180,0.55); }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #060504; color: var(--text); font-family: 'EB Garamond', Georgia, serif; }
+    .wrap { max-width: 860px; margin: 0 auto; padding: 64px 24px 96px; }
+    .tag { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); text-align: center; margin-bottom: 16px; }
+    h1 { font-family: 'Cinzel', serif; font-size: clamp(30px, 5vw, 46px); color: var(--white); text-align: center; margin-bottom: 18px; }
+    .lede { text-align: center; font-size: 18px; line-height: 1.6; max-width: 640px; margin: 0 auto 20px; }
+    .note { text-align: center; font-size: 14px; color: var(--text-dim); margin-bottom: 48px; }
+    .briefing { display: block; background: #0c0a08; border: 1px solid rgba(212,175,55,0.4); padding: 28px 32px; text-align: center; text-decoration: none; margin-bottom: 48px; transition: border-color 0.2s; }
+    .briefing:hover { border-color: rgba(212,175,55,0.8); }
+    .briefing .name { font-family: 'Cinzel', serif; color: var(--gold); font-size: 20px; margin-bottom: 8px; }
+    .briefing .gist { color: var(--text); font-size: 15px; }
+    .maps { list-style: none; display: grid; gap: 16px; }
+    .maps li { background: #0a0907; border: 1px solid rgba(212,175,55,0.18); display: grid; grid-template-columns: 110px 1fr auto; gap: 20px; align-items: center; padding: 16px 20px; transition: border-color 0.2s; }
+    .maps li:hover { border-color: rgba(212,175,55,0.45); }
+    .maps img { width: 110px; height: 82px; object-fit: cover; display: block; border: 1px solid rgba(212,175,55,0.15); }
+    .maps .name { font-family: 'Cinzel', serif; color: var(--white); font-size: 17px; margin-bottom: 4px; }
+    .maps .date { font-size: 13px; color: var(--text-dim); letter-spacing: 0.08em; }
+    .maps a.dl { font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #000; background: var(--gold); padding: 12px 20px; text-decoration: none; white-space: nowrap; }
+    .maps .size { display: block; text-align: center; font-size: 11px; color: var(--text-dim); margin-top: 6px; letter-spacing: 0.05em; }
+    @media (max-width: 620px) {
+      .maps li { grid-template-columns: 1fr; }
+      .maps img { width: 100%; height: 120px; }
+    }
+    .help { margin-top: 56px; border-top: 1px solid rgba(212,175,55,0.15); padding-top: 32px; font-size: 15px; line-height: 1.7; color: var(--text); }
+    .help h2 { font-family: 'Cinzel', serif; font-size: 18px; color: var(--white); margin-bottom: 12px; }
+    .footer { text-align: center; margin-top: 56px; font-size: 12px; color: var(--text-dim); }
+    .footer a { color: rgba(212,175,55,0.6); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="tag">Hidden Epoch · Private Download</div>
+    <h1>The Mystery Map Collection</h1>
+    <p class="lede">13 historical maps restored from museum scans. Each ZIP holds the map in five print-ready formats, up to 24 inches at 300 DPI, with its source and rights sheet.</p>
+    <p class="note">This page is yours. Bookmark it. The links do not expire.</p>
+
+    <a class="briefing" href="HiddenEpoch_Map_Briefings.pdf">
+      <div class="name">Start here: The Map Briefings PDF</div>
+      <div class="gist">The story behind every chart. What each map claims, what it should not know, and where its sources vanished.</div>
+    </a>
+
+    <ul class="maps">
+      <li><img src="/maps/previews/piri-reis.jpg" alt="" /><div><div class="name">The Piri Reis Map</div><div class="date">1513</div></div><div><a class="dl" href="piri-reis.zip">Download</a><span class="size">ZIP · 12 MB</span></div></li>
+      <li><img src="/maps/previews/ortelius-1570.jpg" alt="" /><div><div class="name">Typus Orbis Terrarum</div><div class="date">Abraham Ortelius, 1570</div></div><div><a class="dl" href="ortelius-1570.zip">Download</a><span class="size">ZIP · 65 MB</span></div></li>
+      <li><img src="/maps/previews/mercator-1569.jpg" alt="" /><div><div class="name">The Mercator World Map</div><div class="date">Gerardus Mercator, 1569</div></div><div><a class="dl" href="mercator-1569.zip">Download</a><span class="size">ZIP · 44 MB</span></div></li>
+      <li><img src="/maps/previews/catalan-atlas-1375.jpg" alt="" /><div><div class="name">The Catalan Atlas</div><div class="date">Abraham Cresques, 1375</div></div><div><a class="dl" href="catalan-atlas-1375.zip">Download</a><span class="size">ZIP · 31 MB</span></div></li>
+      <li><img src="/maps/previews/tabula-peutingeriana.jpg" alt="" /><div><div class="name">Tabula Peutingeriana</div><div class="date">Roman original, 4th century</div></div><div><a class="dl" href="tabula-peutingeriana.zip">Download</a><span class="size">ZIP · 14 MB</span></div></li>
+      <li><img src="/maps/previews/babylon-assyria-1915.jpg" alt="" /><div><div class="name">The Land Between the Rivers</div><div class="date">Babylon and Assyria, 1915</div></div><div><a class="dl" href="babylon-assyria-1915.zip">Download</a><span class="size">ZIP · 84 MB</span></div></li>
+      <li><img src="/maps/previews/twelve-tribes-1730.jpg" alt="" /><div><div class="name">The Holy Land of the Twelve Tribes</div><div class="date">circa 1730</div></div><div><a class="dl" href="twelve-tribes-1730.zip">Download</a><span class="size">ZIP · 43 MB</span></div></li>
+      <li><img src="/maps/previews/aegyptus-antiqua-1650.jpg" alt="" /><div><div class="name">Aegyptus Antiqua</div><div class="date">Pierre Duval, circa 1650</div></div><div><a class="dl" href="aegyptus-antiqua-1650.zip">Download</a><span class="size">ZIP · 44 MB</span></div></li>
+      <li><img src="/maps/previews/egypt-sayer-1788.jpg" alt="" /><div><div class="name">Ancient and Modern Egypt</div><div class="date">Robert Sayer, 1788</div></div><div><a class="dl" href="egypt-sayer-1788.zip">Download</a><span class="size">ZIP · 44 MB</span></div></li>
+      <li><img src="/maps/previews/alexander-1832.jpg" alt="" /><div><div class="name">The Empire of Alexander the Great</div><div class="date">Delamarche, 1832</div></div><div><a class="dl" href="alexander-1832.zip">Download</a><span class="size">ZIP · 23 MB</span></div></li>
+      <li><img src="/maps/previews/tabula-rogeriana-1154.jpg" alt="" /><div><div class="name">Tabula Rogeriana</div><div class="date">Muhammad al-Idrisi, 1154</div></div><div><a class="dl" href="tabula-rogeriana-1154.zip">Download</a><span class="size">ZIP · 12 MB</span></div></li>
+      <li><img src="/maps/previews/cetus-1801.jpg" alt="" /><div><div class="name">Cetus, the Sea Monster</div><div class="date">Bode's Uranographia, 1801</div></div><div><a class="dl" href="cetus-1801.zip">Download</a><span class="size">ZIP · 78 MB</span></div></li>
+      <li><img src="/maps/previews/perseus-1825.jpg" alt="" /><div><div class="name">Perseus and the Head of Medusa</div><div class="date">Urania's Mirror, 1825</div></div><div><a class="dl" href="perseus-1825.zip">Download</a><span class="size">ZIP · 9 MB</span></div></li>
+    </ul>
+
+    <div class="help">
+      <h2>Printing your maps</h2>
+      <p>Each ZIP contains five JPGs. The file ending in _full is the map at its native shape, up to 7200 pixels on the long edge, which prints clean at 24 inches. The _2x3, _3x4 and _4x5 files are pre-fitted for standard frames (12x18, 18x24, 24x36 use 2x3; 12x16 and 18x24 mats use 3x4; 8x10 and 16x20 use 4x5). The _iso file fits A4, A3, A2 and A1 frames. Upload any of them to your local print shop or an online printer and order at 300 DPI. Matte paper suits these maps best.</p>
+      <p>If a link fails or you lose this page, reply to your purchase email and we will resend.</p>
+    </div>
+
+    <div class="footer">
+      <p><a href="https://hiddenepoch.com">hiddenepoch.com</a> · The Mystery Map Collection · Personal license, not for resale</p>
+    </div>
+  </div>
+</body>
+</html>
