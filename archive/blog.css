@@ -78,6 +78,21 @@ nav {
   padding: 8px 22px;
 }
 .nav-links .nav-cta:hover { background: rgba(212,175,55,0.08); }
+.nav-socials {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-left: 8px;
+  padding-left: 22px;
+  border-left: 1px solid rgba(212,175,55,0.2);
+}
+.nav-socials a {
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+}
+.nav-socials a:hover { color: var(--gold); opacity: 1; }
+.nav-socials svg { width: 20px; height: 20px; }
 
 /* ── ARCHIVE INDEX ── */
 .archive-hero {
@@ -753,6 +768,14 @@ footer {
     border-radius: 4px;
     background: rgba(212,175,55,0.05);
   }
+  .nav-socials {
+    justify-content: center;
+    padding: 14px 28px 4px;
+    gap: 28px;
+    margin-left: 0;
+    border-left: 0;
+  }
+  .nav-socials a { padding: 0 !important; border-bottom: 0 !important; }
 }
 
 @media (max-width: 480px) {
