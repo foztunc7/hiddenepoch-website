@@ -294,13 +294,13 @@ nav {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 }
 .aff-strip-card {
   display: flex;
   align-items: center;
-  gap: 18px;
-  padding: 28px 36px;
+  gap: 16px;
+  padding: 26px 26px;
   border-right: 1px solid rgba(212,175,55,0.08);
   transition: background 0.2s;
   color: inherit;
@@ -326,6 +326,7 @@ nav {
 .aff-badge--nord { background: #4687FF; }
 .aff-badge--mag  { background: #1a3a5c; border: 1px solid #2d6aa0; }
 .aff-badge--aud  { background: #FF9900; color: #000; }
+.aff-badge--p52  { background: #8a5a2b; border: 1px solid #c9a227; }
 .aff-strip-label {
   font-size: 0.78rem;
   color: var(--gold);
@@ -524,6 +525,44 @@ nav {
   border: 1px solid rgba(212,175,55,0.2);
   padding: 4px 12px;
   display: inline-block;
+}
+
+/* ---- PRODUCTS SECTION ---- */
+.products { background: var(--black); border-top: 1px solid rgba(212,175,55,0.08); }
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+.product-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--charcoal);
+  border: 1px solid rgba(212,175,55,0.18);
+  transition: border-color 0.2s, transform 0.2s;
+  color: inherit;
+  overflow: hidden;
+}
+.product-card:hover { border-color: rgba(212,175,55,0.55); opacity: 1; transform: translateY(-2px); }
+.product-media { aspect-ratio: 4 / 3; overflow: hidden; background: #000; }
+.product-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.product-body { padding: 24px 26px 26px; display: flex; flex-direction: column; flex: 1; }
+.product-body h4 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.05rem;
+  color: var(--white);
+  margin-bottom: 10px;
+  letter-spacing: 0.05em;
+}
+.product-body p { font-size: 0.98rem; color: var(--text-dim); line-height: 1.55; margin-bottom: 18px; }
+.product-foot { margin-top: auto; display: flex; align-items: baseline; justify-content: space-between; }
+.product-price { font-family: 'Cinzel', serif; font-size: 1.5rem; color: var(--gold); }
+.product-cta {
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
 }
 
 /* ---- AFFILIATES SECTION ---- */
