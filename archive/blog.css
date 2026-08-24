@@ -1,5 +1,5 @@
 /* ============================================================
-   HIDDEN EPOCH — Blog / Archive CSS
+   HIDDEN EPOCH, Blog / Archive CSS
    Standalone: includes nav, footer, article layout
    Brand: #000 / #111 bg, #D4AF37 gold accent
    ============================================================ */
@@ -412,7 +412,7 @@ nav {
   line-height: 1.75;
 }
 .article-body ul li::before {
-  content: '—';
+  content: '-';
   color: var(--gold);
   position: absolute;
   left: -1.4em;

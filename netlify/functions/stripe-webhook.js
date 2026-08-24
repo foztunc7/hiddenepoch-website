@@ -1,5 +1,5 @@
 /**
- * stripe-webhook.js — Stripe webhook handler for digital product fulfillment.
+ * stripe-webhook.js, Stripe webhook handler for digital product fulfillment.
  *
  * Listens for `checkout.session.completed`. On a successful payment:
  *   1. Verifies the Stripe signature (rejects forged calls)
@@ -7,8 +7,8 @@
  *   3. Sends the product's download link via Resend
  *
  * Required env vars:
- *   STRIPE_WEBHOOK_SECRET — `whsec_...` from Stripe Dashboard → Webhooks → Signing secret
- *   RESEND_API_KEY        — already set for the newsletter subscribe function
+ *   STRIPE_WEBHOOK_SECRET, `whsec_...` from Stripe Dashboard → Webhooks → Signing secret
+ *   RESEND_API_KEY, already set for the newsletter subscribe function
  *
  * Downloads live under /private/<product>/<obscure-dir>/ as Netlify static assets.
  * URL-sharing is the risk; upgrade to signed tokens later if abuse appears.
@@ -223,15 +223,15 @@ exports.handler = async (event) => {
 
   if (!email) {
     console.error("checkout.session.completed missing email:", session.id);
-    return { statusCode: 200, body: "No email on session — manual followup required" };
+    return { statusCode: 200, body: "No email on session, manual followup required" };
   }
 
   const product = PRODUCTS[session.amount_total];
   if (!product) {
     console.error(
-      `Unknown amount_total ${session.amount_total} on session ${session.id} (${email}) — manual followup required`
+      `Unknown amount_total ${session.amount_total} on session ${session.id} (${email}), manual followup required`
     );
-    return { statusCode: 200, body: "Unknown product amount — manual followup required" };
+    return { statusCode: 200, body: "Unknown product amount, manual followup required" };
   }
 
   try {

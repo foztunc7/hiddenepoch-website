@@ -60,7 +60,7 @@ function leadMagnetEmail() {
       <h3>What's Next</h3>
       <div class="more-item">
         <a href="https://hiddenepoch.com/canon">
-          The Full Edition — All 14 Books Removed From Your Bible
+          The Full Edition, All 14 Books Removed From Your Bible
           <span>The seven you just got plus seven more: Apocalypse of Adam, Book of the Watchers, Apocryphon of John, Apocalypse of Paul, Gospel of Judas, Acts of Thomas, Apocryphon of James. With full annotated texts and Hidden Epoch commentary. $27.</span>
         </a>
       </div>
@@ -118,7 +118,7 @@ function newsletterWelcomeEmail() {
     <div class="lead">
       <p class="lead-tag">Start here · Featured Investigation</p>
       <h3>The Sumerian Flood Predates Genesis by 1,500 Years.</h3>
-      <p>The story of a global flood, a chosen survivor, and an ark of animals wasn't written by Moses. It was written on clay tablets in southern Iraq fifteen centuries before the Bible existed — and the Sumerian version names the survivor, the city he came from, and the gods who tipped him off.</p>
+      <p>The story of a global flood, a chosen survivor, and an ark of animals wasn't written by Moses. It was written on clay tablets in southern Iraq fifteen centuries before the Bible existed, and the Sumerian version names the survivor, the city he came from, and the gods who tipped him off.</p>
       <p>The tablets are in the British Museum. The translation is settled. The implication is the part nobody teaches.</p>
       <a href="https://hiddenepoch.com/archive/sumerian-flood-predates-genesis/">Read the Investigation →</a>
     </div>
@@ -127,7 +127,7 @@ function newsletterWelcomeEmail() {
       <h3>Then Read These</h3>
       <div class="more-item">
         <a href="https://hiddenepoch.com/archive/garden-of-eden-coordinates/">
-          The Bible Gave Exact Coordinates for Eden — and a Smithsonian Archaeologist Found It Underwater
+          The Bible Gave Exact Coordinates for Eden, and a Smithsonian Archaeologist Found It Underwater
           <span>200 feet down in the Persian Gulf, the four-river junction Genesis describes still exists. The Sumerians left maps.</span>
         </a>
       </div>
@@ -218,7 +218,7 @@ exports.handler = async (event) => {
 
     if (!contactRes.ok) {
       const err = await contactRes.json().catch(() => ({}));
-      // 422 = already subscribed — treat as success
+      // 422 = already subscribed, treat as success
       if (contactRes.status !== 422) {
         return {
           statusCode: 400,
@@ -228,7 +228,7 @@ exports.handler = async (event) => {
       }
     }
 
-    // 2. Send welcome email — different content per signup source
+    // 2. Send welcome email, different content per signup source
     const isLeadMagnet = source === "lead_magnet";
     const subject = isLeadMagnet
       ? "Your free field guide: 7 Books the Vatican Doesn't Want You Reading"
