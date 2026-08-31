@@ -243,6 +243,7 @@ exports.handler = async (event) => {
       body: JSON.stringify({
         from: "Hidden Epoch <noreply@hiddenepoch.com>",
         to: [email],
+        reply_to: "foztunc97@gmail.com",
         subject,
         html: (isLeadMagnet ? leadMagnetEmail() : newsletterWelcomeEmail()),
       }),

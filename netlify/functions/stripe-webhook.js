@@ -247,6 +247,7 @@ async function sendFulfillmentEmail(email, customerName, product, idempotencyKey
     body: JSON.stringify({
       from: "Hidden Epoch <noreply@hiddenepoch.com>",
       to: [email],
+      reply_to: "foztunc97@gmail.com",
       subject: product.subject,
       html,
     }),
