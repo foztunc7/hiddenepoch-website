@@ -109,6 +109,7 @@ const PAYMENT_LINKS = {
   plink_1TXoJ8ISxUGM0xgZ2bWsutS3: "canon",
   plink_1U2wgsISxUGM0xgZKrLreqch: "case_files",
   plink_1U2wkSISxUGM0xgZsmxZheA5: "maps",
+  plink_1UAWWZISxUGM0xgZX7P1jK3t: "vault",
 };
 
 /**
