@@ -385,13 +385,10 @@
       var data = await res.json();
       if (data.success) {
         btn.textContent = 'Check your inbox ✓';
-        note.textContent = 'PDF sent. Look for an email from Hidden Epoch.';
-        document.getElementById('lm-email').value = '';
-        if (typeof gtag === 'function') {
-          gtag('event', 'lead_magnet_signup', {
-            source: 'lost_books_landing'
-          });
-        }
+        note.textContent = 'PDF sent. Taking you to your download page...';
+        // Redirect to the thank-you page, carrying any UTM params through for attribution.
+        var qs = window.location.search || '';
+        window.location.href = '/welcome/' + qs;
       } else {
         btn.textContent = 'Send Me the PDF →';
         btn.disabled = false;

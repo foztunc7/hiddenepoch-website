@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Hidden Epoch</title>
+  <meta name="description" content="Get in touch with Hidden Epoch. Product help, questions, and press." />
+  <link rel="canonical" href="https://hiddenepoch.com/contact/" />
+  <link rel="icon" type="image/jpeg" href="/assets/logo.jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .doc { max-width: 720px; margin: 0 auto; padding: 80px 24px 90px; }
+    .doc h1 { font-family: 'Cinzel', serif; font-size: clamp(30px,4.5vw,46px); color: var(--white); margin: 0 0 16px; }
+    .doc p, .doc li { font-family: 'EB Garamond', serif; font-size: 17px; color: var(--text); line-height: 1.7; }
+    .doc h2 { font-family: 'Cinzel', serif; font-size: 20px; color: var(--gold); margin: 40px 0 12px; }
+    .doc a { color: var(--gold); }
+    .contact-form { background:#0c0a08; border:1px solid rgba(212,175,55,0.28); padding:32px 34px; margin:28px 0; }
+    .contact-form label { display:block; font-family:'Cinzel',serif; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); margin:0 0 8px; }
+    .contact-form .field { margin:0 0 22px; }
+    .contact-form input, .contact-form textarea { width:100%; box-sizing:border-box; background:#000; border:1px solid rgba(212,175,55,0.3); color:var(--white); font-family:'EB Garamond',serif; font-size:16px; padding:12px 14px; }
+    .contact-form input:focus, .contact-form textarea:focus { outline:none; border-color:var(--gold); }
+    .contact-form textarea { min-height:150px; resize:vertical; }
+    .contact-form button { background:var(--gold); color:#000; font-family:'Cinzel',serif; font-size:13px; letter-spacing:0.16em; text-transform:uppercase; font-weight:600; border:none; padding:14px 34px; cursor:pointer; }
+    .contact-form button:disabled { opacity:0.55; cursor:default; }
+    .contact-form .hp { position:absolute; left:-9999px; }
+    .form-status { font-family:'EB Garamond',serif; font-size:16px; color:var(--gold); margin:18px 0 0; }
+    .doc-footer { border-top: 1px solid rgba(212,175,55,0.12); padding: 32px 20px; text-align: center; color: var(--text-dim); font-size: 13px; }
+    .doc-footer a { color: var(--gold-dim); margin: 0 10px; }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="nav-logo"><img src="/assets/logo.jpeg" alt="Hidden Epoch" /></a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <div class="nav-links" id="nav-links">
+        <a href="/archive/">Investigations</a>
+        <a href="/canon/">The Canon</a>
+        <a href="/maps/">Maps</a>
+        <a href="/case-files/">Case Files</a>
+        <a href="/#join" class="nav-cta">Join</a>
+      </div>
+    </div>
+  </nav>
+  <script>(function(){var b=document.getElementById('nav-toggle'),m=document.getElementById('nav-links');if(!b||!m)return;b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');});})();</script>
+
+  <main class="doc">
+    <h1>Contact</h1>
+    <p>Real person on this end. Whether you need help with a download, have a question before you buy, or want to talk about a sponsorship, send us a note below and we will get back to you.</p>
+
+    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form" id="contact-form">
+      <input type="hidden" name="form-name" value="contact" />
+      <p class="hp"><label>Leave this field empty <input name="bot-field" /></label></p>
+      <div class="field">
+        <label for="cf-name">Your name</label>
+        <input type="text" id="cf-name" name="name" required />
+      </div>
+      <div class="field">
+        <label for="cf-email">Your email</label>
+        <input type="email" id="cf-email" name="email" required />
+      </div>
+      <div class="field">
+        <label for="cf-message">Message</label>
+        <textarea id="cf-message" name="message" required></textarea>
+      </div>
+      <button type="submit">Send</button>
+      <p class="form-status" id="cf-status" hidden></p>
+    </form>
+    <script>
+      (function(){
+        var f=document.getElementById('contact-form'),s=document.getElementById('cf-status');
+        if(!f)return;
+        f.addEventListener('submit',function(e){
+          e.preventDefault();
+          var btn=f.querySelector('button');btn.disabled=true;
+          var data=new URLSearchParams(new FormData(f)).toString();
+          fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:data})
+            .then(function(r){
+              if(!r.ok)throw new Error(r.status);
+              f.querySelectorAll('.field').forEach(function(el){el.style.display='none';});
+              btn.style.display='none';
+              s.hidden=false;s.textContent='Thank you. We received your message and will reply within 48 hours.';
+            })
+            .catch(function(){
+              btn.disabled=false;
+              s.hidden=false;s.textContent='Something went wrong. Please try again in a moment.';
+            });
+        });
+      })();
+    </script>
+
+    <h2>Product help</h2>
+    <p>Bought a Canon, Case File, Maps, or the Vault and the download won't open, or the email never arrived? Use the form above with the email address you used at checkout and we will resend your files.</p>
+
+    <h2>Press and sponsorship</h2>
+    <p>For collaborations, sponsor packages, or press, use the form above and tell us what you have in mind.</p>
+
+    <h2>Follow the work</h2>
+    <p>New investigations drop daily on <a href="https://www.youtube.com/@HiddenEpochHistory">YouTube</a>, <a href="https://www.instagram.com/hiddenepochh">Instagram</a>, and <a href="https://www.tiktok.com/@HiddenEpochH">TikTok</a>.</p>
+  </main>
+
+  <footer class="doc-footer">
+    <p style="margin-bottom:12px;">
+      <a href="/">Hidden Epoch</a> · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/refund/">Refund</a> · <a href="/contact/">Contact</a> · <a href="/affiliate-disclosure/">Affiliate Disclosure</a>
+    </p>
+    <p>© 2026 Hidden Epoch. All rights reserved.</p>
+  </footer>
+</body>
+</html>

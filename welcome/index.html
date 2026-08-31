@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Field Guide Is On Its Way | Hidden Epoch</title>
+  <meta name="description" content="Your 7 Hidden Books field guide is on its way. While you wait, open the full Hidden Epoch vault." />
+  <link rel="canonical" href="https://hiddenepoch.com/welcome/" />
+  <link rel="icon" type="image/jpeg" href="/assets/logo.jpeg" />
+  <link rel="apple-touch-icon" href="/assets/logo.jpeg" />
+  <meta name="robots" content="noindex, follow" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Hidden Epoch" />
+  <meta property="og:url" content="https://hiddenepoch.com/welcome/" />
+  <meta property="og:title" content="Your Field Guide Is On Its Way" />
+  <meta property="og:description" content="Check your inbox for the 7 Hidden Books field guide. While you wait, open the full vault." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GEBZWHLQSK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GEBZWHLQSK');
+  </script>
+
+  <style>
+    .wl-hero {
+      padding: 90px 24px 40px;
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .wl-check {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 1px solid rgba(212,175,55,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+      color: var(--gold);
+      font-size: 30px;
+      font-family: 'Cinzel', serif;
+    }
+    .wl-eyebrow {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+    .wl-hero h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(30px, 5vw, 48px);
+      color: var(--white);
+      line-height: 1.1;
+      margin: 0 0 20px;
+    }
+    .wl-hero p {
+      font-family: 'EB Garamond', serif;
+      font-size: 19px;
+      color: var(--text);
+      line-height: 1.6;
+      max-width: 560px;
+      margin: 0 auto 14px;
+    }
+    .wl-backup {
+      margin: 30px 0 8px;
+    }
+    .wl-backup a {
+      color: var(--gold);
+      font-family: 'EB Garamond', serif;
+      font-size: 16px;
+      border-bottom: 1px solid rgba(212,175,55,0.4);
+      text-decoration: none;
+      padding-bottom: 2px;
+    }
+    .wl-backup-note {
+      font-family: 'EB Garamond', serif;
+      font-size: 14px;
+      color: var(--text-dim);
+      margin-top: 8px;
+    }
+
+    .wl-offer {
+      max-width: 960px;
+      margin: 40px auto 0;
+      padding: 56px 24px 20px;
+    }
+    .wl-offer-card {
+      background: #0c0a08;
+      border: 1px solid rgba(212,175,55,0.3);
+      display: grid;
+      grid-template-columns: minmax(180px, 300px) 1fr;
+      gap: 44px;
+      align-items: center;
+      padding: 44px;
+    }
+    @media (max-width: 760px) {
+      .wl-offer-card { grid-template-columns: 1fr; gap: 28px; padding: 32px 22px; text-align: center; }
+    }
+    .wl-offer-card img {
+      width: 100%;
+      max-width: 300px;
+      margin: 0 auto;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.7), 0 0 0 1px rgba(212,175,55,0.12);
+      border-radius: 4px;
+    }
+    .wl-offer-tag {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .wl-offer h2 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(24px, 3.4vw, 34px);
+      color: var(--white);
+      line-height: 1.15;
+      margin: 0 0 16px;
+    }
+    .wl-offer p.desc {
+      font-family: 'EB Garamond', serif;
+      font-size: 17px;
+      color: var(--text);
+      line-height: 1.6;
+      margin: 0 0 22px;
+    }
+    .wl-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 22px;
+      flex-wrap: wrap;
+    }
+    @media (max-width: 760px) { .wl-price-row { justify-content: center; } }
+    .wl-price-was {
+      font-family: 'EB Garamond', serif;
+      font-size: 20px;
+      color: var(--text-dim);
+      text-decoration: line-through;
+    }
+    .wl-price-now {
+      font-family: 'Cinzel', serif;
+      font-size: 40px;
+      color: var(--white);
+    }
+    .wl-price-launch {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .wl-terms {
+      font-family: 'EB Garamond', serif;
+      font-size: 13px;
+      color: var(--text-dim);
+      margin-top: 16px;
+      line-height: 1.55;
+    }
+    .wl-terms a { color: var(--gold-dim); }
+
+    .wl-faq {
+      max-width: 760px;
+      margin: 20px auto 0;
+      padding: 48px 24px 90px;
+    }
+    .wl-faq h3.faq-title {
+      font-family: 'Cinzel', serif;
+      font-size: 22px;
+      color: var(--white);
+      text-align: center;
+      margin: 0 0 30px;
+    }
+    .wl-faq .faq-item {
+      border-top: 1px solid rgba(212,175,55,0.15);
+      padding: 22px 0;
+    }
+    .wl-faq .faq-item h4 {
+      font-family: 'Cinzel', serif;
+      color: var(--white);
+      font-size: 17px;
+      margin: 0 0 8px;
+    }
+    .wl-faq .faq-item p {
+      font-family: 'EB Garamond', serif;
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .wl-faq .faq-item p a { color: var(--gold); }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <img src="/assets/logo.jpeg" alt="Hidden Epoch" />
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="nav-links">
+        <a href="/archive/">Investigations</a>
+        <a href="/canon/">The Canon</a>
+        <a href="/maps/">Maps</a>
+        <a href="/case-files/">Case Files</a>
+        <a href="/#join" class="nav-cta">Join</a>
+      </div>
+    </div>
+  </nav>
+  <script>
+    (function(){var b=document.getElementById('nav-toggle'),m=document.getElementById('nav-links');if(!b||!m)return;b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');});})();
+  </script>
+
+  <!-- HERO -->
+  <section class="wl-hero">
+    <div class="wl-check">&#10003;</div>
+    <div class="wl-eyebrow">You're in</div>
+    <h1>Your field guide is on its way.</h1>
+    <p>Check your inbox for an email from Hidden Epoch with your download link. It usually arrives within a minute. Check spam if you don't see it.</p>
+    <div class="wl-backup">
+      <a href="/downloads/7-books-vatican-doesnt-want-you-reading.pdf" id="wl-backup-link" download>Download the field guide directly &rarr;</a>
+      <p class="wl-backup-note">A backup, in case the email is slow. Save it to your device.</p>
+    </div>
+  </section>
+
+  <!-- SINGLE PAID OFFER: THE CANON -->
+  <section class="wl-offer">
+    <div class="wl-offer-card">
+      <img src="/canon/cover.png" alt="The Hidden Canon" />
+      <div>
+        <div class="wl-offer-tag">Members' first look</div>
+        <h2>The Hidden Canon is ready for you.</h2>
+        <p class="desc">
+          The 90-page volume on the 14 books cut from your Bible. Enoch, Giants, Jubilees, Mary, Judas, and nine more, each one with the manuscript receipts behind the claim. Everything the field guide points to, in one volume.
+        </p>
+        <div class="wl-price-row">
+          <span class="wl-price-now">$27.99</span>
+          <span class="wl-price-launch">Instant access</span>
+        </div>
+        <a href="https://buy.stripe.com/7sY28sf076NY26XgdyeZ200" class="btn-gold" id="wl-canon-cta" data-select-canon style="font-size:1rem; padding:16px 40px;">Get the Canon &rarr;</a>
+        <p class="wl-terms">
+          Instant PDF delivery. All sales final on instant digital products. See our <a href="/refund/">refund policy</a> and <a href="/terms/">terms</a>. Secure checkout by Stripe.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="wl-faq">
+    <h3 class="faq-title">Before you ask</h3>
+    <div class="faq-item">
+      <h4>The email hasn't arrived.</h4>
+      <p>Give it two minutes and check your spam folder. If it still isn't there, use the direct download link above, then reply to any Hidden Epoch email and we'll sort it out.</p>
+    </div>
+    <div class="faq-item">
+      <h4>What's in the Canon?</h4>
+      <p>The 14 books cut from your Bible, restored in one 90-page volume: Enoch, Giants, Jubilees, Jasher, the Gospel of Mary, the Gospel of Judas, and eight more, each with the manuscript history behind it. <a href="/canon/">See the full contents.</a></p>
+    </div>
+    <div class="faq-item">
+      <h4>Are refunds available?</h4>
+      <p>These are instant digital downloads, so all sales are final. The final-sale terms are shown clearly before checkout. Read the <a href="/refund/">refund policy</a>.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Who's behind this?</h4>
+      <p>Hidden Epoch is an independent investigations project on ancient anomalies, suppressed archaeology, and the textual history of the world's religions. Editorial voice: Jordan Vale. <a href="/contact/">Contact us.</a></p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="border-top: 1px solid rgba(212,175,55,0.12); padding: 32px 20px; text-align: center; color: var(--text-dim); font-size: 13px;">
+    <p style="margin-bottom: 12px;">
+      <a href="/" style="color: var(--gold-dim); margin: 0 10px;">Hidden Epoch</a> ·
+      <a href="/privacy/" style="color: var(--gold-dim); margin: 0 10px;">Privacy</a> ·
+      <a href="/terms/" style="color: var(--gold-dim); margin: 0 10px;">Terms</a> ·
+      <a href="/refund/" style="color: var(--gold-dim); margin: 0 10px;">Refund</a> ·
+      <a href="/contact/" style="color: var(--gold-dim); margin: 0 10px;">Contact</a>
+    </p>
+    <p>© 2026 Hidden Epoch. All rights reserved.</p>
+  </footer>
+
+  <script>
+    if (typeof gtag === 'function') {
+      gtag('event', 'generate_lead', {
+        form_location: 'lead_magnet',
+        lead_magnet: '7_hidden_books',
+        source: new URLSearchParams(location.search).get('utm_source') || 'direct',
+        campaign: new URLSearchParams(location.search).get('utm_campaign') || 'canon_launch'
+      });
+    }
+    var canonCta = document.querySelector('[data-select-canon]');
+    if (canonCta) {
+      canonCta.addEventListener('click', function () {
+        if (typeof gtag === 'function') {
+          gtag('event', 'select_item', {
+            item_id: 'canon',
+            card_location: 'welcome_page',
+            source: 'lead_magnet'
+          });
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
