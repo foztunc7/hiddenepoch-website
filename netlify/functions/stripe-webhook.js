@@ -34,6 +34,22 @@ const PRODUCTS = {
     downloadUrl:
       "https://hiddenepoch.com/private/canon/dl-h1dd3n-canon-v1-2026-private/TheHiddenCanon.pdf",
     meta: "PDF · 6.5 MB · Personal license · DRM-free",
+    crossSell: [
+      {
+        name: "The Classified Case Files",
+        price: "$19",
+        url: "https://hiddenepoch.com/case-files/",
+        blurb:
+          "Three full dossiers: the Great Pyramid, Gobekli Tepe, and the Antikythera Mechanism. Every official explanation tested until it cracks.",
+      },
+      {
+        name: "The Mystery Map Collection",
+        price: "$9",
+        url: "https://hiddenepoch.com/maps/",
+        blurb:
+          "13 maps that charted coastlines and cities no one had officially reached yet, restored from museum scans and print-ready.",
+      },
+    ],
     footerLine:
       "You're receiving this because you purchased The Hidden Canon at hiddenepoch.com",
   },
@@ -47,6 +63,22 @@ const PRODUCTS = {
     downloadUrl:
       "https://hiddenepoch.com/private/case-files/dl-h1dd3n-cases-v1-2026-private/",
     meta: "3 dossiers · Evidence exhibits · PDF · Personal license",
+    crossSell: [
+      {
+        name: "The Hidden Canon",
+        price: "$27.99",
+        url: "https://hiddenepoch.com/canon/",
+        blurb:
+          "90 pages, 14 books the early church cut, hid, or condemned, each with its manuscript ID and the politics behind its removal.",
+      },
+      {
+        name: "The Mystery Map Collection",
+        price: "$9",
+        url: "https://hiddenepoch.com/maps/",
+        blurb:
+          "13 maps that charted coastlines and cities no one had officially reached yet, restored from museum scans and print-ready.",
+      },
+    ],
     footerLine:
       "You're receiving this because you purchased The Classified Case Files at hiddenepoch.com",
   },
@@ -60,6 +92,22 @@ const PRODUCTS = {
     downloadUrl:
       "https://hiddenepoch.com/private/maps/dl-h1dd3n-maps-v1-2026-private/",
     meta: "13 maps · 65 print files · Briefing PDF · Personal license",
+    crossSell: [
+      {
+        name: "The Hidden Canon",
+        price: "$27.99",
+        url: "https://hiddenepoch.com/canon/",
+        blurb:
+          "90 pages, 14 books the early church cut, hid, or condemned, each with its manuscript ID and the politics behind its removal.",
+      },
+      {
+        name: "The Classified Case Files",
+        price: "$19",
+        url: "https://hiddenepoch.com/case-files/",
+        blurb:
+          "Three full dossiers: the Great Pyramid, Gobekli Tepe, and the Antikythera Mechanism. Every official explanation tested until it cracks.",
+      },
+    ],
     footerLine:
       "You're receiving this because you purchased The Mystery Map Collection at hiddenepoch.com",
   },
@@ -181,6 +229,21 @@ async function sendFulfillmentEmail(email, customerName, product, idempotencyKey
     )
     .join("");
 
+  const crossSellHtml = (product.crossSell || []).length
+    ? `
+    <p class="cross-head">Complete the archive</p>
+    ${product.crossSell
+      .map(
+        (x) => `
+    <div class="cross-item">
+      <p class="cross-name">${x.name} <span>${x.price}</span></p>
+      <p class="cross-blurb">${x.blurb}</p>
+      <a href="${x.url}">See it →</a>
+    </div>`
+      )
+      .join("")}`
+    : "";
+
   const html = `
 <!DOCTYPE html>
 <html>
@@ -200,6 +263,12 @@ async function sendFulfillmentEmail(email, customerName, product, idempotencyKey
   .download-box h3 { font-family: Georgia, serif; font-size: 20px; color: #f0ead8; margin: 0 0 18px; font-weight: normal; }
   .download-box a { display: inline-block; background: #D4AF37; color: #000000; font-family: Georgia, serif; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; padding: 16px 36px; text-decoration: none; font-weight: bold; }
   .download-box .meta { font-size: 12px; color: rgba(200,194,180,0.6); margin: 18px 0 0; font-family: Georgia, serif; letter-spacing: 0.05em; }
+  .cross-head { font-family: Georgia, serif; font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; color: #D4AF37; margin: 44px 0 8px; }
+  .cross-item { border-top: 1px solid rgba(212,175,55,0.15); padding: 22px 0; }
+  .cross-name { font-family: Georgia, serif; font-size: 18px; color: #f0ead8; margin: 0 0 8px; }
+  .cross-name span { color: rgba(200,194,180,0.6); font-size: 14px; }
+  .cross-blurb { font-size: 14px; color: #c8c2b4; line-height: 1.7; margin: 0 0 14px; }
+  .cross-item a { display: inline-block; background: transparent; color: #D4AF37; font-family: Georgia, serif; font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; padding: 11px 24px; text-decoration: none; font-weight: bold; border: 1px solid #D4AF37; }
   .footer { border-top: 1px solid rgba(212,175,55,0.12); padding: 32px 48px; text-align: center; }
   .footer p { font-size: 12px; color: rgba(200,194,180,0.4); margin: 0 0 8px; }
   .footer a { color: rgba(212,175,55,0.5); }
@@ -218,7 +287,7 @@ async function sendFulfillmentEmail(email, customerName, product, idempotencyKey
     ${boxesHtml}
 
     <p>The download links do not expire. Save the files to your device. If you lose access, reply to this email and we will resend.</p>
-
+    ${crossSellHtml}
     <p>The full series of investigations behind this lives at <a href="https://hiddenepoch.com/archive/" style="color:#D4AF37;">hiddenepoch.com/archive</a>.</p>
   </div>
 
