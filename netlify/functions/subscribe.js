@@ -228,8 +228,11 @@ exports.handler = async (event) => {
       }
     }
 
-    // 2. Send welcome email, different content per signup source
-    const isLeadMagnet = source === "lead_magnet";
+    // 2. Send welcome email, different content per signup source.
+    // Every capture surface except the plain "newsletter" join promises the free
+    // field-guide PDF (lost-books, exit popup, blog archive blocks, /books page),
+    // so anything that is not an explicit newsletter signup gets the lead magnet.
+    const isLeadMagnet = source !== "newsletter";
     const subject = isLeadMagnet
       ? "Your free field guide: 7 Books the Vatican Doesn't Want You Reading"
       : "Start here: the Sumerian flood predates Genesis by 1,500 years.";
