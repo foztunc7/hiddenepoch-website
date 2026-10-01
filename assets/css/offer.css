@@ -1,0 +1,151 @@
+/* Money-page conversion polish: brass border card, glowing buy button, animated arrow. */
+:root { --brass: #e6c35c; --gold-glow: rgba(212,175,55,0.55); }
+
+/* Offer card around the price + button */
+.canon-buy, .maps-buy, .cf-buy, .offer-card {
+  position: relative;
+  padding: 26px 30px;
+  background: linear-gradient(160deg, #15110a 0%, #0a0805 100%);
+  border: 2px solid var(--gold);
+  border-radius: 6px;
+  box-shadow: 0 0 0 1px rgba(212,175,55,0.25), 0 0 32px rgba(212,175,55,0.22), inset 0 0 40px rgba(212,175,55,0.06);
+  animation: offer-glow 3.2s ease-in-out infinite;
+}
+.canon-buy::before, .maps-buy::before, .cf-buy::before, .offer-card::before {
+  content: "";
+  position: absolute; inset: 5px;
+  border: 1px solid rgba(212,175,55,0.3);
+  border-radius: 3px;
+  pointer-events: none;
+}
+.canon-price, .maps-price, .cf-price, .offer-card .vault-now { color: #fff !important; text-shadow: 0 0 18px rgba(212,175,55,0.45); }
+.canon-price small, .maps-price small, .cf-price small { color: var(--gold-dim) !important; }
+
+/* Buy button */
+a[data-buy-cta], .btn-buy {
+  position: relative;
+  background: linear-gradient(180deg, #f1d46a 0%, var(--gold) 55%, #b8932a 100%);
+  color: #0b0905;
+  border: 1px solid #fff3c4;
+  border-radius: 3px;
+  box-shadow: 0 0 0 3px rgba(212,175,55,0.25), 0 6px 22px rgba(212,175,55,0.45);
+  transition: transform 0.15s, box-shadow 0.2s, filter 0.2s;
+}
+a[data-buy-cta]:hover, .btn-buy:hover {
+  background: linear-gradient(180deg, #f8e087 0%, #e0bb3f 55%, #c19c2d 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 4px rgba(212,175,55,0.35), 0 10px 30px rgba(212,175,55,0.65);
+}
+a[data-buy-cta]:focus-visible, .btn-buy:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
+
+/* Arrow pointing at the button, nudges toward it */
+a[data-buy-cta]::before, .btn-buy::before {
+  content: "";
+  position: absolute;
+  left: -46px; top: 50%;
+  width: 30px; height: 30px;
+  margin-top: -15px;
+  background: var(--gold);
+  clip-path: polygon(0 28%, 55% 28%, 55% 0, 100% 50%, 55% 100%, 55% 72%, 0 72%);
+  animation: arrow-nudge 1.1s ease-in-out infinite;
+  pointer-events: none;
+}
+/* Narrow layouts: arrow would hang off-screen, so point down from above */
+@media (max-width: 760px) {
+  .canon-buy, .maps-buy, .cf-buy, .offer-card { padding: 22px 18px; }
+  a[data-buy-cta]::before, .btn-buy::before {
+    left: 50%; top: -38px; margin: 0 0 0 -15px;
+    animation: arrow-drop 1.1s ease-in-out infinite;
+  }
+  .canon-buy a[data-buy-cta], .maps-buy a[data-buy-cta], .cf-buy a[data-buy-cta] { margin-top: 38px; }
+}
+@keyframes arrow-nudge { 0%,100% { transform: translateX(0); } 50% { transform: translateX(10px); } }
+@keyframes arrow-drop  { 0%,100% { transform: rotate(90deg) translateX(0); } 50% { transform: rotate(90deg) translateX(10px); } }
+@keyframes offer-glow {
+  0%,100% { box-shadow: 0 0 0 1px rgba(212,175,55,0.25), 0 0 26px rgba(212,175,55,0.18), inset 0 0 40px rgba(212,175,55,0.05); }
+  50%     { box-shadow: 0 0 0 1px rgba(212,175,55,0.4),  0 0 48px rgba(212,175,55,0.38), inset 0 0 40px rgba(212,175,55,0.1); }
+}
+
+/* Centered final-CTA blocks get a brass frame too */
+div:has(> #buy-cta) {
+  max-width: 640px; margin-left: auto !important; margin-right: auto !important;
+  padding: 36px 24px 30px !important;
+  border: 2px solid var(--gold); border-radius: 6px;
+  background: linear-gradient(160deg, #15110a 0%, #0a0805 100%);
+  box-shadow: 0 0 36px rgba(212,175,55,0.25), inset 0 0 40px rgba(212,175,55,0.06);
+}
+@media (max-width: 760px) { div:has(> #buy-cta) { padding-top: 56px !important; } }
+
+/* Vault: strongest treatment */
+.offer-card.vault-offer {
+  max-width: 720px; margin: 36px auto 0; padding: 36px 28px 30px;
+  border-width: 3px;
+  box-shadow: 0 0 0 1px rgba(212,175,55,0.4), 0 0 60px rgba(212,175,55,0.35), inset 0 0 60px rgba(212,175,55,0.1);
+}
+.offer-badge {
+  position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+  background: var(--gold); color: #0b0905;
+  font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  padding: 6px 18px; border-radius: 999px; white-space: nowrap;
+  box-shadow: 0 0 18px rgba(212,175,55,0.6);
+}
+.offer-card.vault-offer .vault-price-block { margin-top: 12px; }
+.offer-card.vault-offer .vault-cta-wrap { margin-top: 22px; }
+.offer-card.vault-offer .vault-launch { color: var(--brass); }
+.offer-card.vault-offer .btn-buy::before { width: 38px; height: 38px; margin-top: -19px; left: -58px; }
+.offer-card.vault-offer .vault-checkout-note { color: #a39d8e; }
+@media (max-width: 760px) {
+  .offer-card.vault-offer { padding: 32px 16px 24px; }
+  .offer-card.vault-offer .btn-buy { padding: 20px 28px !important; font-size: 1.02rem !important; }
+  .offer-card.vault-offer .btn-buy::before { width: 34px; height: 34px; left: 50%; margin: 0 0 0 -17px; top: -46px; }
+  .offer-card.vault-offer .vault-cta-wrap { margin-top: 56px; }
+}
+
+/* Vault opening animation overlay */
+.vo { position: fixed; inset: 0; z-index: 10000; overflow: hidden; background: #000; opacity: 0; transition: opacity .25s; }
+.vo.on { opacity: 1; }
+.vo-light {
+  position: absolute; inset: 0; opacity: 0;
+  background: radial-gradient(circle at 50% 50%, #fffbe0 0%, #f6d96b 18%, rgba(212,175,55,0.55) 40%, rgba(0,0,0,0) 72%);
+}
+.vo-door {
+  position: absolute; top: 0; bottom: 0; width: 50%;
+  background:
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0 2px, transparent 2px 7px),
+    linear-gradient(180deg, #2b2417 0%, #14100a 50%, #241d11 100%);
+  border: 3px solid var(--gold-dim);
+  box-shadow: inset 0 0 60px rgba(0,0,0,0.8), inset 0 0 0 10px #17120a, inset 0 0 0 12px rgba(212,175,55,0.35);
+  transition: transform 1.15s cubic-bezier(.7,0,.25,1);
+  z-index: 2;
+}
+.vo-door.l { left: 0; border-right-width: 2px; }
+.vo-door.r { right: 0; border-left-width: 2px; }
+.vo-door::after {
+  content: ""; position: absolute; inset: 22px;
+  background: radial-gradient(circle, var(--gold-dim) 0 3px, transparent 4px) 0 0 / 60px 60px;
+  opacity: .5; pointer-events: none;
+}
+.vo.open .vo-door.l { transform: translateX(-102%); }
+.vo.open .vo-door.r { transform: translateX(102%); }
+.vo.open .vo-light { animation: vo-burst 1.2s ease-out .15s forwards; }
+.vo-wheel {
+  position: absolute; left: 50%; top: 50%; width: min(46vmin, 300px); height: min(46vmin, 300px);
+  margin: calc(min(46vmin, 300px) / -2) 0 0 calc(min(46vmin, 300px) / -2);
+  z-index: 3; transition: transform .9s ease-in, opacity .5s .55s;
+}
+.vo.spin .vo-wheel { transform: rotate(540deg) scale(1.05); }
+.vo.open .vo-wheel { opacity: 0; }
+.vo-label {
+  position: absolute; left: 0; right: 0; bottom: 12%; text-align: center; z-index: 4;
+  font-family: 'Cinzel', serif; letter-spacing: .4em; text-transform: uppercase;
+  color: var(--gold); font-size: 13px; transition: opacity .4s;
+}
+.vo.open .vo-label { opacity: 0; }
+@keyframes vo-burst { 0% { opacity: 0; transform: scale(.3); } 40% { opacity: 1; } 100% { opacity: 1; transform: scale(2.2); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .canon-buy, .maps-buy, .cf-buy, .offer-card { animation: none; }
+  a[data-buy-cta]::before, .btn-buy::before { animation: none; }
+  a[data-buy-cta], .btn-buy { transition: none; }
+}
