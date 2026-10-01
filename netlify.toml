@@ -8,3 +8,10 @@
     Access-Control-Allow-Origin = "*"
     Access-Control-Allow-Headers = "Content-Type"
     Access-Control-Allow-Methods = "POST, OPTIONS"
+
+# Keep all buyer-delivery files out of search indexes (applies to zips/PDFs too,
+# which cannot carry a noindex meta tag). This is indexing defense, not access control.
+[[headers]]
+  for = "/private/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
