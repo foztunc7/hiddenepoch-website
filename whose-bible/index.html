@@ -432,7 +432,7 @@
         var res = await fetch('/.netlify/functions/subscribe', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: email, source: 'lead_magnet' })
+          body: JSON.stringify({ email: email, source: 'whose_bible' })
         });
         var data = await res.json();
         if (data.success) {
