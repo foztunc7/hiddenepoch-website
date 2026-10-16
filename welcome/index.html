@@ -252,21 +252,21 @@
     </div>
   </section>
 
-  <!-- SINGLE PAID OFFER: THE CANON -->
+  <!-- OFFER LADDER: $9 MAPS FIRST (tripwire), CANON SECOND -->
   <section class="wl-offer">
     <div class="wl-offer-card">
-      <img src="/canon/cover.png" alt="The Hidden Canon" />
+      <img src="/maps/previews/piri-reis.jpg" alt="The Piri Reis map, one of 13 museum maps in the collection" />
       <div>
         <div class="wl-offer-tag">Members' first look</div>
-        <h2>The Hidden Canon is ready for you.</h2>
+        <h2>13 maps that knew too much.</h2>
         <p class="desc">
-          The 90-page volume on the 14 books cut from your Bible. Enoch, Giants, Jubilees, Mary, Judas, and nine more, each one with the manuscript receipts behind the claim. Everything the field guide points to, in one volume.
+          Museum maps the cartographers never explained: coastlines drawn centuries before anyone sailed them. Restored, print-ready to 24 inches, yours the moment you check out.
         </p>
         <div class="wl-price-row">
-          <span class="wl-price-now">$27.99</span>
+          <span class="wl-price-now">$9</span>
           <span class="wl-price-launch">Instant access</span>
         </div>
-        <a href="https://buy.stripe.com/7sY28sf076NY26XgdyeZ200" class="btn-gold" id="wl-canon-cta" data-select-canon style="font-size:1rem; padding:16px 40px;">Get the Canon &rarr;</a>
+        <a href="https://buy.stripe.com/5kQdRa2dlc8i26XaTeeZ202" class="btn-gold" id="wl-maps-cta" data-select-maps style="font-size:1rem; padding:16px 40px;">Get the 13 Maps for $9 &rarr;</a>
         <p class="wl-terms">
           Instant PDF delivery. All sales final on instant digital products. See our <a href="/refund/">refund policy</a> and <a href="/terms/">terms</a>. Secure checkout by Stripe.
         </p>
@@ -274,9 +274,9 @@
     </div>
     <div style="text-align:center; margin-top:32px;">
       <p style="font-size:1.15rem; margin-bottom:16px;">
-        Not ready for 90 pages? Start here. 13 museum maps the cartographers never explained, restored and print-ready to 24 inches. <strong>$9.</strong> Instant.
+        Want the whole story? The Hidden Canon is the 90-page volume on the 14 books cut from your Bible, each with the manuscript receipts. <strong>$27.99.</strong> Instant.
       </p>
-      <a href="https://buy.stripe.com/5kQdRa2dlc8i26XaTeeZ202" class="btn-gold" style="font-size:1rem; padding:14px 36px;">Get the 13 Maps for $9 &rarr;</a>
+      <a href="https://buy.stripe.com/7sY28sf076NY26XgdyeZ200" class="btn-gold" id="wl-canon-cta" data-select-canon style="font-size:1rem; padding:14px 36px;">Get the Canon &rarr;</a>
     </div>
   </section>
 
@@ -322,18 +322,19 @@
         campaign: new URLSearchParams(location.search).get('utm_campaign') || 'canon_launch'
       });
     }
-    var canonCta = document.querySelector('[data-select-canon]');
-    if (canonCta) {
-      canonCta.addEventListener('click', function () {
+    [['canon', '[data-select-canon]'], ['maps', '[data-select-maps]']].forEach(function (p) {
+      var cta = document.querySelector(p[1]);
+      if (!cta) return;
+      cta.addEventListener('click', function () {
         if (typeof gtag === 'function') {
           gtag('event', 'select_item', {
-            item_id: 'canon',
+            item_id: p[0],
             card_location: 'welcome_page',
             source: 'lead_magnet'
           });
         }
       });
-    }
+    });
   </script>
 
 </body>
