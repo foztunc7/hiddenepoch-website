@@ -933,6 +933,8 @@ footer {
   text-transform: uppercase;
   color: var(--text-dim);
 }
+.footer-shop { flex-wrap: wrap; row-gap: 14px; margin-bottom: 20px; }
+.footer-shop a { color: var(--gold); font-size: 0.85rem; }
 .footer-links a:hover { color: var(--gold); opacity: 1; }
 .footer-copy { font-size: 0.78rem; color: var(--text-dim); opacity: 0.4; }
 
