@@ -41,7 +41,7 @@
   }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="/assets/css/book-popup.css" />
 
@@ -104,10 +104,15 @@
         <a href="/archive/">Investigations</a>
         <a href="/blueprint/">The Blueprint</a>
         <a href="/books/">Books</a>
-        <a href="/canon/">The Canon</a>
-        <a href="/maps/">Maps</a>
-        <a href="/case-files/">Case Files</a>
-        <a href="/vault/" style="background:var(--gold);color:#0b0b0b;padding:5px 14px;border-radius:999px;font-weight:700;white-space:nowrap">The Vault</a>
+        <div class="nav-shop">
+          <button type="button" class="nav-shop-label" aria-haspopup="true">Shop</button>
+          <div class="nav-shop-menu">
+          <a href="/vault/" class="nav-shop-item is-feature"><span class="nav-shop-name">The Vault</span><span class="nav-shop-blurb">All four, best value</span></a>
+          <a href="/canon/" class="nav-shop-item"><span class="nav-shop-name">The Hidden Canon</span><span class="nav-shop-blurb">The forbidden texts</span></a>
+          <a href="/case-files/" class="nav-shop-item"><span class="nav-shop-name">Case Files</span><span class="nav-shop-blurb">Classified dossiers</span></a>
+          <a href="/maps/" class="nav-shop-item"><span class="nav-shop-name">Mystery Maps</span><span class="nav-shop-blurb">Where it happened</span></a>
+          </div>
+        </div>
         <a href="/#join" class="nav-cta">Join</a>
         <div class="nav-socials">
           <a href="https://www.tiktok.com/@HiddenEpochH" target="_blank" aria-label="TikTok">
@@ -125,33 +130,26 @@
   </nav>
 
   <!-- HERO -->
-  <section class="hero hero--split">
+  <section class="hero hero--home">
     <div class="hero-glow"></div>
-    <div class="hero-content hero-content--grid">
-      <div class="hero-text">
-        <img src="assets/logo.jpeg" alt="Hidden Epoch Logo" class="hero-logo" />
-        <h1>HIDDEN EPOCH</h1>
-        <p class="hero-tagline">History they buried. We dig it up.</p>
-        <p class="hero-sub">Daily investigations into ancient anomalies, suppressed archaeology, and the civilizations they don't teach in school.</p>
-        <div class="hero-cta-block">
-          <p class="hero-cta-eyebrow">Free Field Guide · 11 Pages</p>
-          <a href="/lost-books" class="btn-gold">Read What They Removed</a>
-          <p class="hero-cta-sub">Seven books erased from your Bible. One bonus.</p>
-        </div>
+    <div class="hero-inner">
+      <img src="assets/logo.jpeg" alt="Hidden Epoch" class="hero-logo" />
+      <p class="hero-eyebrow">Ancient anomalies · Suppressed archaeology</p>
+      <h1>HIDDEN EPOCH</h1>
+      <p class="hero-tagline">History they buried. We dig it up.</p>
+      <p class="hero-sub">Daily investigations into the discoveries, texts, and civilizations they left out of your schoolbooks.</p>
+      <div class="hero-actions">
+        <a href="/lost-books" class="btn-gold">Read What They Removed</a>
+        <a href="#videos" class="hero-link">Watch the investigations →</a>
       </div>
-      <div class="hero-visual" aria-hidden="true">
-        <a href="/lost-books" class="hero-visual-link">
-          <div class="hero-visual-frame">
-            <img src="assets/lead-magnet-cover.jpg" alt="The 7 Lost Books" class="hero-book-stack" />
-            <span class="hero-visual-seal">FREE</span>
-            <div class="hero-visual-plate">
-              <span class="hero-visual-plate-kicker">The Forbidden Field Guide</span>
-              <span class="hero-visual-plate-title">The 7 Lost Books</span>
-              <span class="hero-visual-plate-sub">Erased from your Bible · Free PDF</span>
-            </div>
-          </div>
-        </a>
-      </div>
+      <a href="/lost-books" class="hero-magnet">
+        <img src="assets/lead-magnet-cover.jpg" alt="The 7 Lost Books field guide" loading="lazy" />
+        <span class="hero-magnet-text">
+          <span class="hero-magnet-kicker">Free · 11-page field guide</span>
+          <span class="hero-magnet-title">The 7 books erased from your Bible</span>
+        </span>
+        <span class="hero-magnet-arrow">→</span>
+      </a>
     </div>
   </section>
 
