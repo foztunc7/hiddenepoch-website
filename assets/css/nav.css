@@ -1,0 +1,262 @@
+/* ============================================================
+   HIDDEN EPOCH, SHARED NAV, the single source of truth.
+   Imported by BOTH website/style.css (home + product pages) and
+   website/archive/blog.css (every blog / archive / blueprint page)
+   so the menu is byte-identical on every page. It is self-contained:
+   its colours live in the scoped --nav-* tokens below, NOT in either
+   stylesheet's :root (those two define DIFFERENT gold/text values,
+   which is how the nav used to drift). Edit the nav HERE and nowhere
+   else. Markup is stamped site-wide by scripts/site_nav.py.
+   ============================================================ */
+nav {
+  --nav-gold: #D4AF37;
+  --nav-text: #e4ddcd;
+  --nav-white: #f0ead8;
+  --nav-dim: #b4ad9b;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(0,0,0,0.92);
+  border-bottom: 1px solid rgba(212,175,55,0.15);
+  backdrop-filter: blur(10px);
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo img {
+  height: 46px; width: 46px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid rgba(212,175,55,0.3);
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+.nav-links a {
+  font-family: 'Cinzel', serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--nav-text);
+  white-space: nowrap;
+}
+.nav-links a:hover { color: var(--nav-gold); opacity: 1; }
+.nav-links .nav-cta {
+  color: var(--nav-gold);
+  border: 1px solid rgba(212,175,55,0.4);
+  padding: 8px 22px;
+}
+.nav-links .nav-cta:hover { background: rgba(212,175,55,0.08); }
+
+/* ── NAV SHOP DROPDOWN ── */
+.nav-shop { position: relative; display: flex; align-items: center; }
+.nav-shop-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--nav-text);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0;
+}
+.nav-shop-label::after {
+  content: "";
+  width: 6px; height: 6px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-1px) rotate(45deg);
+  transition: transform 0.2s ease;
+}
+.nav-shop:hover .nav-shop-label,
+.nav-shop:focus-within .nav-shop-label { color: var(--nav-gold); }
+.nav-shop:hover .nav-shop-label::after,
+.nav-shop:focus-within .nav-shop-label::after { transform: translateY(1px) rotate(225deg); }
+.nav-shop::after { content: ""; position: absolute; top: 100%; left: 0; right: 0; height: 16px; }
+.nav-shop-menu {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  min-width: 264px;
+  background: #0d0a06;
+  border: 1px solid rgba(212,175,55,0.22);
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.55);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 60;
+}
+.nav-shop:hover .nav-shop-menu,
+.nav-shop:focus-within .nav-shop-menu {
+  opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0);
+}
+.nav-links a.nav-shop-item {
+  display: block;
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.nav-shop-item:hover { background: rgba(212,175,55,0.08); opacity: 1; }
+.nav-shop-name {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--nav-white);
+}
+.nav-shop-blurb {
+  display: block;
+  font-family: 'EB Garamond', serif;
+  font-size: 0.9rem;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--nav-dim);
+  margin-top: 2px;
+}
+.nav-shop-item.is-feature {
+  background: rgba(212,175,55,0.07);
+  border: 1px solid rgba(212,175,55,0.25);
+  margin-bottom: 4px;
+}
+.nav-shop-item.is-feature .nav-shop-name { color: var(--nav-gold); }
+
+/* ── NAV SOCIALS ── */
+.nav-socials {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-left: 8px;
+  padding-left: 22px;
+  border-left: 1px solid rgba(212,175,55,0.2);
+}
+.nav-socials a { color: var(--nav-dim); display: flex; align-items: center; }
+.nav-socials a:hover { color: var(--nav-gold); opacity: 1; }
+.nav-socials svg { width: 20px; height: 20px; }
+
+/* ── Mobile hamburger toggle (hidden on desktop) ── */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+  width: 36px;
+  height: 36px;
+  padding: 6px;
+  cursor: pointer;
+  position: relative;
+  z-index: 110;
+}
+.nav-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--nav-gold);
+  margin: 5px 0;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── Collapse to the hamburger at 1024px, identical on every page ── */
+@media (max-width: 1024px) {
+  nav { position: relative; }
+  .nav-toggle { display: block; }
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: rgba(10, 8, 5, 0.98);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(212,175,55,0.18);
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  .nav-links.open { max-height: 86vh; padding: 8px 0 16px; overflow-y: auto; }
+  .nav-links a {
+    padding: 16px 28px;
+    border-bottom: 1px solid rgba(212,175,55,0.08);
+    font-size: 0.95rem;
+    text-align: left;
+    display: block;
+    white-space: normal;
+  }
+  .nav-links .nav-cta {
+    margin: 12px 28px 4px;
+    padding: 14px 0;
+    text-align: center;
+    border: 1px solid rgba(212,175,55,0.4);
+    border-radius: 4px;
+    background: rgba(212,175,55,0.05);
+  }
+  .nav-socials {
+    justify-content: center;
+    padding: 14px 28px 4px;
+    gap: 28px;
+    border-left: none;
+    margin-left: 0;
+  }
+  .nav-socials a { padding: 0; border-bottom: 0; }
+  .nav-shop { display: block; }
+  .nav-shop::after { display: none; }
+  .nav-shop-label {
+    width: 100%;
+    padding: 16px 28px;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--nav-dim);
+    border-bottom: 1px solid rgba(212,175,55,0.08);
+    justify-content: flex-start;
+    cursor: default;
+  }
+  .nav-shop-label::after { display: none; }
+  .nav-shop-menu {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    min-width: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+    border-radius: 0;
+  }
+  .nav-links a.nav-shop-item {
+    padding: 13px 28px 13px 40px;
+    border-bottom: 1px solid rgba(212,175,55,0.08);
+    border-radius: 0;
+  }
+  .nav-shop-item.is-feature {
+    background: rgba(212,175,55,0.05);
+    border: 0;
+    border-bottom: 1px solid rgba(212,175,55,0.08);
+    margin-bottom: 0;
+  }
+}
+@media (max-width: 640px) {
+  .nav-inner { padding: 0 20px; }
+}
