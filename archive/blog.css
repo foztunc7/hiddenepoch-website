@@ -654,3 +654,22 @@ footer {
   .article-header .meta { gap: 10px; }
   .data-strip { grid-template-columns: 1fr 1fr; }
 }
+
+/* ── FOOTER SHOP ROW (stamped by scripts/stamp_footer_shop.py) ── */
+.footer-shop {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 28px;
+  max-width: 820px;
+  margin: 0 auto 26px;
+  padding: 0 20px;
+}
+.footer-shop a {
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.footer-shop a:hover { opacity: 0.75; }
