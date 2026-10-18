@@ -115,23 +115,20 @@ nav {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 26px;
+  gap: 36px;
 }
 .nav-links a {
-  font-family: var(--ui);
-  font-size: 0.95rem;
-  font-weight: 500;
-  letter-spacing: 0.005em;
-  text-transform: none;
+  font-family: 'Cinzel', serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   color: var(--text);
   white-space: nowrap;
 }
 .nav-links a:hover { color: var(--gold); opacity: 1; }
 .nav-links .nav-cta {
   color: var(--gold);
-  font-weight: 600;
-  border: 1px solid rgba(232,196,87,0.45);
-  border-radius: 999px;
+  border: 1px solid rgba(212,175,55,0.4);
   padding: 8px 22px;
 }
 .nav-links .nav-cta:hover { background: rgba(212,175,55,0.08); }
@@ -156,10 +153,10 @@ nav {
 /* ---- NAV SHOP DROPDOWN ---- */
 .nav-shop { position: relative; display: flex; align-items: center; }
 .nav-shop-label {
-  font-family: var(--ui);
-  font-size: 0.95rem;
-  font-weight: 500;
-  letter-spacing: 0.005em;
+  font-family: 'Cinzel', serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   color: var(--text);
   background: transparent;
   border: 0;
@@ -204,14 +201,14 @@ nav {
 .nav-shop:focus-within .nav-shop-menu {
   opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0);
 }
-.nav-shop-item { display: block; padding: 10px 14px; border-radius: 8px; text-decoration: none; }
+.nav-shop-item { display: block; padding: 10px 14px; border-radius: 8px; text-decoration: none; text-transform: none; letter-spacing: 0; }
 .nav-shop-item:hover { background: rgba(232,196,87,0.08); }
 .nav-shop-name {
   display: block;
-  font-family: var(--ui);
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.005em;
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--white);
 }
 .nav-shop-blurb {
@@ -968,7 +965,7 @@ footer {
   .affiliate-strip-inner { grid-template-columns: 1fr; }
   .aff-strip-card { border-right: none; border-bottom: 1px solid rgba(212,175,55,0.08); }
 }
-/* Collapse to the hamburger well before the horizontal nav gets cramped. */
+/* Collapse to the hamburger well before the horizontal nav gets cramped. Blog.css matches this 1024 breakpoint so the menu behaves identically site-wide. */
 @media (max-width: 1024px) {
   .nav-toggle { display: block; }
   .nav-links {
@@ -989,11 +986,9 @@ footer {
   }
   .nav-links.open { max-height: 86vh; padding: 8px 0 16px; overflow-y: auto; }
   .nav-links a {
-    padding: 15px 28px;
+    padding: 16px 28px;
     border-bottom: 1px solid rgba(212,175,55,0.08);
-    font-size: 1.05rem;
-    font-weight: 500;
-    letter-spacing: 0.01em;
+    font-size: 0.95rem;
     text-align: left;
     display: block;
     white-space: normal;

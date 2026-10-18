@@ -814,7 +814,7 @@ footer {
 .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
 .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-@media (max-width: 640px) {
+@media (max-width: 1024px) {
   nav { position: relative; }
   .nav-toggle { display: block; }
   .nav-links {
