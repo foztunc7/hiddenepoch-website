@@ -54,6 +54,13 @@ function leadMagnetEmail() {
       <a href="https://hiddenepoch.com/downloads/7-books-vatican-doesnt-want-you-reading.pdf">Download the PDF →</a>
     </div>
 
+    <div class="lead">
+      <p class="lead-tag">Download · One-Page Timeline</p>
+      <h3>Books Cut From Your Bible: Who Cut Them and When</h3>
+      <p>Twelve cuts on one page, from Marcion in 144 AD to the Bible Society in 1826. The council, the year, and the words they used to bury each book. Print it. Pin it next to your Bible.</p>
+      <a href="https://hiddenepoch.com/downloads/books-cut-from-your-bible-timeline.pdf">Download the Timeline →</a>
+    </div>
+
     <p>Read it on the train, on your phone, on your laptop. It is yours. Save it.</p>
 
     <div class="more">
@@ -61,7 +68,7 @@ function leadMagnetEmail() {
       <div class="more-item">
         <a href="https://hiddenepoch.com/canon">
           The Full Edition, All 14 Books Removed From Your Bible
-          <span>The seven you just got plus seven more: Apocalypse of Adam, Book of the Watchers, Apocryphon of John, Apocalypse of Paul, Gospel of Judas, Acts of Thomas, Apocryphon of James. With full annotated texts and Hidden Epoch commentary. $27.</span>
+          <span>The seven you just got plus seven more: Apocalypse of Adam, Book of the Watchers, Apocryphon of John, Apocalypse of Paul, Gospel of Judas, Acts of Thomas, Apocryphon of James. With full annotated texts and Hidden Epoch commentary. $27.99.</span>
         </a>
       </div>
       <div class="more-item">

@@ -315,6 +315,39 @@
       line-height: 1.55;
       margin: 0;
     }
+    .lm-timeline {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 2rem;
+      align-items: center;
+      margin-top: 2.5rem;
+      background: #0a0805;
+      border: 1px solid rgba(212,175,55,0.4);
+      padding: 1.6rem;
+    }
+    .lm-timeline img {
+      width: 100%;
+      height: auto;
+      border: 1px solid rgba(212,175,55,0.3);
+    }
+    .lm-timeline h3 {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.45rem;
+      color: #f0ead8;
+      margin: 0 0 0.7rem;
+      line-height: 1.25;
+    }
+    .lm-timeline p {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.05rem;
+      color: rgba(200,194,180,0.85);
+      line-height: 1.55;
+      margin: 0 0 0.8rem;
+    }
+    @media (max-width: 640px) {
+      .lm-timeline { grid-template-columns: 1fr; }
+      .lm-timeline img { max-width: 320px; margin: 0 auto; display: block; }
+    }
     .lm-bonus { border-color: rgba(212,175,55,0.4); }
     .lm-bonus .lm-book-tag { color: #f0ead8; }
 
@@ -383,7 +416,7 @@
       <span class="gold">7 Books</span><br>
       the Vatican doesn't<br>
       want you reading
-      <span class="bonus">+ 1 Bonus Book</span>
+      <span class="bonus">+ 1 Bonus Book + The Timeline</span>
     </h1>
     <p class="lm-hero-sub">
       Real translations. Specific councils. Documented removal dates. The seven books your church removed, the year it did it, and exactly what was too dangerous for the canon. Plus one bonus book that is the source of every image of hell you have ever been shown.
@@ -444,6 +477,16 @@
         <p class="lm-book-tag">+ Bonus Book</p>
         <h3>The Apocalypse of Peter</h3>
         <p>The source of every image of hell you've ever been shown. Dante read it. Bosch read it. Your Bible doesn't include it.</p>
+      </div>
+    </div>
+
+    <div class="lm-timeline">
+      <img src="/assets/cut-books-timeline-preview.jpg" alt="Books Cut From Your Bible, a one-page timeline from 144 AD to 1826" loading="lazy" width="850" height="1100" />
+      <div>
+        <p class="lm-book-tag">+ Free With It</p>
+        <h3>Books Cut From Your Bible: the one-page timeline</h3>
+        <p>Twelve cuts. Marcion in 144 AD. Athanasius in 367. Nicaea ordering the Acts of John into the fire in 787. Trent sealing the canon in 1546. The council, the year, and the words they used to bury each book, on a single printable page.</p>
+        <p>Both downloads arrive in the same email.</p>
       </div>
     </div>
   </div>
