@@ -334,6 +334,52 @@
     <a href="https://buy.stripe.com/7sY5kE05d6NYcLBaTeeZ201" class="btn-gold" data-buy-cta style="font-size: 1.05rem; padding: 20px 56px;">Get the Case Files</a>
   </section>
 
+  <!-- EMAIL CAPTURE -->
+  <section class="join" id="join">
+    <div class="join-inner">
+      <div class="join-logo"><img src="/assets/logo-mark.jpg" alt="Hidden Epoch" /></div>
+      <div class="section-label">Inner Circle</div>
+      <h2>Get the Full Story<br>Before It Disappears</h2>
+      <p>New investigations and suppressed discoveries, sent straight to you. Start free with <a href="/lost-books" style="color:var(--gold);">the 7 books they cut from your Bible</a>.</p>
+      <form class="email-form" id="subscribe-form">
+        <input type="email" id="subscribe-email" placeholder="your@email.com" required />
+        <button type="submit" class="btn-gold" id="subscribe-btn">Join Free &rarr;</button>
+      </form>
+      <p class="form-note" id="form-note">No spam. Unsubscribe anytime.</p>
+      <script>
+        document.getElementById('subscribe-form').addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const email = document.getElementById('subscribe-email').value;
+          const btn = document.getElementById('subscribe-btn');
+          const note = document.getElementById('form-note');
+          btn.textContent = 'Joining...';
+          btn.disabled = true;
+          try {
+            const res = await fetch('/.netlify/functions/subscribe', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ email })
+            });
+            const data = await res.json();
+            if (data.success) {
+              btn.textContent = "You're in \u2713";
+              note.textContent = 'Welcome to the Inner Circle. First investigation incoming.';
+              document.getElementById('subscribe-email').value = '';
+            } else {
+              btn.textContent = 'Join Free \u2192';
+              btn.disabled = false;
+              note.textContent = data.error || 'Something went wrong. Try again.';
+            }
+          } catch (err) {
+            btn.textContent = 'Join Free \u2192';
+            btn.disabled = false;
+            note.textContent = 'Network error. Try again.';
+          }
+        });
+      </script>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
