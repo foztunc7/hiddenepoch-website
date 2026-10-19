@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Hidden Epoch Shop, Forbidden Texts, Case Files, Maps &amp; Merch</title>
+  <meta name="description" content="Every Hidden Epoch product on one page. The Hidden Canon, the Classified Case Files, 13 Mystery Maps, the Vault bundle, the free Lost Books guide, and merch printed in the US." />
+  <link rel="canonical" href="https://hiddenepoch.com/shop/" />
+  <link rel="icon" type="image/jpeg" href="/assets/logo-mark.jpg" />
+  <link rel="apple-touch-icon" href="/assets/logo-mark.jpg" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Hidden Epoch" />
+  <meta property="og:url" content="https://hiddenepoch.com/shop/" />
+  <meta property="og:title" content="The Hidden Epoch Shop" />
+  <meta property="og:description" content="The forbidden texts, the classified dossiers, the maps that knew too much. Every Hidden Epoch product on one page." />
+  <meta property="og:image" content="https://hiddenepoch.com/canon/cover-card.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Hidden Epoch Shop" />
+  <meta name="twitter:description" content="The forbidden texts, the classified dossiers, the maps that knew too much." />
+  <meta name="twitter:image" content="https://hiddenepoch.com/canon/cover-card.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GEBZWHLQSK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GEBZWHLQSK');
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "The Hidden Epoch Shop",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "url": "https://hiddenepoch.com/vault/", "name": "The Hidden Epoch Vault" },
+      { "@type": "ListItem", "position": 2, "url": "https://hiddenepoch.com/canon/", "name": "The Hidden Canon" },
+      { "@type": "ListItem", "position": 3, "url": "https://hiddenepoch.com/case-files/", "name": "The Classified Case Files" },
+      { "@type": "ListItem", "position": 4, "url": "https://hiddenepoch.com/maps/", "name": "The Mystery Map Collection" }
+    ]
+  }
+  </script>
+
+  <style>
+    .shop-hero {
+      padding: 140px 32px 40px;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .shop-hero .section-label { margin-bottom: 14px; }
+    .shop-hero h1 {
+      font-size: clamp(2.2rem, 6vw, 3.6rem);
+      color: var(--white);
+      line-height: 1.12;
+      margin-bottom: 18px;
+    }
+    .shop-hero p {
+      font-size: 1.2rem;
+      color: var(--text);
+      line-height: 1.6;
+      max-width: 660px;
+      margin: 0 auto;
+    }
+
+    .shop-values {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px 56px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .shop-value {
+      border: 1px solid rgba(212,175,55,0.22);
+      background: #0b0907;
+      padding: 18px 16px;
+      text-align: center;
+    }
+    .shop-value strong {
+      display: block;
+      font-family: 'Cinzel', serif;
+      font-size: 0.86rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .shop-value span { display: block; font-size: 1rem; color: var(--text); line-height: 1.4; }
+
+    .shop-feature {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 0;
+      max-width: 1100px;
+      margin: 0 auto;
+      border: 2px solid var(--gold);
+      background: radial-gradient(120% 140% at 0% 0%, #17110a, #0a0806);
+      box-shadow: 0 0 40px rgba(212,175,55,0.12);
+      color: inherit;
+      transition: transform 0.2s;
+    }
+    .shop-feature:hover { opacity: 1; transform: translateY(-2px); }
+    .shop-feature-media {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      padding: 24px;
+      align-items: center;
+    }
+    .shop-feature-media img {
+      width: 100%;
+      aspect-ratio: 2 / 3;
+      object-fit: cover;
+      border: 1px solid rgba(212,175,55,0.3);
+      display: block;
+    }
+    .shop-feature-body { padding: 36px 36px 36px 12px; display: flex; flex-direction: column; justify-content: center; }
+    .shop-feature-body .section-label { margin-bottom: 10px; }
+    .shop-feature-body h2 { font-size: clamp(1.7rem, 3.4vw, 2.4rem); color: var(--white); line-height: 1.2; margin-bottom: 12px; }
+    .shop-feature-body p { font-size: 1.1rem; color: var(--text); line-height: 1.55; margin-bottom: 20px; }
+    .shop-feature-price { display: flex; align-items: baseline; gap: 14px; margin-bottom: 20px; flex-wrap: wrap; }
+    .shop-feature-price .was { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--text-dim); text-decoration: line-through; }
+    .shop-feature-price .now { font-family: 'Cinzel', serif; font-size: 2.6rem; color: var(--gold); line-height: 1; }
+    .shop-feature-price .note { font-size: 1rem; color: var(--text-dim); }
+    .shop-feature .btn-gold { align-self: flex-start; }
+
+    .shop-group { max-width: 1200px; margin: 0 auto; padding: 72px 40px 0; }
+    .shop-group h2 { font-size: clamp(1.7rem, 3.6vw, 2.5rem); color: var(--white); margin-bottom: 10px; line-height: 1.2; }
+    .shop-group .shop-group-sub { font-size: 1.1rem; color: var(--text); margin-bottom: 32px; max-width: 640px; }
+    .shop-group:last-of-type { padding-bottom: 100px; }
+    .product-media.is-top img { object-position: center top; }
+    .product-media.is-low img { object-position: center 78%; }
+
+    @media (max-width: 900px) {
+      .shop-values { grid-template-columns: 1fr 1fr; }
+      .shop-feature { grid-template-columns: 1fr; }
+      .shop-feature-body { padding: 4px 24px 30px; }
+    }
+    @media (max-width: 600px) {
+      .shop-hero { padding: 110px 20px 32px; }
+      .shop-values { padding: 0 20px 44px; gap: 10px; }
+      .shop-value { padding: 14px 10px; }
+      .shop-feature { margin: 0 20px; }
+      .shop-feature-media { padding: 16px; gap: 6px; }
+      .shop-group { padding: 56px 20px 0; }
+      .shop-group:last-of-type { padding-bottom: 72px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <img src="/assets/logo-mark.jpg" alt="Hidden Epoch" />
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="nav-links">
+        <a href="/archive/">Investigations</a>
+        <a href="/blueprint/">The Blueprint</a>
+        <a href="/books/">Books</a>
+        <div class="nav-shop">
+          <button type="button" class="nav-shop-label" style="color: var(--gold)" aria-haspopup="true">Shop</button>
+          <div class="nav-shop-menu">
+          <a href="/vault/" class="nav-shop-item is-feature"><span class="nav-shop-name">The Vault</span><span class="nav-shop-blurb">All four, best value</span></a>
+          <a href="/canon/" class="nav-shop-item"><span class="nav-shop-name">The Hidden Canon</span><span class="nav-shop-blurb">The forbidden texts</span></a>
+          <a href="/case-files/" class="nav-shop-item"><span class="nav-shop-name">Case Files</span><span class="nav-shop-blurb">Classified dossiers</span></a>
+          <a href="/maps/" class="nav-shop-item"><span class="nav-shop-name">Mystery Maps</span><span class="nav-shop-blurb">Where it happened</span></a>
+          <a href="/shop/" class="nav-shop-item"><span class="nav-shop-name">The Whole Shop</span><span class="nav-shop-blurb">Every product, one page</span></a>
+          </div>
+        </div>
+        <a href="/#join" class="nav-cta">Join</a>
+        <div class="nav-socials">
+          <a href="https://www.tiktok.com/@HiddenEpochH" target="_blank" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.73a8.18 8.18 0 004.78 1.53V6.79a4.85 4.85 0 01-1.01-.1z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/hiddenepochh" target="_blank" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@HiddenEpochHistory" target="_blank" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <script>
+    (function(){var b=document.getElementById('nav-toggle'),m=document.getElementById('nav-links');if(!b||!m)return;b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');});})();
+  </script>
+
+  <!-- HERO -->
+  <section class="shop-hero">
+    <div class="section-label">The Hidden Epoch Shop</div>
+    <h1>Own the Evidence</h1>
+    <p>The texts the church cut. The sites the textbooks cannot date. The maps that knew too much. Every investigation we publish, in a form you can keep.</p>
+  </section>
+
+  <!-- VALUE STRIP -->
+  <section class="shop-values" aria-label="Why buy here">
+    <div class="shop-value"><strong>Instant</strong><span>Digital downloads hit your inbox the minute you pay</span></div>
+    <div class="shop-value"><strong>Receipts</strong><span>Manuscripts, sites and museum sources named on every claim</span></div>
+    <div class="shop-value"><strong>Secure</strong><span>Checkout by Stripe, card or Apple Pay</span></div>
+    <div class="shop-value"><strong>US printed</strong><span>Tees and hoodies printed and shipped from the US</span></div>
+  </section>
+
+  <!-- FEATURED: THE VAULT -->
+  <a href="/vault/" class="shop-feature">
+    <div class="shop-feature-media">
+      <img src="/canon/cover-card.jpg" alt="The Hidden Canon cover" />
+      <img src="/case-files/previews/great-pyramid.jpg" alt="Great Pyramid case file" />
+      <img src="/maps/previews/piri-reis.jpg" alt="Piri Reis map" />
+    </div>
+    <div class="shop-feature-body">
+      <div class="section-label">Best Value &middot; The Complete Archive</div>
+      <h2>The Hidden Epoch Vault</h2>
+      <p>The Hidden Canon, all 3 Classified Case Files, and the 13 Mystery Maps. One download, everything we sell.</p>
+      <div class="shop-feature-price">
+        <span class="was">$55.99</span>
+        <span class="now">$39</span>
+        <span class="note">launch price</span>
+      </div>
+      <span class="btn-gold">Open the Vault &rarr;</span>
+    </div>
+  </a>
+
+  <!-- DIGITAL ARCHIVE -->
+  <section class="shop-group">
+    <div class="section-label">Digital Downloads</div>
+    <h2>The Archive, One Volume at a Time</h2>
+    <p class="shop-group-sub">Each one stands alone. Start with the one that started the argument.</p>
+    <div class="product-grid">
+      <a href="/canon/" class="product-card">
+        <div class="product-media is-top"><img src="/canon/cover-card.jpg" alt="The Hidden Canon" loading="lazy" /></div>
+        <div class="product-body">
+          <h4>The Hidden Canon</h4>
+          <p>14 books the church cut from your Bible. Enoch, Giants, Mary, Judas. 90 pages, manuscript receipts on every claim.</p>
+          <div class="product-foot"><span class="product-price">$27.99</span><span class="product-cta">Get the Canon &rarr;</span></div>
+        </div>
+      </a>
+      <a href="/case-files/" class="product-card">
+        <div class="product-media"><img src="/case-files/previews/great-pyramid.jpg" alt="The Classified Case Files" loading="lazy" /></div>
+        <div class="product-body">
+          <h4>The Classified Case Files</h4>
+          <p>Three full dossiers. The Great Pyramid, Gobekli Tepe, the Antikythera Mechanism. The evidence, the timeline, the verdict.</p>
+          <div class="product-foot"><span class="product-price">$19</span><span class="product-cta">Open the files &rarr;</span></div>
+        </div>
+      </a>
+      <a href="/maps/" class="product-card">
+        <div class="product-media"><img src="/maps/previews/piri-reis.jpg" alt="The Mystery Map Collection" loading="lazy" /></div>
+        <div class="product-body">
+          <h4>The Mystery Map Collection</h4>
+          <p>13 museum maps restored, print-ready to 24 inches. Piri Reis, Mercator, the Catalan Atlas. With the briefing on what each one should not have known.</p>
+          <div class="product-foot"><span class="product-price">$9</span><span class="product-cta">Get all 13 &rarr;</span></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- MERCH -->
+  <section class="shop-group">
+    <div class="section-label">Wear the Receipts</div>
+    <h2>Merch on Etsy</h2>
+    <p class="shop-group-sub">The history they edited out, now on a shirt. Tees and hoodies, printed and shipped from the US.</p>
+    <div class="product-grid">
+      <a href="https://www.etsy.com/shop/HiddenEpoch" target="_blank" rel="noopener" class="product-card">
+        <div class="product-media is-low"><img src="/assets/merch/anunnaki.jpg" alt="Anunnaki tee" loading="lazy" /></div>
+        <div class="product-body">
+          <h4>The Anunnaki</h4>
+          <p>The gods who came down, carved in the clay the Sumerians left behind.</p>
+          <div class="product-foot"><span class="product-price">Etsy</span><span class="product-cta">Shop the tee &rarr;</span></div>
+        </div>
+      </a>
+      <a href="https://www.etsy.com/shop/HiddenEpoch" target="_blank" rel="noopener" class="product-card">
+        <div class="product-media is-low"><img src="/assets/merch/enoch.jpg" alt="Book of Enoch tee" loading="lazy" /></div>
+        <div class="product-body">
+          <h4>The Book of Enoch</h4>
+          <p>The book they removed, worn where everyone can read it.</p>
+          <div class="product-foot"><span class="product-price">Etsy</span><span class="product-cta">Shop the tee &rarr;</span></div>
+        </div>
+      </a>
+      <a href="https://www.etsy.com/shop/HiddenEpoch" target="_blank" rel="noopener" class="product-card">
+        <div class="product-media is-low"><img src="/assets/merch/giants.jpg" alt="Ancient giants tee" loading="lazy" /></div>
+        <div class="product-body">
+          <h4>The Giants</h4>
+          <p>The Nephilim, the bones, the story the museums stopped telling.</p>
+          <div class="product-foot"><span class="product-price">Etsy</span><span class="product-cta">Shop the tee &rarr;</span></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- FREE -->
+  <section class="shop-group">
+    <div class="section-label">Start Free</div>
+    <h2>Not Ready to Buy? Read First.</h2>
+    <p class="shop-group-sub">The free field guide that brought most of our readers in, and the shelf of books behind every investigation.</p>
+    <div class="product-grid">
+      <a href="/lost-books" class="product-card">
+        <div class="product-media is-top"><img src="/assets/lead-magnet-card.jpg" alt="7 Books the Vatican Doesn't Want You Reading" loading="lazy" /></div>
+        <div class="product-body">
+          <h4>7 Lost Books, Free PDF</h4>
+          <p>Seven books removed from your Bible, plus one bonus. Real translations, documented removal dates, and why each one threatened the church.</p>
+          <div class="product-foot"><span class="product-price">Free</span><span class="product-cta">Send me the PDF &rarr;</span></div>
+        </div>
+      </a>
+      <a href="/books/" class="product-card">
+        <div class="product-media"><img src="/maps/previews/catalan-atlas-1375.jpg" alt="The Hidden Epoch reading list" loading="lazy" /></div>
+        <div class="product-body">
+          <h4>The Reading List</h4>
+          <p>The source books on our shelf. Mesopotamia, biblical archaeology, suppressed scripture, the lost civilizations.</p>
+          <div class="product-foot"><span class="product-price">Free</span><span class="product-cta">See the shelf &rarr;</span></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <img src="/assets/logo-mark.jpg" alt="Hidden Epoch" class="footer-logo" />
+      <p class="footer-tagline">History they buried. We dig it up.</p>
+      <div class="footer-links footer-shop">
+        <a href="/lost-books">Free Lost Books</a>
+        <a href="/canon/">The Hidden Canon</a>
+        <a href="/case-files/">Case Files</a>
+        <a href="/maps/">Mystery Maps</a>
+        <a href="/books/">Books</a>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.tiktok.com/@HiddenEpochH" target="_blank">TikTok</a>
+        <a href="https://www.instagram.com/hiddenepochh" target="_blank">Instagram</a>
+        <a href="https://www.youtube.com/@HiddenEpochHistory" target="_blank">YouTube</a>
+      </div>
+      <p class="footer-legal" style="font-family:'EB Garamond',serif;font-size:13px;color:var(--text-dim);margin:0 0 10px;">
+        <a href="/privacy/" style="color:var(--gold-dim);margin:0 8px;">Privacy</a> ·
+        <a href="/terms/" style="color:var(--gold-dim);margin:0 8px;">Terms</a> ·
+        <a href="/refund/" style="color:var(--gold-dim);margin:0 8px;">Refund</a> ·
+        <a href="/contact/" style="color:var(--gold-dim);margin:0 8px;">Contact</a> ·
+        <a href="/affiliate-disclosure/" style="color:var(--gold-dim);margin:0 8px;">Affiliate Disclosure</a>
+      </p>
+      <p class="footer-copy">© 2026 Hidden Epoch. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
