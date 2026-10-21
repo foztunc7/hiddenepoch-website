@@ -30,22 +30,22 @@
 
   <style>
     .wl-hero {
-      padding: 90px 24px 40px;
+      padding: 64px 24px 8px;
       max-width: 760px;
       margin: 0 auto;
       text-align: center;
     }
     .wl-check {
-      width: 64px;
-      height: 64px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       border: 1px solid rgba(212,175,55,0.5);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 28px;
+      margin: 0 auto 14px;
       color: var(--gold);
-      font-size: 30px;
+      font-size: 22px;
       font-family: 'Cinzel', serif;
     }
     .wl-eyebrow {
@@ -58,7 +58,7 @@
     }
     .wl-hero h1 {
       font-family: 'Cinzel', serif;
-      font-size: clamp(30px, 5vw, 48px);
+      font-size: clamp(26px, 4.4vw, 40px);
       color: var(--white);
       line-height: 1.1;
       margin: 0 0 20px;
@@ -72,7 +72,7 @@
       margin: 0 auto 14px;
     }
     .wl-backup {
-      margin: 30px 0 8px;
+      margin: 14px 0 0;
     }
     .wl-backup a {
       color: var(--gold);
@@ -91,8 +91,8 @@
 
     .wl-offer {
       max-width: 960px;
-      margin: 40px auto 0;
-      padding: 56px 24px 20px;
+      margin: 24px auto 0;
+      padding: 16px 24px 20px;
     }
     .wl-offer-card {
       background: #0c0a08;
@@ -104,7 +104,8 @@
       padding: 44px;
     }
     @media (max-width: 760px) {
-      .wl-offer-card { grid-template-columns: 1fr; gap: 28px; padding: 32px 22px; text-align: center; }
+      .wl-offer-card { grid-template-columns: 1fr; gap: 20px; padding: 28px 20px; text-align: center; }
+      .wl-offer .wl-offer-card img { max-width: 170px; }
     }
     .wl-offer-card img {
       width: 100%;
@@ -252,11 +253,11 @@
     <div class="wl-check">&#10003;</div>
     <div class="wl-eyebrow">You're in</div>
     <h1>Your field guide is on its way.</h1>
-    <p>Check your inbox for an email from Hidden Epoch with your download link. It usually arrives within a minute. Check spam if you don't see it.</p>
+    <p>The download link lands in your inbox within a minute. Check spam if it hides.</p>
     <div class="wl-backup">
-      <a href="/downloads/7-books-vatican-doesnt-want-you-reading.pdf" id="wl-backup-link" download>Download the field guide directly &rarr;</a><br><br>
-      <a href="/downloads/books-cut-from-your-bible-timeline.pdf" id="wl-timeline-link" download>Download the timeline: Books Cut From Your Bible &rarr;</a>
-      <p class="wl-backup-note">A backup, in case the email is slow. Save it to your device.</p>
+      <a href="/downloads/7-books-vatican-doesnt-want-you-reading.pdf" id="wl-backup-link" download>Field guide</a> &middot;
+      <a href="/downloads/books-cut-from-your-bible-timeline.pdf" id="wl-timeline-link" download>The timeline</a>
+      <p class="wl-backup-note">Direct downloads, in case the email is slow.</p>
     </div>
   </section>
 
@@ -265,7 +266,7 @@
     <div class="wl-offer-card">
       <img src="/assets/welcome/enoch-cover-banned.jpg" alt="The Book of Enoch, banned from the Bible, all 108 chapters, R.H. Charles 1917" width="800" height="800" />
       <div>
-        <div class="wl-offer-tag">Start with Book One</div>
+        <div class="wl-offer-tag">While your guide arrives</div>
         <h2>The guide gives Enoch one page. Read all 108 chapters.</h2>
         <p class="desc">
           The 200 Watchers. The oath on Mount Hermon. The giants. The names of the angels who taught forbidden craft. The book Jude quotes word for word, and the book your Bible leaves out. Illustrated PDF, Ethiopian edition.
@@ -356,7 +357,7 @@
         campaign: new URLSearchParams(location.search).get('utm_campaign') || 'canon_launch'
       });
     }
-    [['canon', '[data-select-canon]'], ['maps', '[data-select-maps]']].forEach(function (p) {
+    [['canon', '[data-select-canon]'], ['maps', '[data-select-maps]'], ['enoch_etsy', '#wl-enoch-cta'], ['watchers_etsy', '#wl-watchers-cta']].forEach(function (p) {
       var cta = document.querySelector(p[1]);
       if (!cta) return;
       cta.addEventListener('click', function () {
