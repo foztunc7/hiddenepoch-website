@@ -116,7 +116,7 @@
     }
     .link-card--featured .lc-title { color: var(--gold); }
 
-    .socials { margin-top: 30px; display: flex; justify-content: center; gap: 26px; }
+    .socials { margin-top: 30px; display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 26px; }
     .socials a {
       color: var(--text-dim); font-family: 'Cinzel', serif;
       font-size: 13px; letter-spacing: 0.1em; text-decoration: none; text-transform: uppercase;
@@ -137,12 +137,24 @@
     <h1>Hidden Epoch</h1>
     <p class="tagline">The history they filed away. We pull the files.</p>
 
-    <!-- ROTATION: keep 5 cards max. Swap the featured card weekly. -->
+    <!-- ROTATION: keep 5 cards max. The free PDF stays featured: it is the only card that converts (bio CTR 17% when it sat 4th, Oct 2026). -->
 
-    <a class="link-card link-card--featured" href="https://www.etsy.com/shop/HiddenEpoch" onclick="gtag('event','bio_click',{link:'etsy_merch'})">
-      <span class="lc-tag">NEW</span>
-      <span class="lc-title">Shop the Merch</span>
-      <span class="lc-sub">Tees and hoodies. Wear the receipts. On Etsy.</span>
+    <a class="link-card link-card--featured" href="/lost-books" onclick="gtag('event','bio_click',{link:'lost_books'})">
+      <span class="lc-tag">FREE</span>
+      <span class="lc-title">7 Forbidden Books PDF</span>
+      <span class="lc-sub">The books the gatekeepers buried, in one free download. Start here.</span>
+    </a>
+
+    <a class="link-card" href="/canon/" onclick="gtag('event','bio_click',{link:'canon'})">
+      <span class="lc-tag">$28</span>
+      <span class="lc-title">The Hidden Canon</span>
+      <span class="lc-sub">14 books cut from your Bible, Enoch included. Restored in one volume.</span>
+    </a>
+
+    <a class="link-card" href="/vault/" onclick="gtag('event','bio_click',{link:'vault'})">
+      <span class="lc-tag">$39</span>
+      <span class="lc-title">The Vault</span>
+      <span class="lc-sub">Everything, unlocked. The full forbidden archive in one download.</span>
     </a>
 
     <a class="link-card" href="/case-files/" onclick="gtag('event','bio_click',{link:'case_files'})">
@@ -157,33 +169,12 @@
       <span class="lc-sub">13 maps that know too much. Print-ready museum scans.</span>
     </a>
 
-    <a class="link-card" href="/lost-books" onclick="gtag('event','bio_click',{link:'lost_books'})">
-      <span class="lc-tag">FREE</span>
-      <span class="lc-title">7 Forbidden Books PDF</span>
-      <span class="lc-sub">The books the gatekeepers buried. Free download.</span>
-    </a>
-
-    <a class="link-card" href="/archive/" onclick="gtag('event','bio_click',{link:'archive'})">
-      <span class="lc-title">Latest Investigations</span>
-      <span class="lc-sub">New case published every night. Read the archive.</span>
-    </a>
-
-    <a class="link-card" href="/vault/" onclick="gtag('event','bio_click',{link:'vault'})">
-      <span class="lc-tag">$39</span>
-      <span class="lc-title">The Vault</span>
-      <span class="lc-sub">Everything, unlocked. The full forbidden archive in one download.</span>
-    </a>
-
-    <a class="link-card" href="/canon/" onclick="gtag('event','bio_click',{link:'canon'})">
-      <span class="lc-tag">$28</span>
-      <span class="lc-title">The Hidden Canon</span>
-      <span class="lc-sub">The books they cut, restored and compiled into one volume.</span>
-    </a>
-
     <div class="socials">
       <a href="https://www.instagram.com/hiddenepochh">Instagram</a>
       <a href="https://www.tiktok.com/@HiddenEpochH">TikTok</a>
       <a href="https://www.youtube.com/@HiddenEpochHistory">YouTube</a>
+      <a href="https://www.etsy.com/shop/HiddenEpoch" onclick="gtag('event','bio_click',{link:'etsy_merch'})">Merch</a>
+      <a href="/archive/" onclick="gtag('event','bio_click',{link:'archive'})">Archive</a>
     </div>
 
     <p class="foot"><a href="https://hiddenepoch.com/">hiddenepoch.com</a></p>
