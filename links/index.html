@@ -137,12 +137,20 @@
     <h1>Hidden Epoch</h1>
     <p class="tagline">The history they filed away. We pull the files.</p>
 
-    <!-- ROTATION: keep 5 cards max. The free PDF stays featured: it is the only card that converts (bio CTR 17% when it sat 4th, Oct 2026). -->
+    <!-- ROTATION: free PDF stays featured, it is the only card that converts (bio CTR 17% when it sat 4th, Oct 2026).
+         Etsy shop added as a full card 2026-10-21 (Fatih: "etsy aint even on there", it was only a tiny Merch footer link).
+         Etsy is where sales actually happen; the hosted product pages have had 0 sales since 9/27. -->
 
     <a class="link-card link-card--featured" href="/lost-books" onclick="gtag('event','bio_click',{link:'lost_books'})">
       <span class="lc-tag">FREE</span>
       <span class="lc-title">7 Forbidden Books PDF</span>
       <span class="lc-sub">The books the gatekeepers buried, in one free download. Start here.</span>
+    </a>
+
+    <a class="link-card" href="https://www.etsy.com/shop/HiddenEpoch?utm_source=hiddenepoch&utm_medium=linkbio&utm_campaign=links_hub" onclick="gtag('event','bio_click',{link:'etsy_shop'})">
+      <span class="lc-tag">ETSY</span>
+      <span class="lc-title">The Hidden Epoch Shop</span>
+      <span class="lc-sub">Prints, charts and apparel. Our full Etsy collection, shipped to you.</span>
     </a>
 
     <a class="link-card" href="/canon/" onclick="gtag('event','bio_click',{link:'canon'})">
@@ -173,7 +181,6 @@
       <a href="https://www.instagram.com/hiddenepochh">Instagram</a>
       <a href="https://www.tiktok.com/@HiddenEpochH">TikTok</a>
       <a href="https://www.youtube.com/@HiddenEpochHistory">YouTube</a>
-      <a href="https://www.etsy.com/shop/HiddenEpoch" onclick="gtag('event','bio_click',{link:'etsy_merch'})">Merch</a>
       <a href="/archive/" onclick="gtag('event','bio_click',{link:'archive'})">Archive</a>
     </div>
 
