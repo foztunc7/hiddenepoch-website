@@ -66,6 +66,12 @@ function leadMagnetEmail() {
     <div class="more">
       <h3>What's Next</h3>
       <div class="more-item">
+        <a href="https://www.etsy.com/listing/4595169146?utm_source=email&utm_medium=welcome_email&utm_campaign=lead_magnet">
+          Read the Book They Cut First: The Book of Enoch
+          <span>The 200 Watchers. The oath on Mount Hermon. The giants. The book Jude quotes word for word, and the book your Bible leaves out. Illustrated PDF, Ethiopian edition. Under $5.</span>
+        </a>
+      </div>
+      <div class="more-item">
         <a href="https://hiddenepoch.com/canon">
           The Full Edition, All 14 Books Removed From Your Bible
           <span>The seven you just got plus seven more: Apocalypse of Adam, Book of the Watchers, Apocryphon of John, Apocalypse of Paul, Gospel of Judas, Acts of Thomas, Apocryphon of James. With full annotated texts and Hidden Epoch commentary. $27.99.</span>
