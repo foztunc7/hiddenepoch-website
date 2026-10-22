@@ -13,7 +13,7 @@
   --gold-dim:#a8892a;
   --stone:   #2a2a2a;
   --text:    #c8c2b4;
-  --text-dim:#7a7468;
+  --text-dim:#a39d8e;
   --white:   #f0ead8;
 }
 
@@ -174,7 +174,7 @@ img { display: block; max-width: 100%; }
   margin: 0 auto;
   padding: 100px 24px 0;
   font-family: 'Cinzel', serif;
-  font-size: 0.68rem;
+  font-size: 0.74rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-dim);
@@ -188,7 +188,7 @@ img { display: block; max-width: 100%; }
 .breadcrumb .sep { color: rgba(212,175,55,0.3); }
 .breadcrumb .current {
   color: var(--gold);
-  opacity: 0.7;
+  opacity: 0.95;
   flex: 1 1 100%;
   min-width: 0;
   white-space: normal;
@@ -228,7 +228,7 @@ img { display: block; max-width: 100%; }
 }
 .article-header .meta span {
   font-family: 'Cinzel', serif;
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   letter-spacing: 0.1em;
   color: var(--text-dim);
 }
