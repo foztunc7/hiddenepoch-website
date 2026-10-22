@@ -808,6 +808,8 @@ footer {
 }
 @media (max-width: 640px) {
   body { font-size: 19px; }
+  .strip-inner { padding: 0 16px; gap: 12px; }
+  .social-link { gap: 6px; font-size: 0.74rem; letter-spacing: 0.08em; }
   .email-form { flex-direction: column; }
   .email-form input { border-right: 1px solid rgba(212,175,55,0.2); border-bottom: none; }
   .archive-card { flex-direction: column; gap: 12px; }
