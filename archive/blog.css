@@ -673,3 +673,9 @@ footer {
   color: var(--gold);
 }
 .footer-shop a:hover { opacity: 0.75; }
+
+@media (max-width: 640px) {
+  .post-meta { gap: 8px; flex-wrap: nowrap; white-space: nowrap; }
+  .post-meta .author { font-size: 0.68rem; letter-spacing: 0.06em; }
+  .post-meta .date, .post-meta .read-time { font-size: 0.8rem; opacity: 1; }
+}
