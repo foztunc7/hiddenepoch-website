@@ -679,3 +679,8 @@ footer {
   .post-meta .author { font-size: 0.68rem; letter-spacing: 0.06em; }
   .post-meta .date, .post-meta .read-time { font-size: 0.8rem; opacity: 1; }
 }
+
+@media (max-width: 640px) {
+  .archive-hero { padding: 104px 20px 40px; }
+  .posts-grid { padding-top: 32px; }
+}
