@@ -96,6 +96,7 @@ img { display: block; max-width: 100%; }
 .post-card .card-thumb {
   float: left;
   width: 240px;
+  height: auto;
   aspect-ratio: 4 / 3;
   object-fit: cover;
   object-position: center 35%;
@@ -110,6 +111,7 @@ img { display: block; max-width: 100%; }
   .post-card .card-thumb {
     float: none;
     width: 100%;
+    height: auto;
     aspect-ratio: 16 / 9;
     margin: 0 0 22px 0;
   }
@@ -131,7 +133,7 @@ img { display: block; max-width: 100%; }
   line-height: 1.25;
   letter-spacing: 0.04em;
 }
-.post-card .excerpt {
+.post-card .excerpt { display: flow-root;
   color: var(--text-dim);
   font-size: 1rem;
   line-height: 1.75;
