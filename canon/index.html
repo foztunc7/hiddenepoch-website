@@ -318,11 +318,12 @@
       </p>
       <div class="canon-buy">
         <div class="canon-price">
-          $27.99
+          <span data-canon-price>$27.99</span>
           <small>One-time · Instant PDF</small>
         </div>
         <a href="https://buy.stripe.com/7sY28sf076NY26XgdyeZ200" class="btn-gold" data-buy-cta>Read the 14 banned books today</a>
       </div>
+      <p data-canon-deadline hidden style="margin-top:14px;font-size:1rem;color:#D4AF37;letter-spacing:0.04em;">Launch price: half off until Saturday, October 31, 8pm ET. Discount applied at checkout.</p>
       <p style="margin-top:18px;font-size:0.95rem;color:#c8c2b4;">Want to start with one book? <a href="https://www.etsy.com/listing/4595169146" rel="noopener" style="color:#D4AF37;">The Book of Enoch, Illustrated Edition. Instant PDF, $4.99</a>.</p>
       <div class="canon-meta">
         <span>90 pages</span> · <span>14 chapters</span> · <span>Receipts cited</span> · <span>DRM-free PDF</span>
@@ -385,10 +386,10 @@
     <h2>Get The Canon</h2>
     <div class="canon-divider"></div>
     <p class="section-lede">
-      $27.99. One-time payment. Instant PDF delivered to your email. 90 pages, 14 chapters, manuscript receipts cited throughout. DRM-free, personal license.
+      <span data-canon-price>$27.99</span>. One-time payment. Instant PDF delivered to your email. 90 pages, 14 chapters, manuscript receipts cited throughout. DRM-free, personal license.
     </p>
     <div style="text-align:center; margin: 40px 0 8px;">
-      <a href="https://buy.stripe.com/7sY28sf076NY26XgdyeZ200" class="btn-gold" id="buy-cta" data-buy-cta style="font-size:1.05rem; padding: 20px 56px;">Get the Canon · Instant access · $27.99</a>
+      <a href="https://buy.stripe.com/7sY28sf076NY26XgdyeZ200" class="btn-gold" id="buy-cta" data-buy-cta style="font-size:1.05rem; padding: 20px 56px;">Get the Canon · Instant access · <span data-canon-price>$27.99</span></a>
     </div>
     <p style="text-align:center; color: var(--text-dim); font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; margin-top: 18px;">
       Stripe · Card or Apple Pay · Delivered in 60 seconds · DRM-free · Yours to keep
@@ -533,6 +534,7 @@
       });
     });
   </script>
+  <script src="/assets/js/canon-launch.js"></script>
 
 </body>
 </html>
