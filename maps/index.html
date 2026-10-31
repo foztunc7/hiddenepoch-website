@@ -63,7 +63,7 @@
       align-items: center;
     }
     @media (max-width: 800px) {
-      .maps-hero { grid-template-columns: 1fr; gap: 40px; padding: 48px 20px 32px; }
+      .maps-hero { grid-template-columns: 1fr; gap: 28px; padding: 48px 20px 32px; }
     }
     .maps-collage {
       display: grid;
@@ -82,6 +82,11 @@
     .maps-collage img:first-child {
       grid-column: 1 / -1;
       height: 220px;
+    }
+    @media (max-width: 800px) {
+      /* buy box first on mobile (DTC pattern), maps strip follows it */
+      .maps-collage { order: 2; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+      .maps-collage img, .maps-collage img:first-child { grid-column: auto; height: 120px; }
     }
     .maps-tag {
       font-family: 'Cinzel', serif;
