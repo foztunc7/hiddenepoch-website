@@ -63,8 +63,7 @@
       align-items: center;
     }
     @media (max-width: 800px) {
-      .cf-hero { grid-template-columns: 1fr; gap: 40px; padding: 48px 20px 32px; }
-      .cf-fan { height: 330px; }
+      .cf-hero { grid-template-columns: 1fr; gap: 16px; padding: 40px 20px 32px; }
       .cf-tag, .cf-price small { font-size: 12.5px; }
       .cf-meta { font-size: 15px; }
     }
@@ -83,6 +82,7 @@
     .cf-fan img:nth-child(1) { left: 0; top: 40px; transform: rotate(-7deg); z-index: 1; }
     .cf-fan img:nth-child(2) { left: 19%; top: 8px; transform: rotate(-1deg); z-index: 2; }
     .cf-fan img:nth-child(3) { left: 38%; top: 44px; transform: rotate(6deg); z-index: 3; }
+    @media (max-width: 800px) { .cf-fan { height: 340px; } }
     .cf-tag {
       font-family: 'Cinzel', serif;
       font-size: 11px;
