@@ -66,6 +66,12 @@ function leadMagnetEmail() {
     <div class="more">
       <h3>What's Next</h3>
       <div class="more-item">
+        <a href="https://www.etsy.com/listing/4597922785?utm_source=email&utm_medium=welcome_email&utm_campaign=lead_magnet&utm_content=watchers">
+          Two Hundred Angels Came Down on Mount Hermon. This Chart Names Their Chiefs.
+          <span>One printable chart, under $2. Azazel taught swords. Kokabel taught the stars. Semjaza led them all. Every chief Watcher who fell and the forbidden craft he handed to mankind. Their names were cut from your Bible. Their crafts are still in your hands.</span>
+        </a>
+      </div>
+      <div class="more-item">
         <a href="https://www.etsy.com/listing/4595169146?utm_source=email&utm_medium=welcome_email&utm_campaign=lead_magnet">
           Read the Book They Cut First: The Book of Enoch
           <span>The 200 Watchers. The oath on Mount Hermon. The giants. The book Jude quotes word for word, and the book your Bible leaves out. Illustrated PDF, Ethiopian edition. Under $5.</span>
