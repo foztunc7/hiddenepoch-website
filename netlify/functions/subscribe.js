@@ -1,189 +1,158 @@
 // ── Email template builders ─────────────────────────────────────────────────
 
-const sharedStyles = `
-  body { margin: 0; padding: 0; background: #000000; font-family: Georgia, serif; }
-  .wrap { max-width: 600px; margin: 0 auto; background: #000000; }
-  .header { background: #000000; border-bottom: 1px solid rgba(212,175,55,0.3); padding: 40px 48px; text-align: center; }
-  .header img { width: 64px; height: 64px; border-radius: 50%; border: 1px solid rgba(212,175,55,0.4); }
-  .header h1 { font-family: Georgia, serif; font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: #D4AF37; margin: 20px 0 0; }
-  .body { padding: 52px 48px; }
-  .body h2 { font-family: Georgia, serif; font-size: 26px; color: #f0ead8; margin: 0 0 20px; line-height: 1.35; font-weight: normal; }
-  .body p { font-size: 16px; color: #c8c2b4; line-height: 1.75; margin: 0 0 20px; }
-  .lead { background: #0d0a06; border: 1px solid rgba(212,175,55,0.25); padding: 32px 36px; margin: 28px 0 36px; }
-  .lead-tag { font-family: Georgia, serif; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: #D4AF37; margin: 0 0 14px; }
-  .lead h3 { font-family: Georgia, serif; font-size: 22px; color: #f0ead8; margin: 0 0 16px; line-height: 1.3; font-weight: normal; }
-  .lead p { font-size: 15px; color: #c8c2b4; line-height: 1.7; margin: 0 0 22px; }
-  .lead a { display: inline-block; background: #D4AF37; color: #000000; font-family: Georgia, serif; font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; padding: 13px 28px; text-decoration: none; font-weight: bold; }
-  .more h3 { font-family: Georgia, serif; font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; color: #D4AF37; margin: 36px 0 18px; }
-  .more-item { border-top: 1px solid rgba(212,175,55,0.1); padding: 18px 0; }
-  .more-item a { font-family: Georgia, serif; font-size: 16px; color: #f0ead8; line-height: 1.4; text-decoration: none; display: block; }
-  .more-item a:hover { color: #D4AF37; }
-  .more-item span { display: block; font-size: 13px; color: rgba(200,194,180,0.65); margin-top: 6px; line-height: 1.55; }
-  .divider { height: 1px; background: rgba(212,175,55,0.15); margin: 40px 0 32px; }
-  .footer { border-top: 1px solid rgba(212,175,55,0.12); padding: 32px 48px; text-align: center; }
-  .footer p { font-size: 12px; color: rgba(200,194,180,0.4); margin: 0 0 8px; }
-  .footer a { color: rgba(212,175,55,0.5); }
-  .socials { margin: 18px 0; }
-  .socials a { font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(212,175,55,0.6); margin: 0 10px; text-decoration: none; }
-`;
+// All styles inline: Gmail and Apple Mail on mobile strip <head><style>. Dark warm ground,
+// one gold accent, Georgia serif. Matches the drip template in scripts/drip_emails.py.
+const GOLD = "#d4af37";
+const S = {
+  body: "margin:0 0 17px;font-family:Georgia,'Times New Roman',serif;font-size:17px;line-height:1.66;color:#d9d2c2;",
+  h2: "margin:0 0 20px;font-family:Georgia,serif;font-size:27px;line-height:1.28;font-weight:normal;color:#f0ead8;",
+  h3: "margin:0 0 14px;font-family:Georgia,serif;font-size:21px;line-height:1.3;font-weight:normal;color:#f0ead8;",
+  eyebrow: "margin:0 0 13px;font-family:Georgia,serif;font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:#c99a3a;",
+  card: `background:#13100a;border:1px solid #2f2614;border-top:2px solid ${GOLD};border-radius:3px;padding:28px 30px;margin:28px 0;`,
+  btn: `display:block;background:${GOLD};color:#0a0805;font-family:Georgia,serif;font-weight:bold;letter-spacing:0.09em;text-transform:uppercase;font-size:15px;line-height:1.3;padding:16px 22px;text-decoration:none;border-radius:2px;text-align:center;margin-top:4px;`,
+};
 
-function leadMagnetEmail() {
-  return `
-<!DOCTYPE html>
+const P = (t) => `<p style="${S.body}">${t}</p>`;
+const H2 = (t) => `<h2 style="${S.h2}">${t}</h2>`;
+
+function card({ eyebrow, title, body, cta }) {
+  const bodyHtml = (Array.isArray(body) ? body : [body]).map(P).join("");
+  const ctaHtml = cta ? `<a href="${cta.href}" style="${S.btn}">${cta.label}</a>` : "";
+  return `<div style="${S.card}"><p style="${S.eyebrow}">${eyebrow}</p><h3 style="${S.h3}">${title}</h3>${bodyHtml}${ctaHtml}</div>`;
+}
+
+function readItem(href, title, blurb) {
+  return `<a href="${href}" style="display:block;text-decoration:none;border-top:1px solid #241c0e;padding:18px 0;">`
+    + `<span style="display:block;font-family:Georgia,serif;font-size:17px;line-height:1.4;color:#e7dfca;">${title}</span>`
+    + `<span style="display:block;font-family:Georgia,serif;font-size:14px;line-height:1.55;color:#9a9484;margin-top:6px;">${blurb}</span></a>`;
+}
+
+function readList(heading, items) {
+  return `<p style="${S.eyebrow}margin:40px 0 4px;">${heading}</p>${items.join("")}`;
+}
+
+function ornament() {
+  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:34px 0;"><tr>`
+    + `<td style="border-bottom:1px solid #2f2614;">&nbsp;</td>`
+    + `<td style="padding:0 14px;font-family:Georgia,serif;color:#c99a3a;font-size:16px;line-height:1;">&#9697;</td>`
+    + `<td style="border-bottom:1px solid #2f2614;">&nbsp;</td></tr></table>`;
+}
+
+function social(label, url) {
+  return `<a href="${url}" style="display:inline-block;font-family:Georgia,serif;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#c99a3a;text-decoration:none;border:1px solid #4a3d1c;padding:9px 16px;margin:0 3px 6px;border-radius:2px;">${label}</a>`;
+}
+
+function shell(inner, footerNote) {
+  const socials = social("YouTube", "https://www.youtube.com/@HiddenEpochHistory")
+    + social("Instagram", "https://www.instagram.com/hiddenepochh")
+    + social("TikTok", "https://www.tiktok.com/@HiddenEpochH");
+  return `<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<style>${sharedStyles}</style>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="dark" />
+<meta name="supported-color-schemes" content="dark" />
 </head>
-<body>
-<div class="wrap">
-  <div class="header">
-    <img src="https://hiddenepoch.com/assets/logo.jpeg" alt="Hidden Epoch" />
-    <h1>Hidden Epoch</h1>
-  </div>
-
-  <div class="body">
-    <h2>Your field guide is ready.</h2>
-    <p>You asked for the books they removed. Here they are.</p>
-
-    <div class="lead">
-      <p class="lead-tag">Download · Field Guide · Vol. I</p>
-      <h3>7 Books the Vatican Doesn't Want You Reading + 1 Bonus</h3>
-      <p>Real translations from R.H. Charles, Mordecai Noah, the Berlin Codex, the Nag Hammadi Library. Each book documented with the council that removed it, the year, and what was too specific for the canon. Plus one bonus: the Apocalypse of Peter, the actual source of every image of hell you've ever been shown.</p>
-      <a href="https://hiddenepoch.com/downloads/7-books-vatican-doesnt-want-you-reading.pdf">Download the PDF →</a>
-    </div>
-
-    <div class="lead">
-      <p class="lead-tag">Download · One-Page Timeline</p>
-      <h3>Books Cut From Your Bible: Who Cut Them and When</h3>
-      <p>Twelve cuts on one page, from Marcion in 144 AD to the Bible Society in 1826. The council, the year, and the words they used to bury each book. Print it. Pin it next to your Bible.</p>
-      <a href="https://hiddenepoch.com/downloads/books-cut-from-your-bible-timeline.pdf">Download the Timeline →</a>
-    </div>
-
-    <p>Read it on the train, on your phone, on your laptop. It is yours. Save it.</p>
-
-    <div class="more">
-      <h3>What's Next</h3>
-      <div class="more-item">
-        <a href="https://www.etsy.com/listing/4597922785?utm_source=email&utm_medium=welcome_email&utm_campaign=lead_magnet&utm_content=watchers">
-          Two Hundred Angels Came Down on Mount Hermon. This Chart Names Their Chiefs.
-          <span>One printable chart, under $2. Azazel taught swords. Kokabel taught the stars. Semjaza led them all. Every chief Watcher who fell and the forbidden craft he handed to mankind. Their names were cut from your Bible. Their crafts are still in your hands.</span>
-        </a>
-      </div>
-      <div class="more-item">
-        <a href="https://www.etsy.com/listing/4595169146?utm_source=email&utm_medium=welcome_email&utm_campaign=lead_magnet">
-          Read the Book They Cut First: The Book of Enoch
-          <span>The 200 Watchers. The oath on Mount Hermon. The giants. The book Jude quotes word for word, and the book your Bible leaves out. Illustrated PDF, Ethiopian edition. Under $5.</span>
-        </a>
-      </div>
-      <div class="more-item">
-        <a href="https://hiddenepoch.com/canon">
-          The Full Edition, All 14 Books Removed From Your Bible
-          <span>The seven you just got plus seven more: Apocalypse of Adam, Book of the Watchers, Apocryphon of John, Apocalypse of Paul, Gospel of Judas, Acts of Thomas, Apocryphon of James. With full annotated texts and Hidden Epoch commentary. $27.99.</span>
-        </a>
-      </div>
-      <div class="more-item">
-        <a href="https://hiddenepoch.com/archive/sumerian-flood-predates-genesis/">
-          The Sumerian Flood Predates Genesis by 1,500 Years
-          <span>While you're here. Clay tablets in the British Museum named the flood survivor 1,500 years before Moses was born.</span>
-        </a>
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <p>New investigations drop daily. Pick whichever you actually use:</p>
-
-    <div class="socials">
-      <a href="https://www.youtube.com/@HiddenEpochHistory">YouTube</a>
-      <a href="https://www.instagram.com/hiddenepochh">Instagram</a>
-      <a href="https://www.tiktok.com/@HiddenEpochH">TikTok</a>
-    </div>
-  </div>
-
-  <div class="footer">
-    <p>You're receiving this because you downloaded our field guide at hiddenepoch.com/lost-books</p>
-    <p><a href="https://hiddenepoch.com">hiddenepoch.com</a></p>
-    <p style="margin-top:12px;">© 2026 Hidden Epoch. All rights reserved.</p>
-  </div>
-</div>
+<body style="margin:0;padding:0;background:#070502;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#070502;width:100%;">
+<tr><td align="center" style="padding:0;">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:600px;margin:0 auto;background:#0a0805;">
+<tr><td align="center" style="padding:42px 24px 28px;background:#0d0a06;border-bottom:1px solid #2a2212;">
+<img src="https://hiddenepoch.com/assets/logo-mark.jpg" width="64" height="64" alt="Hidden Epoch" style="width:64px;height:64px;border-radius:50%;display:block;border:1px solid #6b5a22;margin:0 auto;" />
+<div style="font-family:Georgia,serif;font-weight:bold;color:#d4af37;letter-spacing:0.28em;font-size:23px;margin-top:16px;">HIDDEN EPOCH</div>
+<div style="font-family:Georgia,serif;font-style:italic;color:#8a8372;letter-spacing:0.04em;font-size:13px;margin-top:7px;">The record they edited</div>
+</td></tr>
+<tr><td style="padding:36px 30px 22px;">${inner}</td></tr>
+<tr><td align="center" style="padding:26px 28px 38px;background:#0d0a06;border-top:1px solid #2a2212;">
+<div style="margin:0 0 18px;">${socials}</div>
+<p style="margin:0 0 7px;font-family:Georgia,serif;font-size:12px;line-height:1.5;color:#6f6a5c;">${footerNote}</p>
+<p style="margin:0 0 12px;"><a href="https://hiddenepoch.com" style="color:#b99a3a;font-family:Georgia,serif;font-size:12px;text-decoration:none;">hiddenepoch.com</a></p>
+<p style="margin:0;font-family:Georgia,serif;font-size:11px;color:#4f4a3f;">&#169; 2026 Hidden Epoch</p>
+</td></tr>
+</table>
+</td></tr>
+</table>
 </body>
-</html>
-  `.trim();
+</html>`;
+}
+
+function leadMagnetEmail() {
+  const inner =
+    H2("Your field guide is ready.") +
+    P("You asked for the books they removed. Here they are.") +
+    card({
+      eyebrow: "The Field Guide, Vol. I",
+      title: "7 Books the Vatican Doesn't Want You Reading, plus one bonus",
+      body: "Real translations from R.H. Charles, Mordecai Noah, the Berlin Codex, and the Nag Hammadi Library. Each book documented with the council that removed it, the year, and what was too specific for the canon. The bonus is the Apocalypse of Peter, the source of every image of hell you have ever been shown.",
+      cta: { href: "https://hiddenepoch.com/downloads/7-books-vatican-doesnt-want-you-reading.pdf", label: "Download the field guide" },
+    }) +
+    card({
+      eyebrow: "The One-Page Timeline",
+      title: "Books Cut From Your Bible: Who Cut Them, and When",
+      body: "Twelve cuts on one page, from Marcion in 144 AD to the Bible Society in 1826. The council, the year, and the words they used to bury each book. Print it. Pin it next to your Bible.",
+      cta: { href: "https://hiddenepoch.com/downloads/books-cut-from-your-bible-timeline.pdf", label: "Download the timeline" },
+    }) +
+    P("Read it on the train, on your phone, on your laptop. It is yours. Save it.") +
+    ornament() +
+    readList("What to read next", [
+      readItem(
+        "https://www.etsy.com/listing/4597922785?utm_source=email&utm_medium=welcome_email&utm_campaign=lead_magnet&utm_content=watchers",
+        "Two Hundred Angels Came Down on Mount Hermon. This Chart Names Their Chiefs.",
+        "One printable chart, under $2. Azazel taught swords. Kokabel taught the stars. Semjaza led them all. Every chief Watcher who fell and the forbidden craft he handed to mankind."
+      ),
+      readItem(
+        "https://www.etsy.com/listing/4595169146?utm_source=email&utm_medium=welcome_email&utm_campaign=lead_magnet",
+        "Read the Book They Cut First: The Book of Enoch",
+        "The 200 Watchers, the oath on Mount Hermon, the giants. The book Jude quotes word for word and your Bible leaves out. Illustrated PDF, Ethiopian edition. Under $5."
+      ),
+      readItem(
+        "https://hiddenepoch.com/canon",
+        "The Full Edition: All 14 Books Removed From Your Bible",
+        "The seven you just got plus seven more, with full annotated texts and Hidden Epoch commentary on which council removed each one and why."
+      ),
+      readItem(
+        "https://hiddenepoch.com/archive/sumerian-flood-predates-genesis/",
+        "The Sumerian Flood Predates Genesis by 1,500 Years",
+        "Clay tablets in the British Museum named the flood survivor 1,500 years before Moses was born."
+      ),
+    ]);
+  return shell(inner, "You downloaded the field guide at hiddenepoch.com/lost-books").trim();
 }
 
 function newsletterWelcomeEmail() {
-  return `
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<style>${sharedStyles}</style>
-</head>
-<body>
-<div class="wrap">
-  <div class="header">
-    <img src="https://hiddenepoch.com/assets/logo.jpeg" alt="Hidden Epoch" />
-    <h1>Hidden Epoch</h1>
-  </div>
-
-  <div class="body">
-    <h2>You're in. Read this first.</h2>
-    <p>Welcome to the Inner Circle. You'll hear from us when something we dig up is too important to leave to the algorithm.</p>
-    <p>Before you go anywhere else on the site, start with this one. It's the investigation everything else on Hidden Epoch is built around:</p>
-
-    <div class="lead">
-      <p class="lead-tag">Start here · Featured Investigation</p>
-      <h3>The Sumerian Flood Predates Genesis by 1,500 Years.</h3>
-      <p>The story of a global flood, a chosen survivor, and an ark of animals wasn't written by Moses. It was written on clay tablets in southern Iraq fifteen centuries before the Bible existed, and the Sumerian version names the survivor, the city he came from, and the gods who tipped him off.</p>
-      <p>The tablets are in the British Museum. The translation is settled. The implication is the part nobody teaches.</p>
-      <a href="https://hiddenepoch.com/archive/sumerian-flood-predates-genesis/">Read the Investigation →</a>
-    </div>
-
-    <div class="more">
-      <h3>Then Read These</h3>
-      <div class="more-item">
-        <a href="https://hiddenepoch.com/archive/garden-of-eden-coordinates/">
-          The Bible Gave Exact Coordinates for Eden, and a Smithsonian Archaeologist Found It Underwater
-          <span>200 feet down in the Persian Gulf, the four-river junction Genesis describes still exists. The Sumerians left maps.</span>
-        </a>
-      </div>
-      <div class="more-item">
-        <a href="https://hiddenepoch.com/archive/tarim-basin-mummies/">
-          The Tarim Basin Mummies: Blonde, Caucasian, and 4,000 Years Old in Western China
-          <span>A 2021 DNA study said they came from a population that "shouldn't exist." The mainstream still hasn't explained them.</span>
-        </a>
-      </div>
-      <div class="more-item">
-        <a href="https://hiddenepoch.com/archive/giants-after-the-flood/">
-          Giants After the Flood: The Iron Bed the Bible Measured in Public
-          <span>Deuteronomy gives the dimensions. The bed was 13 feet long. The owner survived a flood that was supposed to wipe his kind out.</span>
-        </a>
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <p>New investigations drop daily on YouTube, Instagram, and TikTok. Pick whichever you actually use:</p>
-
-    <div class="socials">
-      <a href="https://www.youtube.com/@HiddenEpochHistory">YouTube</a>
-      <a href="https://www.instagram.com/hiddenepochh">Instagram</a>
-      <a href="https://www.tiktok.com/@HiddenEpochH">TikTok</a>
-    </div>
-  </div>
-
-  <div class="footer">
-    <p>You're receiving this because you joined Hidden Epoch at hiddenepoch.com</p>
-    <p><a href="https://hiddenepoch.com">hiddenepoch.com</a></p>
-    <p style="margin-top:12px;">© 2026 Hidden Epoch. All rights reserved.</p>
-  </div>
-</div>
-</body>
-</html>
-  `.trim();
+  const inner =
+    H2("You're in. Read this first.") +
+    P("Welcome to the Inner Circle. You will hear from us when something we dig up is too important to leave to the algorithm.") +
+    P("Before you go anywhere else on the site, start with this one. It is the investigation everything else on Hidden Epoch is built around.") +
+    card({
+      eyebrow: "Featured Investigation",
+      title: "The Sumerian Flood Predates Genesis by 1,500 Years",
+      body: [
+        "The story of a global flood, a chosen survivor, and an ark of animals was not written by Moses. It was written on clay tablets in southern Iraq fifteen centuries before the Bible existed, and the Sumerian version names the survivor, the city he came from, and the gods who tipped him off.",
+        "The tablets are in the British Museum. The translation is settled. The implication is the part nobody teaches.",
+      ],
+      cta: { href: "https://hiddenepoch.com/archive/sumerian-flood-predates-genesis/", label: "Read the investigation" },
+    }) +
+    ornament() +
+    readList("Then read these", [
+      readItem(
+        "https://hiddenepoch.com/archive/garden-of-eden-coordinates/",
+        "The Bible Gave Exact Coordinates for Eden, and a Smithsonian Archaeologist Found It Underwater",
+        "200 feet down in the Persian Gulf, the four-river junction Genesis describes still exists. The Sumerians left maps."
+      ),
+      readItem(
+        "https://hiddenepoch.com/archive/tarim-basin-mummies/",
+        "The Tarim Basin Mummies: Blonde, Caucasian, and 4,000 Years Old in Western China",
+        "A 2021 DNA study said they came from a population that should not exist. The mainstream still has not explained them."
+      ),
+      readItem(
+        "https://hiddenepoch.com/archive/giants-after-the-flood/",
+        "Giants After the Flood: The Iron Bed the Bible Measured in Public",
+        "Deuteronomy gives the dimensions. The bed was 13 feet long. The owner survived a flood that was supposed to wipe his kind out."
+      ),
+    ]);
+  return shell(inner, "You joined Hidden Epoch at hiddenepoch.com").trim();
 }
 
 exports.handler = async (event) => {

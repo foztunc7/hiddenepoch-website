@@ -41,6 +41,7 @@
     gtag('js', new Date());
     gtag('config', 'G-GEBZWHLQSK');
   </script>
+  <script src="/assets/js/attribution.js"></script>
 
   <style>
     /* Lost-books-specific styling layered on top of site style.css */
@@ -382,6 +383,7 @@
         <a href="/archive/">Investigations</a>
         <a href="/blueprint/">The Blueprint</a>
         <a href="/books/">Books</a>
+        <a href="/contact/">Contact</a>
         <div class="nav-shop">
           <button type="button" class="nav-shop-label" aria-haspopup="true">Shop</button>
           <div class="nav-shop-menu">
@@ -604,6 +606,21 @@
         if (data.success) {
           btn.textContent = 'Check your inbox ✓';
           if (note) note.textContent = 'PDF sent. Taking you to your download page...';
+          // Fire the lead conversion HERE on the real form, tagged with the persisted source so the
+          // DM funnel and reels get credit (this used to only fire a step later on /welcome, and
+          // utm_medium was lost). beacon transport so it survives the redirect below.
+          var a = (window.HEAttr && HEAttr.get()) || {};
+          try {
+            gtag('event', 'generate_lead', {
+              method: 'lost_books',
+              form_position: form === document.querySelector('.lm-form') ? 'hero' : 'second_ask',
+              lead_magnet: '7_hidden_books',
+              source: a.utm_source || 'direct',
+              medium: a.utm_medium || 'none',
+              campaign: a.utm_campaign || 'none',
+              transport_type: 'beacon'
+            });
+          } catch (ev) {}
           // Redirect to the thank-you page, carrying any UTM params through for attribution.
           var qs = window.location.search || '';
           window.location.href = '/welcome/' + qs;
