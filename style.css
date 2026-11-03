@@ -819,3 +819,7 @@ footer {
   .join { padding: 72px 22px; }
   footer { padding: 56px 22px 40px; }
 }
+
+/* flagship Start Here card: price block right-aligned on desktop, left-aligned when it wraps under the copy on mobile */
+.flagship-price { text-align: right; }
+@media (max-width: 600px) { .flagship-price { text-align: left; } }
