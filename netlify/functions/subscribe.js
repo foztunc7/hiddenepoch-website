@@ -15,16 +15,28 @@ const S = {
 const P = (t) => `<p style="${S.body}">${t}</p>`;
 const H2 = (t) => `<h2 style="${S.h2}">${t}</h2>`;
 
-function card({ eyebrow, title, body, cta }) {
+function card({ eyebrow, title, body, cta, img }) {
+  let imgHtml = "";
+  if (img) {
+    const w = img.w || 520;
+    const align = img.w ? "margin:0 auto 22px;" : "margin:0 0 22px;";
+    imgHtml = `<img src="${img.src}" alt="${img.alt || ""}" width="${w}" style="width:${img.w ? w + "px" : "100%"};max-width:100%;height:auto;display:block;${align}border:1px solid #2f2614;border-radius:2px;" />`;
+  }
   const bodyHtml = (Array.isArray(body) ? body : [body]).map(P).join("");
   const ctaHtml = cta ? `<a href="${cta.href}" style="${S.btn}">${cta.label}</a>` : "";
-  return `<div style="${S.card}"><p style="${S.eyebrow}">${eyebrow}</p><h3 style="${S.h3}">${title}</h3>${bodyHtml}${ctaHtml}</div>`;
+  return `<div style="${S.card}">${imgHtml}<p style="${S.eyebrow}">${eyebrow}</p><h3 style="${S.h3}">${title}</h3>${bodyHtml}${ctaHtml}</div>`;
 }
 
-function readItem(href, title, blurb) {
-  return `<a href="${href}" style="display:block;text-decoration:none;border-top:1px solid #241c0e;padding:18px 0;">`
-    + `<span style="display:block;font-family:Georgia,serif;font-size:17px;line-height:1.4;color:#e7dfca;">${title}</span>`
-    + `<span style="display:block;font-family:Georgia,serif;font-size:14px;line-height:1.55;color:#9a9484;margin-top:6px;">${blurb}</span></a>`;
+function readItem(href, title, blurb, thumb) {
+  const text =
+    `<span style="display:block;font-family:Georgia,serif;font-size:17px;line-height:1.4;color:#e7dfca;">${title}</span>`
+    + `<span style="display:block;font-family:Georgia,serif;font-size:14px;line-height:1.55;color:#9a9484;margin-top:6px;">${blurb}</span>`;
+  const inner = thumb
+    ? `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>`
+      + `<td width="96" valign="top" style="padding:0 16px 0 0;"><img src="${thumb}" alt="" width="96" style="width:96px;max-width:96px;height:auto;display:block;border:1px solid #2f2614;border-radius:2px;" /></td>`
+      + `<td valign="top">${text}</td></tr></table>`
+    : text;
+  return `<a href="${href}" style="display:block;text-decoration:none;border-top:1px solid #241c0e;padding:18px 0;">${inner}</a>`;
 }
 
 function readList(heading, items) {
@@ -42,7 +54,10 @@ function social(label, url) {
   return `<a href="${url}" style="display:inline-block;font-family:Georgia,serif;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#c99a3a;text-decoration:none;border:1px solid #4a3d1c;padding:9px 16px;margin:0 3px 6px;border-radius:2px;">${label}</a>`;
 }
 
-function shell(inner, footerNote) {
+function shell(inner, footerNote, heroImg) {
+  const hero = heroImg
+    ? `<tr><td style="padding:0;"><img src="${heroImg}" alt="Hidden Epoch" width="600" style="width:100%;max-width:100%;height:auto;display:block;border:0;" /></td></tr>`
+    : "";
   const socials = social("YouTube", "https://www.youtube.com/@HiddenEpochHistory")
     + social("Instagram", "https://www.instagram.com/hiddenepochh")
     + social("TikTok", "https://www.tiktok.com/@HiddenEpochH");
@@ -63,6 +78,7 @@ function shell(inner, footerNote) {
 <div style="font-family:Georgia,serif;font-weight:bold;color:#d4af37;letter-spacing:0.28em;font-size:23px;margin-top:16px;">HIDDEN EPOCH</div>
 <div style="font-family:Georgia,serif;font-style:italic;color:#8a8372;letter-spacing:0.04em;font-size:13px;margin-top:7px;">The record they edited</div>
 </td></tr>
+${hero}
 <tr><td style="padding:36px 30px 22px;">${inner}</td></tr>
 <tr><td align="center" style="padding:26px 28px 38px;background:#0d0a06;border-top:1px solid #2a2212;">
 <div style="margin:0 0 18px;">${socials}</div>
@@ -85,12 +101,14 @@ function leadMagnetEmail() {
       eyebrow: "The Field Guide, Vol. I",
       title: "7 Books the Vatican Doesn't Want You Reading, plus one bonus",
       body: "Real translations from R.H. Charles, Mordecai Noah, the Berlin Codex, and the Nag Hammadi Library. Each book documented with the council that removed it, the year, and what was too specific for the canon. The bonus is the Apocalypse of Peter, the source of every image of hell you have ever been shown.",
+      img: { src: "https://hiddenepoch.com/assets/lead-magnet-cover.jpg", alt: "The field guide cover", w: 232 },
       cta: { href: "https://hiddenepoch.com/downloads/7-books-vatican-doesnt-want-you-reading.pdf", label: "Download the field guide" },
     }) +
     card({
       eyebrow: "The One-Page Timeline",
       title: "Books Cut From Your Bible: Who Cut Them, and When",
       body: "Twelve cuts on one page, from Marcion in 144 AD to the Bible Society in 1826. The council, the year, and the words they used to bury each book. Print it. Pin it next to your Bible.",
+      img: { src: "https://hiddenepoch.com/assets/cut-books-timeline-preview.jpg", alt: "The one-page timeline of cut books", w: 232 },
       cta: { href: "https://hiddenepoch.com/downloads/books-cut-from-your-bible-timeline.pdf", label: "Download the timeline" },
     }) +
     P("Read it on the train, on your phone, on your laptop. It is yours. Save it.") +
@@ -99,25 +117,33 @@ function leadMagnetEmail() {
       readItem(
         "https://www.etsy.com/listing/4597922785?utm_source=email&utm_medium=welcome_email&utm_campaign=lead_magnet&utm_content=watchers",
         "Two Hundred Angels Came Down on Mount Hermon. This Chart Names Their Chiefs.",
-        "One printable chart, under $2. Azazel taught swords. Kokabel taught the stars. Semjaza led them all. Every chief Watcher who fell and the forbidden craft he handed to mankind."
+        "One printable chart, under $2. Azazel taught swords. Kokabel taught the stars. Semjaza led them all. Every chief Watcher who fell and the forbidden craft he handed to mankind.",
+        "https://hiddenepoch.com/assets/welcome/watchers-chart.jpg"
       ),
       readItem(
         "https://www.etsy.com/listing/4595169146?utm_source=email&utm_medium=welcome_email&utm_campaign=lead_magnet",
         "Read the Book They Cut First: The Book of Enoch",
-        "The 200 Watchers, the oath on Mount Hermon, the giants. The book Jude quotes word for word and your Bible leaves out. Illustrated PDF, Ethiopian edition. Under $5."
+        "The 200 Watchers, the oath on Mount Hermon, the giants. The book Jude quotes word for word and your Bible leaves out. Illustrated PDF, Ethiopian edition. Under $5.",
+        "https://hiddenepoch.com/assets/welcome/enoch-cover-banned.jpg"
       ),
       readItem(
         "https://hiddenepoch.com/canon",
         "The Full Edition: All 14 Books Removed From Your Bible",
-        "The seven you just got plus seven more, with full annotated texts and Hidden Epoch commentary on which council removed each one and why."
+        "The seven you just got plus seven more, with full annotated texts and Hidden Epoch commentary on which council removed each one and why.",
+        "https://hiddenepoch.com/canon/cover-card.jpg"
       ),
       readItem(
         "https://hiddenepoch.com/archive/sumerian-flood-predates-genesis/",
         "The Sumerian Flood Predates Genesis by 1,500 Years",
-        "Clay tablets in the British Museum named the flood survivor 1,500 years before Moses was born."
+        "Clay tablets in the British Museum named the flood survivor 1,500 years before Moses was born.",
+        "https://hiddenepoch.com/archive/sumerian-flood-predates-genesis/cover.jpg"
       ),
     ]);
-  return shell(inner, "You downloaded the field guide at hiddenepoch.com/lost-books").trim();
+  return shell(
+    inner,
+    "You downloaded the field guide at hiddenepoch.com/lost-books",
+    "https://hiddenepoch.com/assets/lead-magnet-banner.jpg"
+  ).trim();
 }
 
 function newsletterWelcomeEmail() {
@@ -139,20 +165,27 @@ function newsletterWelcomeEmail() {
       readItem(
         "https://hiddenepoch.com/archive/garden-of-eden-coordinates/",
         "The Bible Gave Exact Coordinates for Eden, and a Smithsonian Archaeologist Found It Underwater",
-        "200 feet down in the Persian Gulf, the four-river junction Genesis describes still exists. The Sumerians left maps."
+        "200 feet down in the Persian Gulf, the four-river junction Genesis describes still exists. The Sumerians left maps.",
+        "https://hiddenepoch.com/archive/garden-of-eden-coordinates/cover.jpg"
       ),
       readItem(
         "https://hiddenepoch.com/archive/tarim-basin-mummies/",
         "The Tarim Basin Mummies: Blonde, Caucasian, and 4,000 Years Old in Western China",
-        "A 2021 DNA study said they came from a population that should not exist. The mainstream still has not explained them."
+        "A 2021 DNA study said they came from a population that should not exist. The mainstream still has not explained them.",
+        "https://hiddenepoch.com/archive/tarim-basin-mummies/cover.jpg"
       ),
       readItem(
         "https://hiddenepoch.com/archive/giants-after-the-flood/",
         "Giants After the Flood: The Iron Bed the Bible Measured in Public",
-        "Deuteronomy gives the dimensions. The bed was 13 feet long. The owner survived a flood that was supposed to wipe his kind out."
+        "Deuteronomy gives the dimensions. The bed was 13 feet long. The owner survived a flood that was supposed to wipe his kind out.",
+        "https://hiddenepoch.com/archive/giants-after-the-flood/cover.jpg"
       ),
     ]);
-  return shell(inner, "You joined Hidden Epoch at hiddenepoch.com").trim();
+  return shell(
+    inner,
+    "You joined Hidden Epoch at hiddenepoch.com",
+    "https://hiddenepoch.com/archive/sumerian-flood-predates-genesis/cover.jpg"
+  ).trim();
 }
 
 exports.handler = async (event) => {
