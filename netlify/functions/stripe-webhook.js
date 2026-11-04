@@ -23,6 +23,9 @@
 
 const crypto = require("crypto");
 
+// GA4 Measurement Protocol target. Same stream id attribution.js uses client-side.
+const GA4_MEASUREMENT_ID = "G-GEBZWHLQSK";
+
 const PRODUCTS = {
   canon: {
     subject: "Your copy of The Hidden Canon (download inside)",
@@ -328,6 +331,75 @@ async function sendFulfillmentEmail(email, customerName, product, idempotencyKey
   }
 }
 
+/**
+ * Report the completed sale to GA4 via the Measurement Protocol so GA4 can join
+ * it to the visit that drove it. attribution.js stamps the GA4 client id onto the
+ * Stripe buy link as client_reference_id; Stripe surfaces it on the completed
+ * session. GA4 already holds that client's source/medium/campaign, so sending a
+ * `purchase` keyed on the same client id is all that is needed for attribution.
+ *
+ * Best-effort only. Analytics must never block fulfillment or cause a webhook
+ * retry (which would be a duplicate purchase event), so every failure is
+ * swallowed and logged. No GA4_API_SECRET or no client id = skip silently.
+ */
+async function reportGa4Purchase(session, productKey, product) {
+  const apiSecret = process.env.GA4_API_SECRET;
+  if (!apiSecret) return; // not configured yet; wire the env var to turn this on
+  const clientId = session.client_reference_id;
+  if (!clientId) {
+    console.log(`GA4 skip: no client_reference_id on session ${session.id}`);
+    return;
+  }
+  const value =
+    typeof session.amount_total === "number" ? session.amount_total / 100 : 0;
+  const currency = (session.currency || "usd").toUpperCase();
+  const body = {
+    client_id: clientId,
+    events: [
+      {
+        name: "purchase",
+        params: {
+          transaction_id: session.id,
+          value,
+          currency,
+          items: [
+            {
+              item_id: productKey,
+              item_name: product.headerTitle,
+              price: value,
+              quantity: 1,
+            },
+          ],
+        },
+      },
+    ],
+  };
+  try {
+    const r = await fetch(
+      `https://www.google-analytics.com/mp/collect?measurement_id=${GA4_MEASUREMENT_ID}&api_secret=${encodeURIComponent(
+        apiSecret
+      )}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      }
+    );
+    // GA4 MP returns 204 on success and does not report payload errors here.
+    if (!r.ok) {
+      console.error(
+        `GA4 purchase report non-OK ${r.status} for session ${session.id}`
+      );
+    } else {
+      console.log(
+        `GA4 purchase reported: ${currency} ${value} client ${clientId} session ${session.id}`
+      );
+    }
+  } catch (err) {
+    console.error("GA4 purchase report failed:", err.message);
+  }
+}
+
 exports.handler = async (event) => {
   if (event.httpMethod !== "POST") {
     return { statusCode: 405, body: "Method Not Allowed" };
@@ -391,6 +463,8 @@ exports.handler = async (event) => {
   try {
     await sendFulfillmentEmail(email, name, product, `stripe-${evt.id}`);
     console.log(`Fulfillment email sent to ${email} for session ${session.id}`);
+    // Best-effort analytics after fulfillment is secured; never throws.
+    await reportGa4Purchase(session, productKey, product);
     return { statusCode: 200, body: "Fulfillment email sent" };
   } catch (err) {
     console.error("Fulfillment email failed:", err.message);
