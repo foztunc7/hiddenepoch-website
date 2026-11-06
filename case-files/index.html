@@ -115,6 +115,13 @@
     .cf-section { padding: 72px 32px; max-width: 1100px; margin: 0 auto; }
     .cf-section h2 { font-family: 'Cinzel', serif; font-size: clamp(26px, 3.4vw, 38px); color: var(--white); text-align: center; margin-bottom: 16px; }
     .cf-divider { width: 64px; height: 1px; background: var(--gold); margin: 0 auto 40px; opacity: 0.6; }
+
+    .inside-row { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1000px; margin: 40px auto 0; padding: 0; }
+    .inside-row li { border: 1px solid rgba(212,175,55,0.35); background: rgba(212,175,55,0.04); padding: 26px 22px; text-align: center; }
+    .inside-row .num { display: block; font-family: 'Cinzel', serif; font-size: 2.2rem; color: var(--gold); line-height: 1; margin-bottom: 10px; }
+    .inside-row .lbl { display: block; font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white, #fff); margin-bottom: 8px; }
+    .inside-row .sub { display: block; font-size: 16px; line-height: 1.5; color: var(--text); }
+    @media (max-width: 640px) { .inside-row { grid-template-columns: 1fr; gap: 12px; margin-top: 28px; } }
     .section-lede { max-width: 760px; margin: 0 auto; text-align: center; font-size: 18px; line-height: 1.7; color: var(--text); }
 
     .case-grid { list-style: none; padding: 0; margin: 48px auto 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
@@ -233,6 +240,12 @@
     <p class="section-lede">
       Each dossier is built like a real investigation file: aged paper, case numbers, a timeline of record, the official story, what the record actually shows, the anomalies on file, and a final assessment that commits. Evidence exhibits use period photographs and diagrams from museum and library archives. These are the investigations behind the videos, at full depth, with the sources the 60-second version has no room for.
     </p>
+
+    <ul class="inside-row">
+      <li><span class="num">3</span><span class="lbl">Full dossiers</span><span class="sub">Pyramid, buried temple, impossible computer.</span></li>
+      <li><span class="num">3</span><span class="lbl">Verdicts</span><span class="sub">Every file ends on an assessment that commits.</span></li>
+      <li><span class="num">1</span><span class="lbl">Timeline each</span><span class="sub">The record, the official story, and the anomalies on file.</span></li>
+    </ul>
   </section>
 
   <!-- THE CASES -->

@@ -163,6 +163,13 @@
     @media (max-width: 640px) {
       .maps-section .section-lede { text-align: left; margin-bottom: 36px; }
     }
+
+    .inside-row { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1000px; margin: 40px auto 0; padding: 0; }
+    .inside-row li { border: 1px solid rgba(212,175,55,0.35); background: rgba(212,175,55,0.04); padding: 26px 22px; text-align: center; }
+    .inside-row .num { display: block; font-family: 'Cinzel', serif; font-size: 2.2rem; color: var(--gold); line-height: 1; margin-bottom: 10px; }
+    .inside-row .lbl { display: block; font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white, #fff); margin-bottom: 8px; }
+    .inside-row .sub { display: block; font-size: 16px; line-height: 1.5; color: var(--text); }
+    @media (max-width: 640px) { .inside-row { grid-template-columns: 1fr; gap: 12px; margin-top: 28px; } }
     .maps-divider {
       width: 80px;
       height: 1px;
@@ -370,6 +377,12 @@
     <p class="section-lede">
       Every map comes in five print-ready formats: native aspect at full resolution, plus pre-fitted 2:3, 3:4, 4:5 and ISO versions for standard frames from 8x10 to 24x36. Sourced from museum and library scans, every one verified public domain, restored without repainting. The age is the point. And the Map Briefings PDF gives you the story behind each chart, so the map on your wall comes with the mystery attached.
     </p>
+
+    <ul class="inside-row">
+      <li><span class="num">13</span><span class="lbl">Museum maps</span><span class="sub">Piri Reis to Mercator, every one verified public domain.</span></li>
+      <li><span class="num">65</span><span class="lbl">Print files</span><span class="sub">Five formats per map: native, 2:3, 3:4, 4:5 and ISO.</span></li>
+      <li><span class="num">1</span><span class="lbl">Briefings PDF</span><span class="sub">The story behind each chart, so the wall comes with the mystery.</span></li>
+    </ul>
   </section>
 
   <!-- THE MAPS -->
