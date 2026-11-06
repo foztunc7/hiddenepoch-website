@@ -133,7 +133,7 @@ img { display: block; max-width: 100%; }
   line-height: 1.25;
   letter-spacing: 0.04em;
 }
-.post-card .excerpt { display: flow-root;
+.post-card .excerpt { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 5; line-clamp: 5; overflow: hidden;
   color: var(--text-dim);
   font-size: 1rem;
   line-height: 1.75;

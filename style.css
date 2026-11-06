@@ -534,6 +534,16 @@ img { display: block; max-width: 100%; }
   height: 100%;
   border: none;
 }
+.video-thumb { position: absolute; inset: 0; display: block; }
+.video-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.video-play {
+  position: absolute; top: 50%; left: 50%; width: 68px; height: 48px;
+  transform: translate(-50%, -50%); border-radius: 12px; background: #e62117;
+}
+.video-play::after {
+  content: ""; position: absolute; top: 50%; left: 50%; transform: translate(-35%, -50%);
+  border-left: 18px solid #fff; border-top: 11px solid transparent; border-bottom: 11px solid transparent;
+}
 .video-tiktok-placeholder {
   display: flex;
   align-items: center;
@@ -613,6 +623,7 @@ img { display: block; max-width: 100%; }
   font-size: 1.05rem;
   color: var(--text-dim);
   margin-bottom: 14px;
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4; line-clamp: 4; overflow: hidden;
 }
 .coming-soon {
   font-family: 'Cinzel', serif;
