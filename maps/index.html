@@ -88,6 +88,12 @@
       .maps-collage { order: 2; grid-template-columns: repeat(3, 1fr); gap: 8px; }
       .maps-collage img, .maps-collage img:first-child { grid-column: auto; height: 120px; }
     }
+    @media (min-width: 801px) {
+      .maps-hero { align-items: start; }
+      .maps-collage { max-width: 520px; margin: 0 auto; }
+      .maps-collage img { height: 250px; }
+      .maps-collage img:first-child { height: 370px; }
+    }
     .maps-tag {
       font-family: 'Cinzel', serif;
       font-size: 11px;
