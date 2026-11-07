@@ -610,6 +610,8 @@ img { display: block; max-width: 100%; }
   color: rgba(212,175,55,0.2);
   font-weight: 700;
   min-width: 60px;
+  flex-shrink: 0;
+  white-space: nowrap;
   line-height: 1;
   padding-top: 4px;
 }
