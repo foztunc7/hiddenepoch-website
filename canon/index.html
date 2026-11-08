@@ -262,10 +262,14 @@
       line-height: 1.65;
       margin-bottom: 36px;
     }
+      .canon-trust { margin-top:28px; padding-top:22px; border-top:1px solid rgba(212,175,55,0.18); display:flex; justify-content:space-between; gap:12px; text-align:center; text-transform:uppercase; color:rgba(212,175,55,0.78); font-size:0.7rem; letter-spacing:0.14em; line-height:1.4; }
+      .canon-trust span { flex:1; }
+      .canon-trust b { display:block; font-family:'Cinzel',serif; font-weight:600; font-size:1.7rem; letter-spacing:0.04em; color:#f1d77a; margin-bottom:4px; }
     @media (max-width: 640px) {
       .canon-section .section-lede { text-align: left; margin-bottom: 28px; }
       .canon-section { padding: 44px 20px; }
-      .canon-trust { flex-direction: column; align-items: center; gap: 10px !important; font-size: 0.74rem !important; letter-spacing: 0.14em !important; margin-top: 22px !important; padding-top: 18px !important; }
+      .canon-trust { gap: 6px; font-size: 0.6rem; letter-spacing: 0.08em; margin-top: 22px; padding-top: 18px; }
+      .canon-trust b { font-size: 1.35rem; }
     }
   </style>
 </head>
@@ -337,10 +341,10 @@
       <div class="canon-meta">
         <span>90 pages</span> · <span>14 chapters</span> · <span>Receipts cited</span> · <span>DRM-free PDF</span>
       </div>
-      <div class="canon-trust" style="margin-top:28px; padding-top:22px; border-top:1px solid rgba(212,175,55,0.18); display:flex; flex-wrap:wrap; gap:24px 36px; justify-content:center; font-size:0.86rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(212,175,55,0.78);">
-        <span>Read by 300+ Inner Circle members</span>
-        <span>150+ investigations published</span>
-        <span>75k+ followers · IG/TT/YT</span>
+      <div class="canon-trust">
+        <span><b>300+</b>Inner Circle members</span>
+        <span><b>150+</b>Investigations published</span>
+        <span><b>75k+</b>Followers on IG / TT / YT</span>
       </div>
     </div>
   </section>
@@ -545,5 +549,6 @@
   </script>
   <script src="/assets/js/canon-launch.js"></script>
 
+  <script src="/assets/js/attribution.js"></script>
 </body>
 </html>
