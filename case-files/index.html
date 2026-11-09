@@ -147,6 +147,10 @@
     .cf-closer h2 { font-family: 'Cinzel', serif; font-size: clamp(26px, 3.4vw, 38px); color: var(--white); margin-bottom: 14px; }
     .cf-closer p { color: var(--text); font-size: 18px; margin-bottom: 34px; }
     @media (max-width: 640px) { .section-lede { text-align: left; } }
+    .pp-trust { margin-top:28px; padding-top:22px; border-top:1px solid rgba(212,175,55,0.18); display:flex; justify-content:space-between; gap:12px; text-align:center; text-transform:uppercase; color:rgba(212,175,55,0.78); font-size:0.7rem; letter-spacing:0.14em; line-height:1.4; }
+    .pp-trust span { flex:1; }
+    .pp-trust b { display:block; font-family:'Cinzel',serif; font-weight:600; font-size:1.7rem; letter-spacing:0.04em; color:#f1d77a; margin-bottom:4px; }
+    @media (max-width: 640px) { .pp-trust { gap:6px; font-size:0.6rem; letter-spacing:0.08em; margin-top:22px; padding-top:18px; } .pp-trust b { font-size:1.35rem; } }
   </style>
 </head>
 <body>
@@ -218,6 +222,11 @@
       </div>
       <div class="cf-meta">
         <span>3 case files</span> · <span>Evidence photos</span> · <span>Full timelines</span> · <span>Print or read on any device</span>
+      </div>
+      <div class="pp-trust">
+        <span><b>300+</b>Inner Circle members</span>
+        <span><b>150+</b>Investigations published</span>
+        <span><b>75k+</b>Followers on IG / TT / YT</span>
       </div>
     </div>
   </section>
@@ -459,5 +468,6 @@
       });
     });
   </script>
+  <script src="/assets/js/attribution.js"></script>
 </body>
 </html>
