@@ -706,3 +706,10 @@ footer {
 .archive-search input:focus { outline: 2px solid var(--gold, #c9a84c); outline-offset: 2px; }
 .archive-count, .archive-empty { font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: #a89a78; margin: 12px 0 0; }
 .post-card[hidden] { display: none; }
+
+/* Archive topic chips */
+.archive-topics { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 16px auto 0; max-width: 760px; }
+.topic-chip { background: transparent; border: 1px solid rgba(201,168,76,0.45); color: #d8cba8; font: 600 0.74rem 'Cinzel', serif; letter-spacing: 0.1em; text-transform: uppercase; padding: 10px 14px; min-height: 40px; cursor: pointer; }
+.topic-chip:hover { border-color: var(--gold, #c9a84c); color: #f0e6d0; }
+.topic-chip[aria-pressed="true"] { background: var(--gold, #c9a84c); border-color: var(--gold, #c9a84c); color: #000; }
+.topic-chip:focus-visible { outline: 2px solid var(--gold, #c9a84c); outline-offset: 2px; }
