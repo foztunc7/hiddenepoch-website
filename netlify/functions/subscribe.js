@@ -115,9 +115,9 @@ function leadMagnetEmail() {
     ornament() +
     readList("What to read next", [
       readItem(
-        "https://www.etsy.com/listing/4597922785?utm_source=email&utm_medium=welcome_email&utm_campaign=lead_magnet&utm_content=watchers",
+        "https://buy.stripe.com/dRm5kEbNVdcm5j94uQeZ204?client_reference_id=email_welcome_watchers",
         "Two Hundred Angels Came Down on Mount Hermon. This Chart Names Their Chiefs.",
-        "One printable chart, under $2. Azazel taught swords. Kokabel taught the stars. Semjaza led them all. Every chief Watcher who fell and the forbidden craft he handed to mankind.",
+        "One printable chart, $3, instant download. Azazel taught swords. Kokabel taught the stars. Semjaza led them all. Every chief Watcher who fell and the forbidden craft he handed to mankind.",
         "https://hiddenepoch.com/assets/welcome/watchers-chart.jpg"
       ),
       readItem(
