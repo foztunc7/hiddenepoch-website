@@ -856,3 +856,16 @@ footer {
     scroll-behavior: auto !important;
   }
 }
+
+/* ---- STICKY BUY BAR (mobile product pages) ---- */
+.sticky-buy { display: none; }
+@media (max-width: 760px) {
+  .sticky-buy {
+    display: block; position: fixed; left: 0; right: 0; bottom: 0; z-index: 90;
+    padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(5,5,5,0.94); border-top: 1px solid rgba(232,196,87,0.35);
+    transform: translateY(110%); transition: transform .25s ease;
+  }
+  .sticky-buy.on { transform: translateY(0); }
+  .sticky-buy .btn-gold { display: block; text-align: center; width: 100%; box-sizing: border-box; padding: 14px 12px; font-size: 0.95rem; }
+}
