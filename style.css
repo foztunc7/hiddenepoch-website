@@ -6,6 +6,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
+  color-scheme: dark;
   --black:   #000000;
   --charcoal:#111111;
   --gold:    #E8C457;
@@ -20,7 +21,7 @@
   --radius-sm: 10px;
 }
 
-html { scroll-behavior: smooth; overflow-x: hidden; }
+html { scroll-behavior: smooth; overflow-x: hidden; scroll-padding-top: 88px; }
 
 body {
   background: var(--black);
@@ -39,7 +40,7 @@ h1, h2, h3, h4, .section-label {
 a { color: var(--gold); text-decoration: none; transition: opacity 0.2s; }
 a:hover { opacity: 0.75; }
 
-img { display: block; max-width: 100%; }
+img { display: block; max-width: 100%; height: auto; }
 
 /* ---- BUTTONS ---- */
 .btn-gold {
@@ -536,6 +537,14 @@ img { display: block; max-width: 100%; }
 }
 .video-thumb { position: absolute; inset: 0; display: block; }
 .video-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.video-facade { border: 0; padding: 0; background: var(--stone); cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.video-facade .video-play { transition: background 0.18s, transform 0.18s; }
+.video-facade:hover .video-play, .video-facade:focus-visible .video-play { background: #ff0000; transform: translate(-50%, -50%) scale(1.08); }
+.video-facade:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
 .video-play {
   position: absolute; top: 50%; left: 50%; width: 68px; height: 48px;
   transform: translate(-50%, -50%); border-radius: 12px; background: #e62117;
@@ -615,7 +624,7 @@ img { display: block; max-width: 100%; }
   line-height: 1;
   padding-top: 4px;
 }
-.archive-text h4 {
+.archive-text h3 {
   font-size: 1.25rem;
   color: var(--white);
   margin-bottom: 10px;
@@ -663,7 +672,7 @@ img { display: block; max-width: 100%; }
 .products-all { text-align: center; margin-top: 28px; }
 .products-all a { font-family: 'Cinzel', serif; font-size: 0.82rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(212,175,55,0.5); padding-bottom: 4px; }
 .product-body { padding: 24px 26px 26px; display: flex; flex-direction: column; flex: 1; }
-.product-body h4 {
+.product-body h3 {
   font-family: 'Cinzel', serif;
   font-size: 1.05rem;
   color: var(--white);
@@ -701,7 +710,7 @@ img { display: block; max-width: 100%; }
 }
 .affiliate-card:hover { border-color: rgba(212,175,55,0.4); opacity: 1; }
 .aff-icon { font-size: 2rem; flex-shrink: 0; line-height: 1; padding-top: 4px; }
-.aff-text h4 {
+.aff-text h3 {
   font-family: 'Cinzel', serif;
   font-size: 1rem;
   color: var(--white);
@@ -765,12 +774,11 @@ img { display: block; max-width: 100%; }
   font-family: 'EB Garamond', serif;
   font-size: 1.1rem;
   padding: 16px 22px;
-  outline: none;
 }
 .email-form input::placeholder { color: var(--text-dim); }
-.email-form input:focus { border-color: rgba(212,175,55,0.5); }
+.email-form input:focus-visible { border-color: var(--gold); outline: 2px solid rgba(232,196,87,0.65); outline-offset: 2px; }
 .email-form .btn-gold { flex-shrink: 0; white-space: nowrap; }
-.form-note { font-size: 0.85rem; color: var(--text-dim); opacity: 0.6; margin: 0; }
+.form-note { font-size: 0.85rem; color: var(--text-dim); opacity: 0.85; margin: 0; }
 
 /* ---- FOOTER ---- */
 footer {
@@ -812,7 +820,7 @@ footer {
 .footer-shop { flex-wrap: wrap; row-gap: 14px; margin-bottom: 20px; }
 .footer-shop a { color: var(--gold); font-size: 0.85rem; }
 .footer-links a:hover { color: var(--gold); opacity: 1; }
-.footer-copy { font-size: 0.78rem; color: var(--text-dim); opacity: 0.4; }
+.footer-copy { font-size: 0.78rem; color: var(--text-dim); opacity: 0.8; }
 
 /* ---- RESPONSIVE ---- */
 @media (max-width: 768px) {
@@ -836,3 +844,15 @@ footer {
 /* flagship Start Here card: price block right-aligned on desktop, left-aligned when it wraps under the copy on mobile */
 .flagship-price { text-align: right; }
 @media (max-width: 600px) { .flagship-price { text-align: left; } }
+
+
+/* Respect users who asked their OS to reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

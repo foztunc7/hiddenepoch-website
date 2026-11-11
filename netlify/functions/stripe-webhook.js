@@ -27,6 +27,35 @@ const crypto = require("crypto");
 const GA4_MEASUREMENT_ID = "G-GEBZWHLQSK";
 
 const PRODUCTS = {
+  watchers: {
+    subject: "Your Watchers Chart is ready (download inside)",
+    headerTitle: "The Watchers Chart",
+    intro:
+      "Your Watchers Chart is ready. The 200 angels who descended in the Book of Enoch, named rank by rank, with the role each one taught humankind and the verse that records it.",
+    boxHeading: "Download your chart",
+    ctaLabel: "Download The Watchers Chart",
+    downloadUrl:
+      "https://hiddenepoch.com/private/watchers/dl-h1dd3n-watchers-v1-2026-private/TheWatchersChart.pdf",
+    meta: "Print-ready PDF · Personal license · DRM-free",
+    crossSell: [
+      {
+        name: "The Hidden Canon",
+        price: "$27.99",
+        url: "https://hiddenepoch.com/canon/",
+        blurb:
+          "90 pages, 14 books the early church cut, hid, or condemned, each with its manuscript ID and the politics behind its removal.",
+      },
+      {
+        name: "The Classified Case Files",
+        price: "$19",
+        url: "https://hiddenepoch.com/case-files/",
+        blurb:
+          "Three full dossiers: the Great Pyramid, Gobekli Tepe, and the Antikythera Mechanism. Every official explanation tested until it cracks.",
+      },
+    ],
+    footerLine:
+      "You're receiving this because you purchased The Watchers Chart at hiddenepoch.com",
+  },
   canon: {
     subject: "Your copy of The Hidden Canon (download inside)",
     headerTitle: "The Hidden Canon",
@@ -145,6 +174,20 @@ const PRODUCTS = {
     footerLine:
       "You're receiving this because you purchased The Vault at hiddenepoch.com",
   },
+  forbidden_library: {
+    subject: "The Forbidden Library is yours (everything inside)",
+    headerTitle: "The Forbidden Library",
+    intro:
+      "The Forbidden Library is yours. Every book they removed, every site they sealed, every name they struck, on one shelf: The Hidden Canon, the Classified Case Files, the Mystery Map Collection and the Watchers Chart, with the Reading Order that strings them into a single story. Your private library page below holds every download and never expires.",
+    boxHeading: "Open your library",
+    ctaLabel: "Open The Forbidden Library",
+    downloadUrl:
+      "https://hiddenepoch.com/private/forbidden-library/dl-h1dd3n-library-v1-2026-private/",
+    meta: "5 volumes · PDFs + print files · Personal license · DRM-free",
+    crossSell: [],
+    footerLine:
+      "You're receiving this because you purchased The Forbidden Library at hiddenepoch.com",
+  },
 };
 
 /**
@@ -157,10 +200,13 @@ const PRODUCTS = {
  * Vault has no live link yet; add its plink_ id here when the $39 link exists.
  */
 const PAYMENT_LINKS = {
+  plink_1UYc7DISxUGM0xgZivLhdoR3: "watchers",
   plink_1TXoJ8ISxUGM0xgZ2bWsutS3: "canon",
   plink_1U2wgsISxUGM0xgZKrLreqch: "case_files",
   plink_1U2wkSISxUGM0xgZsmxZheA5: "maps",
   plink_1UAWWZISxUGM0xgZX7P1jK3t: "vault",
+  plink_1UZQXAISxUGM0xgZAoUuwZt5: "forbidden_library",
+  plink_1UZQXuISxUGM0xgZdmzlh2bU: "forbidden_library",
 };
 
 /**
