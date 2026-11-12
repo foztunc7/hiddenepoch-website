@@ -875,3 +875,13 @@ footer {
 .pp-trust span { flex:1; }
 .pp-trust b { display:block; font-family:'Cinzel',serif; font-weight:600; font-size:1.7rem; letter-spacing:0.04em; color:#f1d77a; margin-bottom:4px; }
 @media (max-width: 640px) { .pp-trust { gap:6px; font-size:0.6rem; letter-spacing:0.08em; margin-top:22px; padding-top:18px; } .pp-trust b { font-size:1.35rem; } }
+
+/* ---- HOMEPAGE BLUEPRINT SERIES BAND ---- */
+.bp-band { max-width:1100px; margin:0 auto 20px; padding:0 24px; }
+.bp-band-link { display:flex; justify-content:space-between; align-items:center; gap:28px; flex-wrap:wrap; border:1px solid rgba(212,175,55,0.45); background:radial-gradient(120% 160% at 0% 0%,#17110a,#080706); padding:32px 32px; text-decoration:none; }
+.bp-band-link:hover { opacity:1; border-color:var(--gold); }
+.bp-band-text { flex:1 1 420px; }
+.bp-band-label { font-family:'Cinzel',serif; font-size:11px; letter-spacing:0.28em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
+.bp-band h2 { font-family:'Cinzel',serif; font-size:clamp(26px,4vw,38px); color:var(--white); margin:0 0 10px; line-height:1.2; }
+.bp-band p { font-family:'EB Garamond',serif; color:var(--text); font-size:17px; line-height:1.5; margin:0; max-width:640px; }
+@media (max-width: 640px) { .bp-band-link { padding:24px 20px; } .bp-band-link .btn-gold { width:100%; text-align:center; box-sizing:border-box; } }
