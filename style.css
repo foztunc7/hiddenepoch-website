@@ -869,3 +869,9 @@ footer {
   .sticky-buy.on { transform: translateY(0); }
   .sticky-buy .btn-gold { display: block; text-align: center; width: 100%; box-sizing: border-box; padding: 14px 12px; font-size: 0.95rem; }
 }
+
+/* hero proof row (matches /vault/) */
+.pp-trust { max-width:560px; margin:28px auto 0; padding-top:22px; border-top:1px solid rgba(212,175,55,0.18); display:flex; justify-content:space-between; gap:12px; text-align:center; text-transform:uppercase; color:rgba(212,175,55,0.78); font-size:0.7rem; letter-spacing:0.14em; line-height:1.4; }
+.pp-trust span { flex:1; }
+.pp-trust b { display:block; font-family:'Cinzel',serif; font-weight:600; font-size:1.7rem; letter-spacing:0.04em; color:#f1d77a; margin-bottom:4px; }
+@media (max-width: 640px) { .pp-trust { gap:6px; font-size:0.6rem; letter-spacing:0.08em; margin-top:22px; padding-top:18px; } .pp-trust b { font-size:1.35rem; } }
