@@ -112,14 +112,22 @@ function leadMagnetEmail() {
       cta: { href: "https://hiddenepoch.com/downloads/books-cut-from-your-bible-timeline.pdf", label: "Download the timeline" },
     }) +
     P("Read it on the train, on your phone, on your laptop. It is yours. Save it.") +
+    // Funnel Agent 2026-11-12: the $3 ask moved from item 1 of a link list at the bottom
+    // (0 checkouts tagged email_welcome_watchers) to a button card right after delivery,
+    // matched to Book One of the guide. Thank-you-page tripwire pattern (CartFlows/FunnelKit):
+    // offer right after opt-in, the same subject as the lead magnet. v2 tag splits the read.
+    card({
+      eyebrow: "Before you open Book One",
+      title: "Enoch names two hundred angels. This chart names their chiefs.",
+      body: [
+        "Book One in your guide is Enoch. Two hundred Watchers swear an oath on Mount Hermon and come down. Azazel teaches men to forge swords. Kokabel teaches the stars. Semjaza leads them all.",
+        "One printable chart puts every chief Watcher on a single page, with the forbidden craft he handed to mankind. Keep it open beside the guide while you read. Three dollars, instant download.",
+      ],
+      img: { src: "https://hiddenepoch.com/assets/welcome/watchers-chart.jpg", alt: "The Watchers chart", w: 232 },
+      cta: { href: "https://buy.stripe.com/dRm5kEbNVdcm5j94uQeZ204?client_reference_id=email_welcome_watchers_v2", label: "Get the Watchers chart, $3" },
+    }) +
     ornament() +
     readList("What to read next", [
-      readItem(
-        "https://buy.stripe.com/dRm5kEbNVdcm5j94uQeZ204?client_reference_id=email_welcome_watchers",
-        "Two Hundred Angels Came Down on Mount Hermon. This Chart Names Their Chiefs.",
-        "One printable chart, $3, instant download. Azazel taught swords. Kokabel taught the stars. Semjaza led them all. Every chief Watcher who fell and the forbidden craft he handed to mankind.",
-        "https://hiddenepoch.com/assets/welcome/watchers-chart.jpg"
-      ),
       readItem(
         "https://www.etsy.com/listing/4595169146?utm_source=email&utm_medium=welcome_email&utm_campaign=lead_magnet",
         "Read the Book They Cut First: The Book of Enoch",
