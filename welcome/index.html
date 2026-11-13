@@ -287,18 +287,14 @@
     </div>
   </section>
 
-  <!-- A/B 2026-11-01 (Funnel Agent): "single" arm shows ONE offer (Watchers) and folds the rest
-       behind a reveal, the single-offer thank-you page shape (systeme.io $7 one-offer TY page, 6% of
-       opt-ins). "ladder" arm = the full ladder as before. Arm rides on every select_item as offer_variant. -->
-  <p class="wl-more" hidden style="text-align:center; margin:8px 0 40px;">
-    <a href="#wl-ladder-rest" id="wl-more-link" style="color:#d4af37; font-size:1.05rem;">The maps and the full Canon are here too &darr;</a>
-  </p>
-
+  <!-- 2026-11-13 Funnel Agent: single-offer A/B (11/01) closed, ladder won (4 vs 2 clicks, and the only
+       welcome sale, Maps $9 on 11/09, comes from the block the single arm hid). Maps carries an honest
+       best-seller tag: 3 of 5 lifetime Stripe orders. Update the count if it stops being true. -->
   <section class="wl-offer" id="wl-ladder-rest">
     <div class="wl-offer-card">
       <img src="/maps/previews/piri-reis.jpg" alt="The Piri Reis map, one of 13 museum maps in the collection" />
       <div>
-        <div class="wl-offer-tag">Next step after the guide</div>
+        <div class="wl-offer-tag">Our best seller: 3 of our last 5 orders</div>
         <h2>The guide names the books. These maps show where it happened.</h2>
         <p class="desc">
           Museum maps whose makers knew things their century should not have known. Each one comes with the briefing that shows why.
@@ -361,33 +357,7 @@
   </footer>
 
   <script>
-    var wlVariant = (function () {
-      try {
-        var q = new URLSearchParams(location.search).get('wlv');
-        if (q === 'single' || q === 'ladder') return q;
-        var v = localStorage.getItem('wl_offer_variant');
-        if (v !== 'single' && v !== 'ladder') {
-          v = Math.random() < 0.5 ? 'single' : 'ladder';
-          localStorage.setItem('wl_offer_variant', v);
-        }
-        return v;
-      } catch (e) { return 'ladder'; }
-    })();
-    if (wlVariant === 'single') {
-      var rest = document.getElementById('wl-ladder-rest');
-      var more = document.querySelector('.wl-more');
-      var enoch = document.getElementById('wl-enoch-cta');
-      if (rest) rest.hidden = true;
-      if (enoch && enoch.parentNode) enoch.parentNode.hidden = true;
-      if (more) more.hidden = false;
-      document.getElementById('wl-more-link').addEventListener('click', function (e) {
-        e.preventDefault();
-        rest.hidden = false;
-        more.hidden = true;
-        rest.scrollIntoView({ behavior: 'smooth' });
-        if (typeof gtag === 'function') gtag('event', 'wl_reveal_' + wlVariant, { offer_variant: wlVariant });
-      });
-    }
+    var wlVariant = 'ladder';
     if (typeof gtag === 'function') {
       gtag('event', 'wl_view_' + wlVariant, { offer_variant: wlVariant });
       gtag('event', 'generate_lead', {
