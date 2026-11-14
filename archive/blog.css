@@ -292,7 +292,7 @@ img { display: block; max-width: 100%; height: auto; }
   margin-top: 14px;
 }
 @media (max-width: 640px) {
-  .hero-frame { aspect-ratio: 4 / 3; }
+  .hero-frame { aspect-ratio: 4 / 5; }
 }
 
 /* ── IN-BODY FIGURE ── */
