@@ -264,6 +264,12 @@
       <a href="/downloads/books-cut-from-your-bible-timeline.pdf" id="wl-timeline-link" download>The timeline</a>
       <p class="wl-backup-note">Direct downloads, in case the email is slow.</p>
     </div>
+    <!-- 2026-11-15 Funnel Agent: above-the-fold $3 ask (DigitalMarketer thank-you pattern: offer on the
+         first screen, right under "on its way"). The only $3 button sat at y=1321 on a 390px phone and
+         drew 0 Stripe checkout sessions, ever, from 11/05 to 11/15. Clicks tracked as watchers_hero. -->
+    <p style="margin:22px auto 12px; max-width:30em;">Book one in your guide is Enoch. Enoch names all two hundred Watchers. One chart puts every name on a single page.</p>
+    <a href="https://buy.stripe.com/dRm5kEbNVdcm5j94uQeZ204" class="btn-gold" id="wl-watchers-hero" style="font-size:1rem; padding:14px 32px;">Get the Watchers Chart for $3 &rarr;</a>
+    <p class="wl-terms" style="margin-top:8px;">Instant PDF. Secure checkout by Stripe.</p>
   </section>
 
   <!-- OFFER LADDER: $3 WATCHERS CHART TRIPWIRE FIRST (same-topic, one-click Stripe), $9 MAPS, CANON -->
@@ -367,7 +373,7 @@
         campaign: new URLSearchParams(location.search).get('utm_campaign') || 'canon_launch'
       });
     }
-    [['watchers', '[data-select-watchers]'], ['canon', '[data-select-canon]'], ['maps', '[data-select-maps]']].forEach(function (p) {
+    [['watchers_hero', '#wl-watchers-hero'], ['watchers', '[data-select-watchers]'],['canon', '[data-select-canon]'], ['maps', '[data-select-maps]']].forEach(function (p) {
       var cta = document.querySelector(p[1]);
       if (!cta) return;
       cta.addEventListener('click', function () {
