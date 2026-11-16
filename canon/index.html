@@ -539,6 +539,13 @@
   </footer>
 
   <script>
+    if (typeof gtag === 'function') {
+      gtag('event', 'view_item', {
+        currency: 'USD',
+        value: 27.99,
+        items: [{ item_id: 'hidden_canon_v1', item_name: 'The Hidden Canon', price: 27.99 }],
+      });
+    }
     document.querySelectorAll('[data-buy-cta]').forEach(function (a) {
       a.addEventListener('click', function () {
         if (typeof gtag === 'function') {
@@ -546,6 +553,7 @@
             currency: 'USD',
             value: 27.99,
             items: [{ item_id: 'hidden_canon_v1', item_name: 'The Hidden Canon', price: 27.99 }],
+            transport_type: 'beacon',
           });
         }
       });

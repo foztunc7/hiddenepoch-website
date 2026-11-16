@@ -479,7 +479,8 @@
             gtag('event', 'begin_checkout', {
               currency: 'USD',
               value: 27.00,
-              items: [{ item_id: 'forbidden_library', item_name: 'The Forbidden Library', price: 27.00 }]
+              items: [{ item_id: 'forbidden_library', item_name: 'The Forbidden Library', price: 27.00 }],
+              transport_type: 'beacon'
             });
           }
         });

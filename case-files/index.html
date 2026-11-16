@@ -460,6 +460,13 @@
   </footer>
 
   <script>
+    if (typeof gtag === 'function') {
+      gtag('event', 'view_item', {
+        currency: 'USD',
+        value: 19,
+        items: [{ item_id: 'classified_case_files_v1', item_name: 'The Classified Case Files', price: 19 }],
+      });
+    }
     document.querySelectorAll('[data-buy-cta]').forEach(function (a) {
       a.addEventListener('click', function () {
         if (typeof gtag === 'function') {
@@ -467,6 +474,7 @@
             currency: 'USD',
             value: 19,
             items: [{ item_id: 'classified_case_files_v1', item_name: 'The Classified Case Files', price: 19 }],
+            transport_type: 'beacon',
           });
         }
       });

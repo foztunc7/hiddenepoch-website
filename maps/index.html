@@ -573,6 +573,13 @@
   </footer>
 
   <script>
+    if (typeof gtag === 'function') {
+      gtag('event', 'view_item', {
+        currency: 'USD',
+        value: 9,
+        items: [{ item_id: 'mystery_map_pack_v1', item_name: 'The Mystery Map Collection', price: 9 }],
+      });
+    }
     document.querySelectorAll('[data-buy-cta]').forEach(function (a) {
       a.addEventListener('click', function () {
         if (typeof gtag === 'function') {
@@ -580,6 +587,7 @@
             currency: 'USD',
             value: 9,
             items: [{ item_id: 'mystery_map_pack_v1', item_name: 'The Mystery Map Collection', price: 9 }],
+            transport_type: 'beacon',
           });
         }
       });
