@@ -264,38 +264,13 @@
       <a href="/downloads/books-cut-from-your-bible-timeline.pdf" id="wl-timeline-link" download>The timeline</a>
       <p class="wl-backup-note">Direct downloads, in case the email is slow.</p>
     </div>
-    <!-- 2026-11-15 Funnel Agent: above-the-fold $3 ask (DigitalMarketer thank-you pattern: offer on the
-         first screen, right under "on its way"). The only $3 button sat at y=1321 on a 390px phone and
-         drew 0 Stripe checkout sessions, ever, from 11/05 to 11/15. Clicks tracked as watchers_hero. -->
-    <p style="margin:22px auto 12px; max-width:30em;">Book one in your guide is Enoch. Enoch names all two hundred Watchers. One chart puts every name on a single page.</p>
-    <a href="https://buy.stripe.com/dRm5kEbNVdcm5j94uQeZ204" class="btn-gold" id="wl-watchers-hero" style="font-size:1rem; padding:14px 32px;">Get the Watchers Chart for $3 &rarr;</a>
-    <p class="wl-terms" style="margin-top:8px;">Instant PDF. Secure checkout by Stripe.</p>
+    <!-- 2026-11-17 Funnel Agent: hero = Maps $9 (the only hosted product that sells, 1 paid in 30d). $3 Watchers hero drew 0 paid 11/15-11/17. Clicks tracked as maps_hero. Kill rule: 0 Maps checkout sessions in 14 days from ~100 welcome sessions = leak is email delivery, not offer. -->
+    <p style="margin:22px auto 12px; max-width:30em;">Your guide names the books. Thirteen museum maps show where it happened.</p>
+    <a href="https://buy.stripe.com/5kQdRa2dlc8i26XaTeeZ202" class="btn-gold" id="wl-maps-hero" style="font-size:1rem; padding:14px 32px;">Get 13 Maps $9 &rarr;</a>
+    <p class="wl-terms" style="margin-top:8px;">Our best seller. Instant download. Secure checkout by Stripe.</p>
   </section>
 
-  <!-- OFFER LADDER: $3 WATCHERS CHART TRIPWIRE FIRST (same-topic, one-click Stripe), $9 MAPS, CANON -->
-  <section class="wl-offer">
-    <div class="wl-offer-card">
-      <img src="/assets/welcome/watchers-chart.jpg" alt="Who Were the Nephilim, the Watchers of Genesis 6, printable chart of the fallen angels named in the Book of Enoch" width="800" height="800" />
-      <div>
-        <div class="wl-offer-tag">Book one in your guide is Enoch</div>
-        <h2>Your guide says two hundred angels came down. This chart names every one.</h2>
-        <p class="desc">
-          Azazel taught swords. Kokabel taught the stars. Semjaza led them all. The Watchers Chart lays out the two hundred angels who fell on Mount Hermon, rank by rank, with the forbidden skill each one taught humankind and the verse of Enoch that records it. One page. Print it, pin it, trace the whole descent.
-        </p>
-        <div class="wl-price-row">
-          <span class="wl-price-now">$3</span>
-          <span class="wl-price-launch">Instant PDF. In your inbox within a minute.</span>
-        </div>
-        <a href="https://buy.stripe.com/dRm5kEbNVdcm5j94uQeZ204" class="btn-gold" id="wl-watchers-cta" data-select-watchers style="font-size:1rem; padding:16px 40px;">Get the Watchers Chart for $3 &rarr;</a>
-        <p class="wl-terms">Secure checkout by Stripe. Instant download.</p>
-        <p class="desc" style="margin-top:14px;">Want every name, not just the Watchers? The Hidden Canon restores all fourteen books the Church cut, with the manuscript receipts. <a href="https://buy.stripe.com/7sY28sf076NY26XgdyeZ200" data-select-canon style="color:#d4af37;"><span data-canon-price>$27.99</span> &rarr;</a></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 2026-11-13 Funnel Agent: single-offer A/B (11/01) closed, ladder won (4 vs 2 clicks, and the only
-       welcome sale, Maps $9 on 11/09, comes from the block the single arm hid). Maps carries an honest
-       best-seller tag: 3 of 5 lifetime Stripe orders. Update the count if it stops being true. -->
+  <!-- OFFER LADDER: MAPS $9 FIRST, $3 WATCHERS, CANON (2026-11-17) -->
   <section class="wl-offer" id="wl-ladder-rest">
     <div class="wl-offer-card">
       <img src="/maps/previews/piri-reis.jpg" alt="The Piri Reis map, one of 13 museum maps in the collection" />
@@ -321,6 +296,27 @@
         </p>
       </div>
     </div>
+  </section>
+
+  <section class="wl-offer">
+    <div class="wl-offer-card">
+      <img src="/assets/welcome/watchers-chart.jpg" alt="Who Were the Nephilim, the Watchers of Genesis 6, printable chart of the fallen angels named in the Book of Enoch" width="800" height="800" />
+      <div>
+        <div class="wl-offer-tag">Just Watchers? One page, $3</div>
+        <h2>Your guide says two hundred angels came down. This chart names every one.</h2>
+        <p class="desc">
+          Azazel taught swords. Kokabel taught the stars. Semjaza led them all. The Watchers Chart lays out the two hundred angels who fell on Mount Hermon, rank by rank, with the forbidden skill each one taught humankind and the verse of Enoch that records it. One page. Print it, pin it, trace the whole descent.
+        </p>
+        <div class="wl-price-row">
+          <span class="wl-price-now">$3</span>
+          <span class="wl-price-launch">Instant PDF. In your inbox within a minute.</span>
+        </div>
+        <a href="https://buy.stripe.com/dRm5kEbNVdcm5j94uQeZ204" class="btn-gold" id="wl-watchers-cta" data-select-watchers style="font-size:1rem; padding:16px 40px;">Get the Watchers Chart for $3 &rarr;</a>
+        <p class="wl-terms">Secure checkout by Stripe. Instant download.</p>
+        <p class="desc" style="margin-top:14px;">Want every name, not just the Watchers? The Hidden Canon restores all fourteen books the Church cut, with the manuscript receipts. <a href="https://buy.stripe.com/7sY28sf076NY26XgdyeZ200" data-select-canon style="color:#d4af37;"><span data-canon-price>$27.99</span> &rarr;</a></p>
+      </div>
+    </div>
+
     <div style="text-align:center; margin-top:32px;">
       <p style="font-size:1.15rem; margin-bottom:16px;">
         Want the whole story? The Hidden Canon is the 90-page volume on the 14 books cut from your Bible, each with the manuscript receipts. <strong data-canon-price>$27.99</strong>. Instant.<span data-canon-deadline hidden> Half off until Saturday, October 31.</span>
@@ -373,7 +369,7 @@
         campaign: new URLSearchParams(location.search).get('utm_campaign') || 'canon_launch'
       });
     }
-    [['watchers_hero', '#wl-watchers-hero'], ['watchers', '[data-select-watchers]'],['canon', '[data-select-canon]'], ['maps', '[data-select-maps]']].forEach(function (p) {
+    [['maps_hero', '#wl-maps-hero'], ['watchers', '[data-select-watchers]'],['canon', '[data-select-canon]'], ['maps', '[data-select-maps]']].forEach(function (p) {
       var cta = document.querySelector(p[1]);
       if (!cta) return;
       cta.addEventListener('click', function () {
