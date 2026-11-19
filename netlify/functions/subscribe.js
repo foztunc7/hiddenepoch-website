@@ -58,7 +58,7 @@ function shell(inner, footerNote, heroImg) {
   const hero = heroImg
     ? `<tr><td style="padding:0;"><img src="${heroImg}" alt="Hidden Epoch" width="600" style="width:100%;max-width:100%;height:auto;display:block;border:0;" /></td></tr>`
     : "";
-  const socials = social("YouTube", "https://www.youtube.com/@HiddenEpochHistory")
+  const socials = social("YouTube", "https://www.youtube.com/@hiddenepochh")
     + social("Instagram", "https://www.instagram.com/hiddenepochh")
     + social("TikTok", "https://www.tiktok.com/@HiddenEpochH");
   return `<!DOCTYPE html>

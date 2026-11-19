@@ -202,6 +202,9 @@ const PRODUCTS = {
 const PAYMENT_LINKS = {
   plink_1UYc7DISxUGM0xgZivLhdoR3: "watchers",
   plink_1TXoJ8ISxUGM0xgZ2bWsutS3: "canon",
+  // $13.99 one-time Canon for the Lost Books broadcast (Fatih 2026-11-17). Same
+  // Canon fulfillment; the regular $27.99 link above stays the evergreen price.
+  plink_1UcsfMISxUGM0xgZGhbbVqP7: "canon",
   plink_1U2wgsISxUGM0xgZKrLreqch: "case_files",
   plink_1U2wkSISxUGM0xgZsmxZheA5: "maps",
   plink_1UAWWZISxUGM0xgZX7P1jK3t: "vault",
@@ -391,11 +394,22 @@ async function sendFulfillmentEmail(email, customerName, product, idempotencyKey
 async function reportGa4Purchase(session, productKey, product) {
   const apiSecret = process.env.GA4_API_SECRET;
   if (!apiSecret) return; // not configured yet; wire the env var to turn this on
-  const clientId = session.client_reference_id;
-  if (!clientId) {
-    console.log(`GA4 skip: no client_reference_id on session ${session.id}`);
+  // Only report real money. checkout.session.completed can fire before an async
+  // payment settles, so require a paid session when the status is present.
+  if (session.payment_status && session.payment_status !== "paid") {
+    console.log(`GA4 skip: session ${session.id} not paid (${session.payment_status})`);
     return;
   }
+  // Prefer the GA4 client id passed through checkout; otherwise fall back to a
+  // stable id derived from the Stripe session so a confirmed sale with no
+  // attribution is still COUNTED as revenue instead of dropped. Fatih 2026-11-17:
+  // GA4 read $0 for 90 days because every buy page lacked the GA4 client id (and
+  // drip links pass an email-spot tag, not a client id), so this skipped the event
+  // for every real sale. A real GA4 client id looks like "1234567890.0987654321";
+  // anything else (an email_drip_dN tag, empty) gets a stable per-session fallback.
+  // transaction_id = session.id dedupes replays/retries on GA4's own side.
+  const rawRef = session.client_reference_id || "";
+  const clientId = /^\d{6,}\.\d{6,}$/.test(rawRef) ? rawRef : `stripe.${session.id}`;
   const value =
     typeof session.amount_total === "number" ? session.amount_total / 100 : 0;
   const currency = (session.currency || "usd").toUpperCase();
