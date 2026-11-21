@@ -749,3 +749,27 @@ footer {
 }
 .article-body td { color: var(--text); }
 .article-body tbody tr:nth-child(even) td { background: rgba(255, 255, 255, 0.025); }
+
+/* Unpublished Blueprint parts: sealed-file placeholder in the thumb slot */
+.post-card .card-thumb-sealed {
+  float: left;
+  width: 240px;
+  aspect-ratio: 4 / 3;
+  margin: 4px 28px 0 0;
+  border: 1px dashed rgba(212,175,55,0.3);
+  background: radial-gradient(ellipse at center, rgba(212,175,55,0.08), rgba(0,0,0,0) 70%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-family: 'Cinzel', serif;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: rgba(212,175,55,0.7);
+  font-size: 0.7rem;
+}
+.post-card .card-thumb-sealed b { font-size: 2rem; letter-spacing: 0.06em; color: rgba(241,215,122,0.85); font-weight: 600; }
+@media (max-width: 760px) {
+  .post-card .card-thumb-sealed { float: none; width: 100%; aspect-ratio: 16 / 9; margin: 0 0 22px 0; }
+}
