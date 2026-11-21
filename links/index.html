@@ -99,6 +99,10 @@
       text-align: left;
       transition: border-color .2s, transform .15s;
     }
+    .link-card { display: flex; align-items: center; gap: 16px; }
+    .link-card .lc-img { width: 72px; height: 72px; flex: none; border-radius: 6px; object-fit: cover; border: 1px solid var(--stone); }
+    .link-card .lc-body { flex: 1; min-width: 0; }
+    .link-card .lc-tag { margin-left: 10px; }
     .link-card:hover { border-color: var(--gold); transform: translateY(-1px); }
     .link-card .lc-title {
       font-family: 'Cinzel', serif; color: var(--white);
@@ -142,46 +146,46 @@
          Etsy is where sales actually happen; the hosted product pages have had 0 sales since 9/27. -->
 
     <a class="link-card link-card--featured" href="/lost-books" onclick="gtag('event','bio_click',{link:'lost_books'})">
-      <span class="lc-tag">FREE</span>
+      <img class="lc-img" src="/assets/links/free.jpg" width="72" height="72" alt="" loading="lazy"><span class="lc-body"><span class="lc-tag">FREE</span>
       <span class="lc-title">7 Forbidden Books PDF</span>
       <span class="lc-sub">The books the gatekeepers buried, in one free download. Start here.</span>
-    </a>
+    </span></a>
 
     <a class="link-card" href="https://www.etsy.com/shop/HiddenEpoch?utm_source=hiddenepoch&utm_medium=linkbio&utm_campaign=links_hub" onclick="gtag('event','bio_click',{link:'etsy_shop'})">
-      <span class="lc-tag">ETSY</span>
+      <img class="lc-img" src="/assets/links/etsy.jpg" width="72" height="72" alt="" loading="lazy"><span class="lc-body"><span class="lc-tag">ETSY</span>
       <span class="lc-title">The Hidden Epoch Shop</span>
       <span class="lc-sub">Prints, charts and apparel. Our full Etsy collection, shipped to you.</span>
-    </a>
+    </span></a>
 
     <a class="link-card" href="https://www.etsy.com/listing/4595169146?utm_source=hiddenepoch&utm_medium=linkbio&utm_campaign=links_hub" onclick="gtag('event','bio_click',{link:'etsy_enoch_pdf'})">
-      <span class="lc-tag">$4.99</span>
+      <img class="lc-img" src="/assets/links/enoch.jpg" width="72" height="72" alt="" loading="lazy"><span class="lc-body"><span class="lc-tag">$4.99</span>
       <span class="lc-title">The Book of Enoch (PDF)</span>
       <span class="lc-sub">The book cut from your Bible, complete and ready to read tonight.</span>
-    </a>
+    </span></a>
 
     <a class="link-card" href="/canon/" onclick="gtag('event','bio_click',{link:'canon'})">
-      <span class="lc-tag">$28</span>
+      <img class="lc-img" src="/assets/links/canon.jpg" width="72" height="72" alt="" loading="lazy"><span class="lc-body"><span class="lc-tag">$28</span>
       <span class="lc-title">The Hidden Canon</span>
       <span class="lc-sub">14 books cut from your Bible, Enoch included. Restored in one volume.</span>
-    </a>
+    </span></a>
 
     <a class="link-card" href="/vault/" onclick="gtag('event','bio_click',{link:'vault'})">
-      <span class="lc-tag">$39</span>
+      <img class="lc-img" src="/assets/links/vault.jpg" width="72" height="72" alt="" loading="lazy"><span class="lc-body"><span class="lc-tag">$39</span>
       <span class="lc-title">The Vault</span>
       <span class="lc-sub">Everything, unlocked. The full forbidden archive in one download.</span>
-    </a>
+    </span></a>
 
     <a class="link-card" href="/case-files/" onclick="gtag('event','bio_click',{link:'case_files'})">
-      <span class="lc-tag">$19</span>
+      <img class="lc-img" src="/assets/links/cases.jpg" width="72" height="72" alt="" loading="lazy"><span class="lc-body"><span class="lc-tag">$19</span>
       <span class="lc-title">The Classified Case Files</span>
       <span class="lc-sub">3 deep investigations they never wanted compiled. Instant download.</span>
-    </a>
+    </span></a>
 
     <a class="link-card" href="/maps/" onclick="gtag('event','bio_click',{link:'maps'})">
-      <span class="lc-tag">$9</span>
+      <img class="lc-img" src="/assets/links/maps.jpg" width="72" height="72" alt="" loading="lazy"><span class="lc-body"><span class="lc-tag">$9</span>
       <span class="lc-title">The Mystery Map Collection</span>
       <span class="lc-sub">13 maps that know too much. Print-ready museum scans.</span>
-    </a>
+    </span></a>
 
     <div class="socials">
       <a href="https://www.instagram.com/hiddenepochh">Instagram</a>
