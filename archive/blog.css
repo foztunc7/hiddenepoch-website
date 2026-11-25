@@ -173,7 +173,7 @@ img { display: block; max-width: 100%; height: auto; }
 
 /* ── BREADCRUMB ── */
 .breadcrumb {
-  max-width: 760px;
+  max-width: 720px;
   margin: 0 auto;
   padding: 100px 24px 0;
   font-family: 'Cinzel', serif;
