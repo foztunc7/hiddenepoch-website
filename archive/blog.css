@@ -138,13 +138,13 @@ img { display: block; max-width: 100%; height: auto; }
   color: var(--text-dim);
   font-size: 1rem;
   line-height: 1.75;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 .post-meta {
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-bottom: 14px;
+  margin-bottom: 6px;
   flex-wrap: wrap;
 }
 .post-meta .author {
