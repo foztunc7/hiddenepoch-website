@@ -166,6 +166,7 @@
     }
 
     .books-grid .book-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+    @media (min-width: 900px) { .books-grid .book-card:last-child:nth-child(odd) { width: calc(50% - 12px); justify-self: center; } }
     .books-grid { margin-bottom: 48px; }
 
     .book-card {
